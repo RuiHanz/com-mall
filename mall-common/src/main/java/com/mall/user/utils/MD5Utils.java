@@ -1,4 +1,4 @@
-package com.mall.service.utils;
+package com.mall.user.utils;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;

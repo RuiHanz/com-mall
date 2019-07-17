@@ -4,7 +4,7 @@
   	<property name="driverClass">com.mysql.jdbc.Driver</property>
   	<property name="user">root</property>
   	<property name="password">root</property>
-  	<property name="jdbcUrl">jdbc:mysql:///mmall</property>
+  	<property name="jdbcUrl">jdbc:mysql:///mall_1?characterEncoding=utf8</property>
   	
     <property name="acquireIncrement">5</property>
     <property name="initialPoolSize">10</property>

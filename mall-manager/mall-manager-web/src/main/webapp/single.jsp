@@ -1,7 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
+<%@ page import="com.mall.product.Product" %>
+<html>
 <head>
-<title>SinglePage</title>
+<title>商品页面</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -1348,11 +1349,14 @@
 		</div>
 	</div>
 	<!-- //header --> 
-	<!-- breadcrumbs --> 
+	<!-- breadcrumbs -->
+	<%
+		List<Product> pList = (List<Product>)request.getAttribute("pList");
+	%>
 	<div class="container"> 
 		<ol class="breadcrumb breadcrumb1">
-			<li><a href="index.html">Home</a></li>
-			<li class="active">Single Page</li>
+			<li><a href="index.html">首页</a></li>
+			<li class="active">商品页面</li>
 		</ol> 
 		<div class="clearfix"> </div>
 	</div>
@@ -1377,9 +1381,12 @@
 							</ul>
 						</div>
 					</div>
+					<%
+						for(Product product: pList){
+					%>
 					<div class="col-md-6 single-top-right">
-						<h3 class="item_name">Electric Snow Blower</h3>
-						<p>Processing Time: Item will be shipped out within 2-3 working days. </p>
+						<h3 class="item_name"><%=product.getShp_id()%></h3>
+						<p>处理时间：物品将在2-3个工作日内发货。 </p>
 						<div class="single-rating">
 							<ul>
 								<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
@@ -1387,34 +1394,34 @@
 								<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
 								<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
 								<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-								<li class="rating">20 reviews</li>
-								<li><a href="#">Add your review</a></li>
+								<li class="rating">20条点评</li>
+								<li><a href="#">添加您的评论</a></li>
 							</ul> 
 						</div>
 						<div class="single-price">
 							<ul>
-								<li>$540</li>  
-								<li><del>$600</del></li> 
-								<li><span class="w3off">10% OFF</span></li> 
-								<li>Ends on: June,5th</li>
-								<li><a href="#"><i class="fa fa-gift" aria-hidden="true"></i> Coupon</a></li>
+								<li>￥6540</li>
+								<li><del>￥7600</del></li>
+								<li><span class="w3off">10% 折扣</span></li>
+								<li>结束时间：7月31日</li>
+								<li><a href="#"><i class="fa fa-gift" aria-hidden="true"></i> 优惠券</a></li>
 							</ul>	
 						</div> 
-						<p class="single-price-text">Fusce a egestas nibh, eget ornare erat. Proin placerat, urna et consequat efficitur, sem odio blandit enim, sit amet euismod turpis est mattis lectus. Vestibulum maximus quam et quam egestas imperdiet. In dignissim auctor viverra. </p>
+						<p class="single-price-text"><%=product.getShp_msh()%> </p>
 						<form action="#" method="post">
 							<input type="hidden" name="cmd" value="_cart" />
 							<input type="hidden" name="add" value="1" /> 
 							<input type="hidden" name="w3ls_item" value="Snow Blower" /> 
 							<input type="hidden" name="amount" value="540.00" /> 
-							<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+							<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 添加到购物车</button>
 						</form>
-						<button class="w3ls-cart w3ls-cart-like"><i class="fa fa-heart-o" aria-hidden="true"></i> Add to Wishlist</button>
+						<button class="w3ls-cart w3ls-cart-like"><i class="fa fa-heart-o" aria-hidden="true"></i> 添加到愿望单</button>
 					</div>
 				   <div class="clearfix"> </div>  
 				</div>
 				<div class="single-page-icons social-icons"> 
 					<ul>
-						<li><h4>Share on</h4></li>
+						<li><h4>分享</h4></li>
 						<li><a href="#" class="fa fa-facebook icon facebook"> </a></li>
 						<li><a href="#" class="fa fa-twitter icon twitter"> </a></li>
 						<li><a href="#" class="fa fa-google-plus icon googleplus"> </a></li>
@@ -1425,7 +1432,7 @@
 			</div> 
 			<!-- recommendations -->
 			<div class="recommend">
-				<h3 class="w3ls-title">Our Recommendations </h3> 
+				<h3 class="w3ls-title">推荐 </h3>
 				<script>
 					$(document).ready(function() { 
 						$("#owl-demo5").owlCarousel({
@@ -1588,7 +1595,7 @@
 			<!-- //recommendations --> 
 			<!-- collapse-tabs -->
 			<div class="collpse tabs">
-				<h3 class="w3ls-title">About this item</h3> 
+				<h3 class="w3ls-title">相关信息</h3>
 				<div class="panel-group collpse" id="accordion" role="tablist" aria-multiselectable="true">
 					<div class="panel panel-default">
 						<div class="panel-heading" role="tab" id="headingOne">
