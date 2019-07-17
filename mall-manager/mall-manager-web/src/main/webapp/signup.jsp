@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
+<html>
 <head>
-<title>Privacy Policy</title>
+<title>Sign Up</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -11,7 +11,7 @@
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" /> 
 <link href="css/animate.min.css" rel="stylesheet" type="text/css" media="all" /><!-- animation -->
-<link href="css/menu.css" rel="stylesheet" type="text/css" media="all" /> <!-- menu style -->   
+<link href="css/menu.css" rel="stylesheet" type="text/css" media="all" /> <!-- menu style -->  
 <!-- //Custom Theme files -->
 <!-- font-awesome icons -->
 <link href="css/font-awesome.css" rel="stylesheet"> 
@@ -88,7 +88,7 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> 我的账户<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="login.html">登录 </a></li>
-							<li><a href="signup.html">注册</a></li>
+							<li><a href="signup.jsp">注册</a></li>
 							<li><a href="login.html">我的订单</a></li>
 							<li><a href="login.html">我的钱包</a></li>
 						</ul>
@@ -96,27 +96,27 @@
 					<li class="dropdown head-dpdn">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-percent" aria-hidden="true"></i> 今日交易<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="offers.html">现金返还优惠</a></li>
-							<li><a href="offers.html">折扣商品</a></li>
-							<li><a href="offers.html">特价商品</a></li>
+							<li><a href="offers.jsp">现金返还优惠</a></li>
+							<li><a href="offers.jsp">折扣商品</a></li>
+							<li><a href="offers.jsp">特价商品</a></li>
 						</ul>
 					</li>
 					<li class="dropdown head-dpdn">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gift" aria-hidden="true"></i> 折扣券<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="offers.html">限时卡券</a></li>
-							<li><a href="offers.html">卡券册</a></li>
-							<li><a href="offers.html">查看余额</a></li>
+							<li><a href="offers.jsp">限时卡券</a></li>
+							<li><a href="offers.jsp">卡券册</a></li>
+							<li><a href="offers.jsp">查看余额</a></li>
 						</ul>
 					</li>
 					<li class="dropdown head-dpdn">
-						<a href="contact.html" class="dropdown-toggle"><i class="fa fa-map-marker" aria-hidden="true"></i> 公司所属地</a>
+						<a href="contact.jsp" class="dropdown-toggle"><i class="fa fa-map-marker" aria-hidden="true"></i> 公司所属地</a>
 					</li>
 					<li class="dropdown head-dpdn">
-						<a href="card.html" class="dropdown-toggle"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> 支付</a>
+						<a href="card.jsp" class="dropdown-toggle"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> 支付</a>
 					</li>
 					<li class="dropdown head-dpdn">
-						<a href="help.html" class="dropdown-toggle"><i class="fa fa-question-circle" aria-hidden="true"></i> 帮助</a>
+						<a href="help.jsp" class="dropdown-toggle"><i class="fa fa-question-circle" aria-hidden="true"></i> 帮助</a>
 					</li>
 				</ul>
 			</div>
@@ -138,7 +138,7 @@
 				</div>
 				<div class="header-cart">
 					<div class="my-account">
-						<a href="contact.html"><i class="fa fa-map-marker" aria-hidden="true"></i> 联系我们</a>
+						<a href="contact.jsp"><i class="fa fa-map-marker" aria-hidden="true"></i> 联系我们</a>
 					</div>
 					<div class="cart">
 						<form action="#" method="post" class="last">
@@ -160,7 +160,7 @@
 						<nav class="cd-dropdown">
 							<a href="#0" class="cd-close">Close</a>
 							<ul class="cd-dropdown-content">
-								<li><a href="offers.html">今日优惠</a></li>
+								<li><a href="offers.jsp">今日优惠</a></li>
 								<li class="has-children">
 									<a href="#">笔记本</a>
 									<ul class="cd-secondary-dropdown is-hidden">
@@ -1311,13 +1311,13 @@
 										</li>
 									</ul><!-- .cd-secondary-dropdown -->
 								</li>
-								<li><a href="sitemap.html">商品大全 </a></li>
+								<li><a href="sitemap.jsp">商品大全 </a></li>
 							</ul> <!-- .cd-dropdown-content -->
 						</nav> <!-- .cd-dropdown -->
 					</div> <!-- .cd-dropdown-wrapper -->
 				</div>
 				<div class="move-text">
-					<div class="marquee"><a href="offers.html"> 海哥希望你们多买点 <span>加我微信给你降价 </span> <span> 海哥永远给你们最好的，但是有点贵！</span></a></div>
+					<div class="marquee"><a href="offers.jsp"> 海哥希望你们多买点 <span>加我微信给你降价 </span> <span> 海哥永远给你们最好的，但是有点贵！</span></a></div>
 					<script type="text/javascript" src="js/jquery.marquee.min.js"></script>
 					<script>
 						$('.marquee').marquee({ pauseOnHover: true });
@@ -1328,25 +1328,29 @@
 		</div>
 	</div>
 	<!-- //header --> 	
-	<!-- privacy-page -->
-	<div class="privacy">
+	<!-- sign up-page -->
+	<div class="login-page">
 		<div class="container"> 
-			<h3 class="w3ls-title w3ls-title1">Privacy Policy</h3>  
-			<div class="privacy-w3row">
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ornare turpis ut porta aliquet. Morbi quis dictum lacus. Donec scelerisque lacus nec lobortis tempor. Morbi orci arcu, ullamcorper ut arcu vel, ultricies congue lacus. Phasellus porta cursus tempor. Nunc ultricies sapien nec est ornare pulvinar. Vivamus mollis faucibus purus sed blandit. Praesent fermentum dapibus risus id rutrum. Aliquam rutrum vel nulla eu fringilla.</p>
-				<p>Nunc ornare turpis ut porta aliquet. Morbi quis dictum lacus. Donec scelerisque lacus nec lobortis tempor. Morbi orci arcu, ullamcorper ut arcu vel, ultricies congue lacus. Phasellus porta cursus tempor. Nunc ultricies sapien nec est ornare pulvinar. Vivamus mollis faucibus purus sed blandit. Praesent fermentum dapibus risus id rutrum. Aliquam rutrum vel nulla eu fringilla. Curabitur efficitur justo a est tempor, pretium accumsan leo sagittis. Ut imperdiet sapien velit, a auctor neque laoreet sed. Praesent ornare nulla sit amet ullamcorper vulputate. Suspendisse vitae magna finibus, egestas eros quis, ornare risus. Duis magna ex, ultrices quis tellus non, commodo eleifend odio. Donec et faucibus risus. Aliquam laoreet justo sapien. </p>
-				<p>Donec scelerisque lacus nec lobortis tempor donec et faucibus risus. Aliquam laoreet justo sapien. </p>
-				<p>Pellentesque quis sagittis est. Nam placerat ante at nunc ornare, sed faucibus odio interdum. Nam viverra, purus ac ullamcorper convallis, lorem erat consequat enim, at pharetra magna ipsum at velit. </p>
-				<h5>What Does Our Privacy Policy Include?</h5>  
-				<p>Maecenas malesuada leo dui, at venenatis ligula sodales ut. Cras a feugiat orci. </p>
-				<p>Pellentesque metus enim, aliquet eu felis sed, pretium ultrices ante convallis nec turpis.</p>
-				<p>Phasellus imperdiet nibh et lorem tincidunt aliquam. Integer elementum purus non venenatis volutpat. Curabitur sit amet neque sed arcu pretium iaculis. Phasellus posuere egestas tortor a molestie. Nulla sed urna dignissim, maximus magna et, elementum metus. Ut dolor lorem, mattis eu consectetur non, euismod quis nulla. </p>			
-				<h5>How Do We Use Your Personal Information?</h5>  
-				<p>Phasellus imperdiet nibh et lorem tincidunt aliquam. Integer elementum purus non venenatis volutpat. Curabitur sit amet neque sed arcu pretium iaculis. Phasellus posuere egestas tortor a molestie. Nulla sed urna dignissim, maximus magna et, elementum metus. Ut dolor lorem, mattis eu consectetur non, euismod quis nulla. </p>
-			</div>
+			<h3 class="w3ls-title w3ls-title1">Create your account</h3>  
+			<div class="login-body">
+				<form action="#" method="post">
+					<input type="text" class="user" name="name" placeholder="Enter your Name" required="">
+					<input type="text" class="user" name="email" placeholder="Enter your email" required="">
+					<input type="password" name="password" class="lock" placeholder="Password" required="">
+					<input type="submit" value="Sign Up ">
+					<div class="forgot-grid">
+						<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Remember me</label>
+						<div class="forgot">
+							<a href="#">Forgot Password?</a>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</form>
+			</div>  
+			<h6>Already have an account? <a href="login.html">Login Now »</a> </h6>  
 		</div>
 	</div>
-	<!-- //privacy-page --> 
+	<!-- //sign up-page --> 
 	<!-- footer-top -->
 	<div class="w3agile-ftr-top">
 		<div class="container">
@@ -1437,20 +1441,20 @@
 					<div class="col-md-4 footer-grids">
 						<h3>公司</h3>
 						<ul>
-							<li><a href="about.html">我们</a></li>
-							<li><a href="marketplace.html">市值</a></li>
-							<li><a href="values.html">核心观念</a></li>
-							<li><a href="privacy.html">隐私政策</a></li>
+							<li><a href="about.jsp">我们</a></li>
+							<li><a href="marketplace.jsp">市值</a></li>
+							<li><a href="values.jsp">核心观念</a></li>
+							<li><a href="privacy.jsp">隐私政策</a></li>
 						</ul>
 					</div>
 					<div class="col-md-4 footer-grids">
 						<h3>为您服务</h3>
 						<ul>
-							<li><a href="contact.html">联系我们</a></li>
-							<li><a href="login.html">回到首页</a></li>
-							<li><a href="faq.html">常见问题</a></li>
-							<li><a href="sitemap.html">详细地址</a></li>
-							<li><a href="login.html">订单状态</a></li>
+							<li><a href="contact.jsp">联系我们</a></li>
+							<li><a href="login.jsp">回到首页</a></li>
+							<li><a href="faq.jsp">常见问题</a></li>
+							<li><a href="sitemap.jsp">详细地址</a></li>
+							<li><a href="login.jsp">订单状态</a></li>
 						</ul>
 					</div>
 					<div class="col-md-4 footer-grids">

@@ -1,8 +1,18 @@
 <%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
 <%@ page import="com.mall.product.Product" %>
+<%--<%@ page import="java.util.List" %>--%>
+<%--<%@ page import="java.util.ArrayList" %>--%>
 <html>
 <head>
 <title>商品页面</title>
+	<%
+		String path = request.getContextPath();
+		String basePath = request.getScheme()+"://"
+				+request.getServerName()+":"
+				+request.getServerPort()+path+"/";
+	%>
+
+	<base href="<%=basePath%>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -109,7 +119,7 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> 我的账户<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="login.html">登录 </a></li>
-							<li><a href="signup.html">注册</a></li>
+							<li><a href="signup.jsp">注册</a></li>
 							<li><a href="login.html">我的订单</a></li>
 							<li><a href="login.html">我的钱包</a></li>
 						</ul>
@@ -117,27 +127,27 @@
 					<li class="dropdown head-dpdn">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-percent" aria-hidden="true"></i> 今日交易<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="offers.html">现金返还优惠</a></li>
-							<li><a href="offers.html">折扣商品</a></li>
-							<li><a href="offers.html">特价商品</a></li>
+							<li><a href="offers.jsp">现金返还优惠</a></li>
+							<li><a href="offers.jsp">折扣商品</a></li>
+							<li><a href="offers.jsp">特价商品</a></li>
 						</ul>
 					</li>
 					<li class="dropdown head-dpdn">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gift" aria-hidden="true"></i> 折扣券<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="offers.html">限时卡券</a></li>
-							<li><a href="offers.html">卡券册</a></li>
-							<li><a href="offers.html">查看余额</a></li>
+							<li><a href="offers.jsp">限时卡券</a></li>
+							<li><a href="offers.jsp">卡券册</a></li>
+							<li><a href="offers.jsp">查看余额</a></li>
 						</ul>
 					</li>
 					<li class="dropdown head-dpdn">
-						<a href="contact.html" class="dropdown-toggle"><i class="fa fa-map-marker" aria-hidden="true"></i> 公司所属地</a>
+						<a href="contact.jsp" class="dropdown-toggle"><i class="fa fa-map-marker" aria-hidden="true"></i> 公司所属地</a>
 					</li>
 					<li class="dropdown head-dpdn">
-						<a href="card.html" class="dropdown-toggle"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> 支付</a>
+						<a href="card.jsp" class="dropdown-toggle"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> 支付</a>
 					</li>
 					<li class="dropdown head-dpdn">
-						<a href="help.html" class="dropdown-toggle"><i class="fa fa-question-circle" aria-hidden="true"></i> 帮助</a>
+						<a href="help.jsp" class="dropdown-toggle"><i class="fa fa-question-circle" aria-hidden="true"></i> 帮助</a>
 					</li>
 				</ul>
 			</div>
@@ -146,7 +156,7 @@
 		<div class="header-two"><!-- header-two -->
 			<div class="container">
 				<div class="header-logo">
-					<h1><a href="index.html"><span>海</span>哥 <i>电脑城</i></a></h1>
+					<h1><a href="index.jsp"><span>海</span>哥 <i>电脑城</i></a></h1>
 					<h6>你的商店，你做主</h6>
 				</div>
 				<div class="header-search">
@@ -159,7 +169,7 @@
 				</div>
 				<div class="header-cart">
 					<div class="my-account">
-						<a href="contact.html"><i class="fa fa-map-marker" aria-hidden="true"></i> 联系我们</a>
+						<a href="contact.jsp"><i class="fa fa-map-marker" aria-hidden="true"></i> 联系我们</a>
 					</div>
 					<div class="cart">
 						<form action="#" method="post" class="last">
@@ -181,7 +191,7 @@
 						<nav class="cd-dropdown">
 							<a href="#0" class="cd-close">Close</a>
 							<ul class="cd-dropdown-content">
-								<li><a href="offers.html">今日优惠</a></li>
+								<li><a href="offers.jsp">今日优惠</a></li>
 								<li class="has-children">
 									<a href="#">笔记本</a>
 									<ul class="cd-secondary-dropdown is-hidden">
@@ -1332,13 +1342,13 @@
 										</li>
 									</ul><!-- .cd-secondary-dropdown -->
 								</li>
-								<li><a href="sitemap.html">商品大全 </a></li>
+								<li><a href="sitemap.jsp">商品大全 </a></li>
 							</ul> <!-- .cd-dropdown-content -->
 						</nav> <!-- .cd-dropdown -->
 					</div> <!-- .cd-dropdown-wrapper -->
 				</div>
 				<div class="move-text">
-					<div class="marquee"><a href="offers.html"> 海哥希望你们多买点 <span>加我微信给你降价 </span> <span> 海哥永远给你们最好的，但是有点贵！</span></a></div>
+					<div class="marquee"><a href="offers.jsp"> 海哥希望你们多买点 <span>加我微信给你降价 </span> <span> 海哥永远给你们最好的，但是有点贵！</span></a></div>
 					<script type="text/javascript" src="js/jquery.marquee.min.js"></script>
 					<script>
 						$('.marquee').marquee({ pauseOnHover: true });
@@ -1351,11 +1361,11 @@
 	<!-- //header --> 
 	<!-- breadcrumbs -->
 	<%
-		List<Product> pList = (List<Product>)request.getAttribute("pList");
+		List<Product> pList = (List<Product>) request.getAttribute("pList");
 	%>
 	<div class="container"> 
 		<ol class="breadcrumb breadcrumb1">
-			<li><a href="index.html">首页</a></li>
+			<li><a href="index.jsp">首页</a></li>
 			<li class="active">商品页面</li>
 		</ol> 
 		<div class="clearfix"> </div>
@@ -1383,9 +1393,10 @@
 					</div>
 					<%
 						for(Product product: pList){
+
 					%>
 					<div class="col-md-6 single-top-right">
-						<h3 class="item_name"><%=product.getShp_id()%></h3>
+						<h3 class="item_name"><%=product.getShp_mch()%></h3>
 						<p>处理时间：物品将在2-3个工作日内发货。 </p>
 						<div class="single-rating">
 							<ul>
@@ -1395,25 +1406,26 @@
 								<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
 								<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
 								<li class="rating">20条点评</li>
-								<li><a href="#">添加您的评论</a></li>
+								<li><a href="comment.jsp">添加您的评论</a></li>
 							</ul> 
 						</div>
 						<div class="single-price">
 							<ul>
-								<li>￥6540</li>
-								<li><del>￥7600</del></li>
+								<li>￥<%=0.9*product.getShp_jg()%></li>
+								<li><del>￥<%=product.getShp_jg()%></del></li>
 								<li><span class="w3off">10% 折扣</span></li>
 								<li>结束时间：7月31日</li>
 								<li><a href="#"><i class="fa fa-gift" aria-hidden="true"></i> 优惠券</a></li>
 							</ul>	
 						</div> 
-						<p class="single-price-text"><%=product.getShp_msh()%> </p>
+						<p class="single-price-text"><%= product.getShp_msh()%></p>
+						<p class="single-price-text">颜色：<%= product.getShp_ys()%> 库存：<%= product.getShp_kc()%> </p>
 						<form action="#" method="post">
 							<input type="hidden" name="cmd" value="_cart" />
 							<input type="hidden" name="add" value="1" /> 
 							<input type="hidden" name="w3ls_item" value="Snow Blower" /> 
 							<input type="hidden" name="amount" value="540.00" /> 
-							<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 添加到购物车</button>
+							<button type="submit" class="w3ls-cart" href="showcart.jsp"><i class="fa fa-cart-plus" aria-hidden="true"></i> 添加到购物车</button>
 						</form>
 						<button class="w3ls-cart w3ls-cart-like"><i class="fa fa-heart-o" aria-hidden="true"></i> 添加到愿望单</button>
 					</div>
@@ -1429,7 +1441,10 @@
 						<li><a href="#" class="fa fa-rss icon rss"> </a></li> 
 					</ul>
 				</div>
-			</div> 
+			</div>
+			<%
+				}
+			%>
 			<!-- recommendations -->
 			<div class="recommend">
 				<h3 class="w3ls-title">推荐 </h3>
@@ -1601,13 +1616,13 @@
 						<div class="panel-heading" role="tab" id="headingOne">
 							<h4 class="panel-title">
 								<a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-									<i class="fa fa-file-text-o fa-icon" aria-hidden="true"></i> Description <span class="fa fa-angle-down fa-arrow" aria-hidden="true"></span> <i class="fa fa-angle-up fa-arrow" aria-hidden="true"></i>
+									<i class="fa fa-file-text-o fa-icon" aria-hidden="true"></i> 商品描述 <span class="fa fa-angle-down fa-arrow" aria-hidden="true"></span> <i class="fa fa-angle-up fa-arrow" aria-hidden="true"></i>
 								</a>
 							</h4>
 						</div>
 						<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 							<div class="panel-body">
-								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								联想(Lenovo)拯救者Y7000P 2019英特尔酷睿i715.6英寸游戏笔记本电脑(i7-9750H 16G 1T SSD GTX1660Ti 144Hz)
 							</div>
 						</div>
 					</div>
@@ -1615,13 +1630,13 @@
 						<div class="panel-heading" role="tab" id="headingTwo">
 							<h4 class="panel-title">
 								<a class="collapsed pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-									<i class="fa fa-info-circle fa-icon" aria-hidden="true"></i> additional information <span class="fa fa-angle-down fa-arrow" aria-hidden="true"></span> <i class="fa fa-angle-up fa-arrow" aria-hidden="true"></i>
+									<i class="fa fa-info-circle fa-icon" aria-hidden="true"></i> 附加信息 <span class="fa fa-angle-down fa-arrow" aria-hidden="true"></span> <i class="fa fa-angle-up fa-arrow" aria-hidden="true"></i>
 								</a> 
 							</h4>
 						</div>
 						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 							<div class="panel-body">
-								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								【预付定金享6期免息】开启1TB大固态硬盘时代全新英特尔9代CPU，升级16G大内存，速度更快！144Hz电竞屏72%NTSC高色域！
 							</div>
 						</div>
 					</div>
@@ -1629,13 +1644,13 @@
 						<div class="panel-heading" role="tab" id="headingThree">
 							<h4 class="panel-title">
 								<a class="collapsed pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-									<i class="fa fa-check-square-o fa-icon" aria-hidden="true"></i> reviews (5) <span class="fa fa-angle-down fa-arrow" aria-hidden="true"></span> <i class="fa fa-angle-up fa-arrow" aria-hidden="true"></i>
+									<i class="fa fa-check-square-o fa-icon" aria-hidden="true"></i> 评论（5） <span class="fa fa-angle-down fa-arrow" aria-hidden="true"></span> <i class="fa fa-angle-up fa-arrow" aria-hidden="true"></i>
 								</a>
 							</h4>
 						</div>
 						<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
 							<div class="panel-body">
-								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								Y7000p颜值贼高，开机速度贼快，操作流畅，跑分能到30w左右，玩游戏也很舒畅，办公也非常舒服，重量也比以前的y系列清一点，整体设计很好，各方面看着都蛮舒服的，值得拥有，还是1060显卡厉害，各种游戏都hold住，非常nice！！！！！！
 							</div>
 						</div>
 					</div>
@@ -1643,13 +1658,13 @@
 						<div class="panel-heading" role="tab" id="headingFour">
 							<h4 class="panel-title">
 								<a class="collapsed pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-									<i class="fa fa-question-circle fa-icon" aria-hidden="true"></i> help <span class="fa fa-angle-down fa-arrow" aria-hidden="true"></span> <i class="fa fa-angle-up fa-arrow" aria-hidden="true"></i>
+									<i class="fa fa-question-circle fa-icon" aria-hidden="true"></i> 帮助 <span class="fa fa-angle-down fa-arrow" aria-hidden="true"></span> <i class="fa fa-angle-up fa-arrow" aria-hidden="true"></i>
 								</a>
 							</h4>
 						</div>
 						<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
 							<div class="panel-body">
-								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								海哥电脑城支持七天无条件退换货，详情请加海哥微信了解更多。
 							</div>
 						</div>
 					</div>
@@ -1752,7 +1767,7 @@
 			<div class="footer-info w3-agileits-info">
 				<div class="col-md-4 address-left agileinfo">
 					<div class="footer-logo header-logo">
-						<h2><a href="index.html"><span>海</span>哥 <i>电脑城</i></a></h2>
+						<h2><a href="index.jsp"><span>海</span>哥 <i>电脑城</i></a></h2>
 						<h6>你的商店，你做主</h6>
 					</div>
 					<ul>
@@ -1766,20 +1781,20 @@
 					<div class="col-md-4 footer-grids">
 						<h3>公司</h3>
 						<ul>
-							<li><a href="about.html">我们</a></li>
-							<li><a href="marketplace.html">市值</a></li>
-							<li><a href="values.html">核心观念</a></li>
-							<li><a href="privacy.html">隐私政策</a></li>
+							<li><a href="about.jsp">我们</a></li>
+							<li><a href="marketplace.jsp">市值</a></li>
+							<li><a href="values.jsp">核心观念</a></li>
+							<li><a href="privacy.jsp">隐私政策</a></li>
 						</ul>
 					</div>
 					<div class="col-md-4 footer-grids">
 						<h3>为您服务</h3>
 						<ul>
-							<li><a href="contact.html">联系我们</a></li>
-							<li><a href="login.html">回到首页</a></li>
-							<li><a href="faq.html">常见问题</a></li>
-							<li><a href="sitemap.html">详细地址</a></li>
-							<li><a href="login.html">订单状态</a></li>
+							<li><a href="contact.jsp">联系我们</a></li>
+							<li><a href="login.jsp">回到首页</a></li>
+							<li><a href="faq.jsp">常见问题</a></li>
+							<li><a href="sitemap.jsp">详细地址</a></li>
+							<li><a href="login.jsp">订单状态</a></li>
 						</ul>
 					</div>
 					<div class="col-md-4 footer-grids">

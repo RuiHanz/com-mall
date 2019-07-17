@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
+<html>
 <head>
-<title>Sign Up</title>
+<title>Marketplace</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -76,7 +76,6 @@
 </head>
 <body>
 	<!-- header -->
-
 	<div class="header">
 		<div class="w3ls-header"><!--header-one-->
 			<div class="w3ls-header-left">
@@ -88,7 +87,7 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> 我的账户<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="login.html">登录 </a></li>
-							<li><a href="signup.html">注册</a></li>
+							<li><a href="signup.jsp">注册</a></li>
 							<li><a href="login.html">我的订单</a></li>
 							<li><a href="login.html">我的钱包</a></li>
 						</ul>
@@ -96,27 +95,27 @@
 					<li class="dropdown head-dpdn">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-percent" aria-hidden="true"></i> 今日交易<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="offers.html">现金返还优惠</a></li>
-							<li><a href="offers.html">折扣商品</a></li>
-							<li><a href="offers.html">特价商品</a></li>
+							<li><a href="offers.jsp">现金返还优惠</a></li>
+							<li><a href="offers.jsp">折扣商品</a></li>
+							<li><a href="offers.jsp">特价商品</a></li>
 						</ul>
 					</li>
 					<li class="dropdown head-dpdn">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gift" aria-hidden="true"></i> 折扣券<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="offers.html">限时卡券</a></li>
-							<li><a href="offers.html">卡券册</a></li>
-							<li><a href="offers.html">查看余额</a></li>
+							<li><a href="offers.jsp">限时卡券</a></li>
+							<li><a href="offers.jsp">卡券册</a></li>
+							<li><a href="offers.jsp">查看余额</a></li>
 						</ul>
 					</li>
 					<li class="dropdown head-dpdn">
-						<a href="contact.html" class="dropdown-toggle"><i class="fa fa-map-marker" aria-hidden="true"></i> 公司所属地</a>
+						<a href="contact.jsp" class="dropdown-toggle"><i class="fa fa-map-marker" aria-hidden="true"></i> 公司所属地</a>
 					</li>
 					<li class="dropdown head-dpdn">
-						<a href="card.html" class="dropdown-toggle"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> 支付</a>
+						<a href="card.jsp" class="dropdown-toggle"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> 支付</a>
 					</li>
 					<li class="dropdown head-dpdn">
-						<a href="help.html" class="dropdown-toggle"><i class="fa fa-question-circle" aria-hidden="true"></i> 帮助</a>
+						<a href="help.jsp" class="dropdown-toggle"><i class="fa fa-question-circle" aria-hidden="true"></i> 帮助</a>
 					</li>
 				</ul>
 			</div>
@@ -125,7 +124,7 @@
 		<div class="header-two"><!-- header-two -->
 			<div class="container">
 				<div class="header-logo">
-					<h1><a href="index.html"><span>海</span>哥 <i>电脑城</i></a></h1>
+					<h1><a href="index.jsp"><span>海</span>哥 <i>电脑城</i></a></h1>
 					<h6>你的商店，你做主</h6>
 				</div>
 				<div class="header-search">
@@ -138,7 +137,7 @@
 				</div>
 				<div class="header-cart">
 					<div class="my-account">
-						<a href="contact.html"><i class="fa fa-map-marker" aria-hidden="true"></i> 联系我们</a>
+						<a href="contact.jsp"><i class="fa fa-map-marker" aria-hidden="true"></i> 联系我们</a>
 					</div>
 					<div class="cart">
 						<form action="#" method="post" class="last">
@@ -160,7 +159,7 @@
 						<nav class="cd-dropdown">
 							<a href="#0" class="cd-close">Close</a>
 							<ul class="cd-dropdown-content">
-								<li><a href="offers.html">今日优惠</a></li>
+								<li><a href="offers.jsp">今日优惠</a></li>
 								<li class="has-children">
 									<a href="#">笔记本</a>
 									<ul class="cd-secondary-dropdown is-hidden">
@@ -1311,13 +1310,13 @@
 										</li>
 									</ul><!-- .cd-secondary-dropdown -->
 								</li>
-								<li><a href="sitemap.html">商品大全 </a></li>
+								<li><a href="sitemap.jsp">商品大全 </a></li>
 							</ul> <!-- .cd-dropdown-content -->
 						</nav> <!-- .cd-dropdown -->
 					</div> <!-- .cd-dropdown-wrapper -->
 				</div>
 				<div class="move-text">
-					<div class="marquee"><a href="offers.html"> 海哥希望你们多买点 <span>加我微信给你降价 </span> <span> 海哥永远给你们最好的，但是有点贵！</span></a></div>
+					<div class="marquee"><a href="offers.jsp"> 海哥希望你们多买点 <span>加我微信给你降价 </span> <span> 海哥永远给你们最好的，但是有点贵！</span></a></div>
 					<script type="text/javascript" src="js/jquery.marquee.min.js"></script>
 					<script>
 						$('.marquee').marquee({ pauseOnHover: true });
@@ -1328,30 +1327,56 @@
 		</div>
 	</div>
 	<!-- //header --> 	
-	<!-- sign up-page -->
-	<div class="login-page">
+	<!-- services-page -->
+	<div class="w3l-services">
 		<div class="container"> 
-			<h3 class="w3ls-title w3ls-title1">Create your account</h3>  
-			<div class="login-body">
-				<form action="#" method="post">
-					<input type="text" class="user" name="name" placeholder="Enter your Name" required="">
-					<input type="text" class="user" name="email" placeholder="Enter your email" required="">
-					<input type="password" name="password" class="lock" placeholder="Password" required="">
-					<input type="submit" value="Sign Up ">
-					<div class="forgot-grid">
-						<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Remember me</label>
-						<div class="forgot">
-							<a href="#">Forgot Password?</a>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</form>
-			</div>  
-			<h6>Already have an account? <a href="login.html">Login Now »</a> </h6>  
+			<h3 class="w3ls-title w3ls-title1">Marketplace</h3>  
+			<div class="services-row"> 
+				<div class="col-md-3 services-grids">
+					<i class="fa fa-line-chart" aria-hidden="true"></i>
+					<h4>Best Performance</h4>
+					<p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias</p>
+				</div>
+				<div class="col-md-3 services-grids">
+					<i class="fa fa-user-plus" aria-hidden="true"></i>
+					<h4>Expand audience</h4>
+					<p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias</p>
+				</div>
+				<div class="col-md-3 services-grids">
+					<i class="fa fa-lock" aria-hidden="true"></i>
+					<h4>Relay on our Safety</h4>
+					<p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias</p>
+				</div>
+				<div class="col-md-3 services-grids">
+					<i class="fa fa-bar-chart" aria-hidden="true"></i>
+					<h4>business partner</h4>
+					<p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias</p>
+				</div>
+				<div class="col-md-3 services-grids services-grids-btm">
+					<i class="fa fa-check-square-o" aria-hidden="true"></i>
+					<h4>Good quality</h4>
+					<p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias</p>
+				</div>
+				<div class="col-md-3 services-grids services-grids-btm">
+					<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+					<h4>Fulfill Orders</h4>
+					<p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias</p>
+				</div>
+				<div class="col-md-3 services-grids services-grids-btm">
+					<i class="fa fa-comments" aria-hidden="true"></i>
+					<h4>User Requirements</h4>
+					<p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias</p>
+				</div>
+				<div class="col-md-3 services-grids services-grids-btm">
+					<i class="fa fa-cc-visa" aria-hidden="true"></i>
+					<h4>Easy Transactions</h4>
+					<p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias</p>
+				</div>
+				<div class="clearfix"></div>
+			</div>
 		</div>
 	</div>
-	<!-- //sign up-page --> 
-	<!-- footer-top -->
+	<!-- //services-page -->
 	<div class="w3agile-ftr-top">
 		<div class="container">
 			<div class="ftr-toprow">
@@ -1441,20 +1466,20 @@
 					<div class="col-md-4 footer-grids">
 						<h3>公司</h3>
 						<ul>
-							<li><a href="about.html">我们</a></li>
-							<li><a href="marketplace.html">市值</a></li>
-							<li><a href="values.html">核心观念</a></li>
-							<li><a href="privacy.html">隐私政策</a></li>
+							<li><a href="about.jsp">我们</a></li>
+							<li><a href="marketplace.jsp">市值</a></li>
+							<li><a href="values.jsp">核心观念</a></li>
+							<li><a href="privacy.jsp">隐私政策</a></li>
 						</ul>
 					</div>
 					<div class="col-md-4 footer-grids">
 						<h3>为您服务</h3>
 						<ul>
-							<li><a href="contact.html">联系我们</a></li>
-							<li><a href="login.html">回到首页</a></li>
-							<li><a href="faq.html">常见问题</a></li>
-							<li><a href="sitemap.html">详细地址</a></li>
-							<li><a href="login.html">订单状态</a></li>
+							<li><a href="contact.jsp">联系我们</a></li>
+							<li><a href="login.jsp">回到首页</a></li>
+							<li><a href="faq.jsp">常见问题</a></li>
+							<li><a href="sitemap.jsp">详细地址</a></li>
+							<li><a href="login.jsp">订单状态</a></li>
 						</ul>
 					</div>
 					<div class="col-md-4 footer-grids">

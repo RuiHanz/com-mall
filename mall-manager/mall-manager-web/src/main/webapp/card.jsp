@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
+<html>
 <head>
-<title>信用卡</title>
+<title>支付</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -87,7 +87,7 @@
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> 我的账户<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="login.html">登录 </a></li>
-							<li><a href="signup.html">注册</a></li>
+							<li><a href="signup.jsp">注册</a></li>
 							<li><a href="login.html">我的订单</a></li>
 							<li><a href="login.html">我的钱包</a></li>
 						</ul>
@@ -95,27 +95,27 @@
 					<li class="dropdown head-dpdn">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-percent" aria-hidden="true"></i> 今日交易<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="offers.html">现金返还优惠</a></li>
-							<li><a href="offers.html">折扣商品</a></li>
-							<li><a href="offers.html">特价商品</a></li>
+							<li><a href="offers.jsp">现金返还优惠</a></li>
+							<li><a href="offers.jsp">折扣商品</a></li>
+							<li><a href="offers.jsp">特价商品</a></li>
 						</ul>
 					</li>
 					<li class="dropdown head-dpdn">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gift" aria-hidden="true"></i> 折扣券<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="offers.html">限时卡券</a></li>
-							<li><a href="offers.html">卡券册</a></li>
-							<li><a href="offers.html">查看余额</a></li>
+							<li><a href="offers.jsp">限时卡券</a></li>
+							<li><a href="offers.jsp">卡券册</a></li>
+							<li><a href="offers.jsp">查看余额</a></li>
 						</ul>
 					</li>
 					<li class="dropdown head-dpdn">
-						<a href="contact.html" class="dropdown-toggle"><i class="fa fa-map-marker" aria-hidden="true"></i> 公司所属地</a>
+						<a href="contact.jsp" class="dropdown-toggle"><i class="fa fa-map-marker" aria-hidden="true"></i> 公司所属地</a>
 					</li>
 					<li class="dropdown head-dpdn">
-						<a href="card.html" class="dropdown-toggle"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> 支付</a>
+						<a href="card.jsp" class="dropdown-toggle"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> 支付</a>
 					</li>
 					<li class="dropdown head-dpdn">
-						<a href="help.html" class="dropdown-toggle"><i class="fa fa-question-circle" aria-hidden="true"></i> 帮助</a>
+						<a href="help.jsp" class="dropdown-toggle"><i class="fa fa-question-circle" aria-hidden="true"></i> 帮助</a>
 					</li>
 				</ul>
 			</div>
@@ -124,7 +124,7 @@
 		<div class="header-two"><!-- header-two -->
 			<div class="container">
 				<div class="header-logo">
-					<h1><a href="index.html"><span>海</span>哥 <i>电脑城</i></a></h1>
+					<h1><a href="index.jsp"><span>海</span>哥 <i>电脑城</i></a></h1>
 					<h6>你的商店，你做主</h6>
 				</div>
 				<div class="header-search">
@@ -137,7 +137,7 @@
 				</div>
 				<div class="header-cart">
 					<div class="my-account">
-						<a href="contact.html"><i class="fa fa-map-marker" aria-hidden="true"></i> 联系我们</a>
+						<a href="contact.jsp"><i class="fa fa-map-marker" aria-hidden="true"></i> 联系我们</a>
 					</div>
 					<div class="cart">
 						<form action="#" method="post" class="last">
@@ -159,7 +159,7 @@
 						<nav class="cd-dropdown">
 							<a href="#0" class="cd-close">Close</a>
 							<ul class="cd-dropdown-content">
-								<li><a href="offers.html">今日优惠</a></li>
+								<li><a href="offers.jsp">今日优惠</a></li>
 								<li class="has-children">
 									<a href="#">笔记本</a>
 									<ul class="cd-secondary-dropdown is-hidden">
@@ -1310,13 +1310,13 @@
 										</li>
 									</ul><!-- .cd-secondary-dropdown -->
 								</li>
-								<li><a href="sitemap.html">商品大全 </a></li>
+								<li><a href="sitemap.jsp">商品大全 </a></li>
 							</ul> <!-- .cd-dropdown-content -->
 						</nav> <!-- .cd-dropdown -->
 					</div> <!-- .cd-dropdown-wrapper -->
 				</div>
 				<div class="move-text">
-					<div class="marquee"><a href="offers.html"> 海哥希望你们多买点 <span>加我微信给你降价 </span> <span> 海哥永远给你们最好的，但是有点贵！</span></a></div>
+					<div class="marquee"><a href="offers.jsp"> 海哥希望你们多买点 <span>加我微信给你降价 </span> <span> 海哥永远给你们最好的，但是有点贵！</span></a></div>
 					<script type="text/javascript" src="js/jquery.marquee.min.js"></script>
 					<script>
 						$('.marquee').marquee({ pauseOnHover: true });
@@ -1330,30 +1330,31 @@
 	<!-- card-page -->
 	<div class="card-page">
 		<div class="container"> 
-			<h3 class="w3ls-title w3ls-title1"> Smart bazaar Credit card</h3>  
+			<h3 class="w3ls-title w3ls-title1"> 支付</h3>
 			<div class="agile-card-top">
 				<div class="col-md-4 card-top-grids">
-					<h4>Save <span>$15</span></h4>
+					<h4>省<span>￥15</span></h4>
 					<i class="fa fa-camera" aria-hidden="true"></i>
-					<h5>on purchase of Electronics In Smart bazaar.com</h5>
+					<h5>支付宝支付</h5>
 				</div>
 				<div class="col-md-4 card-top-grids">
-					<h4>Save <span>$5</span></h4>
+					<h4>省<span>￥5</span></h4>
 					<i class="fa fa-motorcycle" aria-hidden="true"></i>
-					<h5>on purchase of Smart bazaar Automotive </h5>
+					<h5>货到付款 </h5>
 				</div>
 				<div class="col-md-4 card-top-grids">
-					<h4>Save <span>$20</span></h4>
+					<h4>省<span>￥20</span></h4>
 					<i class="fa fa-users" aria-hidden="true"></i>
-					<h5>on purchase of Clothings Using Card</h5>
+					<h5>银行卡支付</h5>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
 			<div class="agile-card-text">
-				<h5>New User Account Offers</h5>
-				<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas faucibus ipsum et libero euismod iaculis. Integer consectetur congue laoreet. Morbi eget leo elementum, vulputate eros et, egestas diam. Nam egestas, quam id viverra congue, elit mi eleifend libero, eget vulputate ante lorem vel quam. Sed suscipit ligula eu mi bibendum, vel mollis enim finibus. Suspendisse vitae est tortor. Donec aliquet leo vitae ligula mattis, vitae auctor mi pellentesque. Integer eu dui accumsan, convallis neque id, malesuada urna. </p>
-				<h5>Special account openings</h5>
-				<p>Nulla sodales nulla et ipsum pharetra pharetra. Suspendisse potenti. Phasellus cursus vehicula lorem, nec dignissim orci cursus tempor. Suspendisse vel ullamcorper arcu. Mauris tellus augue, tristique ut varius ac, scelerisque ac urna. Mauris nibh ligula, cursus eu vehicula a, scelerisque a nunc. Mauris sit amet sem orci. Proin sit amet tortor non massa tincidunt faucibus. Sed a lacus a purus congue dignissim. Maecenas auctor urna et ullamcorper sagittis. Aenean semper, nisi sed vulputate euismod, justo odio dictum lorem, a mattis ipsum magna non quam.<br>  Maecenas faucibus ipsum et libero euismod iaculis. Integer consectetur congue laoreet. Morbi eget leo elementum, vulputate eros et, egestas diam. Nam egestas, quam id viverra congue, elit mi eleifend libero, eget vulputate ante lorem vel quam. Sed suscipit ligula eu mi bibendum, vel mollis enim finibus. Suspendisse vitae est tortor. Donec aliquet leo vitae ligula mattis, vitae auctor mi pellentesque. Integer eu dui accumsan, convallis neque id, malesuada urna. </p>
+				<h5>新用户帐户提供</h5>
+				<p>先帝创业未半而中道崩殂，今天下三分，益州疲弊，此诚危急存亡之秋也。然侍卫之臣不懈于内，忠志之士忘身于外者，盖追先帝之殊遇，欲报之于陛下也。诚宜开张圣听，以光先帝遗德，恢弘志士之气，不宜妄自菲薄，引喻失义，以塞忠谏之路也。</p>
+				<h5>特别账户开户</h5>
+				<p>宫中府中，俱为一体，陟罚臧否，不宜异同。若有作奸犯科及为忠善者，宜付有司论其刑赏，以昭陛下平明之理，不宜偏私，使内外异法也。
+					侍中、侍郎郭攸之、费祎、董允等，此皆良实，志虑忠纯，是以先帝简拔以遗陛下。愚以为宫中之事，事无大小，悉以咨之，然后施行，必能裨补阙漏，有所广益。</p>
 			</div>
 		</div>
 	</div>
@@ -1448,20 +1449,20 @@
 					<div class="col-md-4 footer-grids">
 						<h3>公司</h3>
 						<ul>
-							<li><a href="about.html">我们</a></li>
-							<li><a href="marketplace.html">市值</a></li>
-							<li><a href="values.html">核心观念</a></li>
-							<li><a href="privacy.html">隐私政策</a></li>
+							<li><a href="about.jsp">我们</a></li>
+							<li><a href="marketplace.jsp">市值</a></li>
+							<li><a href="values.jsp">核心观念</a></li>
+							<li><a href="privacy.jsp">隐私政策</a></li>
 						</ul>
 					</div>
 					<div class="col-md-4 footer-grids">
 						<h3>为您服务</h3>
 						<ul>
-							<li><a href="contact.html">联系我们</a></li>
-							<li><a href="login.html">回到首页</a></li>
-							<li><a href="faq.html">常见问题</a></li>
-							<li><a href="sitemap.html">详细地址</a></li>
-							<li><a href="login.html">订单状态</a></li>
+							<li><a href="contact.jsp">联系我们</a></li>
+							<li><a href="login.jsp">回到首页</a></li>
+							<li><a href="faq.jsp">常见问题</a></li>
+							<li><a href="sitemap.jsp">详细地址</a></li>
+							<li><a href="login.jsp">订单状态</a></li>
 						</ul>
 					</div>
 					<div class="col-md-4 footer-grids">
