@@ -1,4 +1,4 @@
-import com.mall.service.utils.JdbcUtils;
+import com.mall.user.utils.JdbcUtils;
 
 import java.sql.SQLException;
 
