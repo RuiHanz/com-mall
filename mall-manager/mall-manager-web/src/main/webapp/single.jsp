@@ -1,7 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
+<%@ page import="com.mall.product.Product" %>
+<%--<%@ page import="java.util.List" %>--%>
+<%--<%@ page import="java.util.ArrayList" %>--%>
+<html>
 <head>
-<title>Products3</title>
+<title>商品页面</title>
+	<%
+		String path = request.getContextPath();
+		String basePath = request.getScheme()+"://"
+				+request.getServerName()+":"
+				+request.getServerPort()+path+"/";
+	%>
+
+	<base href="<%=basePath%>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -10,8 +21,8 @@
 <!-- Custom Theme files -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" /> 
-<link href="css/menu.css" rel="stylesheet" type="text/css" media="all" /> <!-- menu style -->  
-<link href="css/animate.min.css" rel="stylesheet" type="text/css" media="all" />   
+<link href="css/animate.min.css" rel="stylesheet" type="text/css" media="all" /><!-- animation -->
+<link href="css/menu.css" rel="stylesheet" type="text/css" media="all" /> <!-- menu style -->   
 <link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all"> <!-- carousel slider -->  
 <!-- //Custom Theme files -->
 <!-- font-awesome icons -->
@@ -20,6 +31,21 @@
 <!-- js -->
 <script src="js/jquery-2.2.3.min.js"></script> 
 <script src="js/owl.carousel.js"></script>
+<script src="js/bootstrap.js"></script>
+<!--flex slider-->
+<script defer src="js/jquery.flexslider.js"></script>
+<link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+<script>
+	// Can also be used with $(document).ready()
+	$(window).load(function() {
+	  $('.flexslider').flexslider({
+		animation: "slide",
+		controlNav: "thumbnails"
+	  });
+	});
+</script>
+<!--flex slider-->
+<script src="js/imagezoom.js"></script>
 <!-- //js --> 
 <!-- web-fonts -->
 <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -78,17 +104,6 @@
 	});
 </script>
 <!-- //smooth-scrolling-of-move-up -->  
-<!-- the jScrollPane script -->
-<script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
-		<script type="text/javascript" id="sourcecode">
-			$(function()
-			{
-				$('.scroll-pane').jScrollPane();
-			});
-		</script>
-<!-- //the jScrollPane script -->
-<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
-<!-- the mousewheel plugin --> 
 </head>
 <body>
 	<!-- header -->
@@ -1343,445 +1358,95 @@
 			</div>
 		</div>
 	</div>
-	<!-- //header --> 	
+	<!-- //header --> 
+	<!-- breadcrumbs -->
+	<%
+		List<Product> pList = (List<Product>) request.getAttribute("pList");
+	%>
+	<div class="container"> 
+		<ol class="breadcrumb breadcrumb1">
+			<li><a href="index.html">首页</a></li>
+			<li class="active">商品页面</li>
+		</ol> 
+		<div class="clearfix"> </div>
+	</div>
+	<!-- //breadcrumbs -->
 	<!-- products -->
 	<div class="products">	 
-		<div class="container">
-			<div class="col-md-9 product-w3ls-right">
-				<!-- breadcrumbs --> 
-				<ol class="breadcrumb breadcrumb1">
-					<li><a href="index.html">Home</a></li>
-					<li class="active">Products</li>
-				</ol> 
-				<div class="clearfix"> </div>
-				<!-- //breadcrumbs -->
-				<div class="product-top">
-					<h4>Home & Furniture</h4>
-					<ul> 
-						<li class="dropdown head-dpdn">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Filter By<span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Low price</a></li> 
-								<li><a href="#">High price</a></li>
-								<li><a href="#">Latest</a></li> 
-								<li><a href="#">Popular</a></li> 
+		<div class="container">  
+			<div class="single-page">
+				<div class="single-page-row" id="detail-21">
+					<div class="col-md-6 single-top-left">	
+						<div class="flexslider">
+							<ul class="slides">
+								<li data-thumb="images/s1.jpg">
+									<div class="thumb-image detail_images"> <img src="images/s1.jpg" data-imagezoom="true" class="img-responsive" alt=""> </div>
+								</li>
+								<li data-thumb="images/s2.jpg">
+									 <div class="thumb-image"> <img src="images/s2.jpg" data-imagezoom="true" class="img-responsive" alt=""> </div>
+								</li>
+								<li data-thumb="images/s3.jpg">
+								   <div class="thumb-image"> <img src="images/s3.jpg" data-imagezoom="true" class="img-responsive" alt=""> </div>
+								</li> 
+							</ul>
+						</div>
+					</div>
+					<%
+						for(Product product: pList){
+
+					%>
+					<div class="col-md-6 single-top-right">
+						<h3 class="item_name"><%=product.getShp_mch()%></h3>
+						<p>处理时间：物品将在2-3个工作日内发货。 </p>
+						<div class="single-rating">
+							<ul>
+								<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+								<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+								<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+								<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+								<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+								<li class="rating">20条点评</li>
+								<li><a href="#">添加您的评论</a></li>
 							</ul> 
-						</li>
-						<li class="dropdown head-dpdn">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Brands<span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Brand1</a></li> 
-								<li><a href="#">Brand2</a></li>
-								<li><a href="#">Brand3</a></li> 
-								<li><a href="#">Brand4</a></li> 
-							</ul> 
-						</li>
-					</ul> 
-					<div class="clearfix"> </div>
+						</div>
+						<div class="single-price">
+							<ul>
+								<li>￥8640</li>
+								<li><del>￥9600</del></li>
+								<li><span class="w3off">10% 折扣</span></li>
+								<li>结束时间：7月31日</li>
+								<li><a href="#"><i class="fa fa-gift" aria-hidden="true"></i> 优惠券</a></li>
+							</ul>	
+						</div> 
+						<p class="single-price-text"><%= product.getShp_msh()%></p>
+						<form action="#" method="post">
+							<input type="hidden" name="cmd" value="_cart" />
+							<input type="hidden" name="add" value="1" /> 
+							<input type="hidden" name="w3ls_item" value="Snow Blower" /> 
+							<input type="hidden" name="amount" value="540.00" /> 
+							<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 添加到购物车</button>
+						</form>
+						<button class="w3ls-cart w3ls-cart-like"><i class="fa fa-heart-o" aria-hidden="true"></i> 添加到愿望单</button>
+					</div>
+				   <div class="clearfix"> </div>  
 				</div>
-				<div class="products-row">
-					<div class="col-md-3 product-grids">
-						<div class="agile-products">
-							<div class="new-tag"><h6>New</h6></div>
-							<a href="single.jsp"><img src="images/h3.png" class="img-responsive" alt="img"></a>
-							<div class="agile-product-text">              
-								<h5><a href="single.jsp">Queen Size Bed</a></h5>
-								<h6><del>$280</del>$250</h6> 
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart"/>
-									<input type="hidden" name="add" value="1"/> 
-									<input type="hidden" name="w3ls_item" value="Queen Size Bed"/> 
-									<input type="hidden" name="amount" value="250.00"/> 
-									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 product-grids"> 
-						<div class="agile-products">
-							<div class="new-tag"><h6>Sale</h6></div>
-							<a href="single.jsp"><img src="images/h1.png" class="img-responsive" alt="img"></a>
-							<div class="agile-product-text">              
-								<h5><a href="single.jsp">Wall Clock</a></h5>
-								<h6><del>$82</del> $80</h6> 
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Wall Clock" /> 
-									<input type="hidden" name="amount" value="80.00" /> 
-									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form> 
-							</div>
-						</div> 
-					</div>   
-					<div class="col-md-3 product-grids">
-						<div class="agile-products">
-							<div class="new-tag"><h6>New</h6></div>
-							<a href="single.jsp"><img src="images/h2.png" class="img-responsive" alt="img"></a>
-							<div class="agile-product-text">              
-								<h5><a href="single.jsp">Plants & Vases</a></h5>
-								<h6><del>$41</del> $40</h6> 
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart"/>
-									<input type="hidden" name="add" value="1"/> 
-									<input type="hidden" name="w3ls_item" value="Plants & Vases"/> 
-									<input type="hidden" name="amount" value="40.00"/> 
-									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 product-grids"> 
-						<div class="agile-products">
-							<div class="new-tag"><h6>14%<br>Off</h6></div>
-							<a href="single.jsp"><img src="images/h5.png" class="img-responsive" alt="img"></a>
-							<div class="agile-product-text">              
-								<h5><a href="single.jsp">Snow Blower</a></h5>
-								<h6><del>$600</del> $540</h6> 
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Snow Blower" /> 
-									<input type="hidden" name="amount" value="540.00" /> 
-									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form> 
-							</div>
-						</div> 
-					</div>
-					<div class="col-md-3 product-grids"> 
-						<div class="agile-products">
-							<div class="new-tag"><h6>14%<br>Off</h6></div>
-							<a href="single.jsp"><img src="images/h4.png" class="img-responsive" alt="img"></a>
-							<div class="agile-product-text">              
-								<h5><a href="single.jsp">Flower pot</a></h5>
-								<h6><del>$35</del> $30</h6> 
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Flower pot" /> 
-									<input type="hidden" name="amount" value="30.00" /> 
-									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form> 
-							</div>
-						</div> 
-					</div>  
-					<div class="col-md-3 product-grids"> 
-						<div class="agile-products">
-							<div class="new-tag"><h6>14%<br>Off</h6></div>
-							<a href="single.jsp"><img src="images/h5.png" class="img-responsive" alt="img"></a>
-							<div class="agile-product-text">              
-								<h5><a href="single.jsp">Snow Blower</a></h5>
-								<h6><del>$600</del> $540</h6> 
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Snow Blower" /> 
-									<input type="hidden" name="amount" value="540.00" /> 
-									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form> 
-							</div>
-						</div> 
-					</div>
-					<div class="col-md-3 product-grids">
-						<div class="agile-products">
-							<div class="new-tag"><h6>New</h6></div>
-							<a href="single.jsp"><img src="images/h3.png" class="img-responsive" alt="img"></a>
-							<div class="agile-product-text">              
-								<h5><a href="single.jsp">Queen Size Bed</a></h5>
-								<h6><del>$280</del>$250</h6> 
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart"/>
-									<input type="hidden" name="add" value="1"/> 
-									<input type="hidden" name="w3ls_item" value="Queen Size Bed"/> 
-									<input type="hidden" name="amount" value="250.00"/> 
-									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 product-grids"> 
-						<div class="agile-products">
-							<div class="new-tag"><h6>Sale</h6></div>
-							<a href="single.jsp"><img src="images/h1.png" class="img-responsive" alt="img"></a>
-							<div class="agile-product-text">              
-								<h5><a href="single.jsp">Wall Clock</a></h5>
-								<h6><del>$82</del> $80</h6> 
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Wall Clock" /> 
-									<input type="hidden" name="amount" value="80.00" /> 
-									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form> 
-							</div>
-						</div> 
-					</div>
-					<div class="col-md-3 product-grids">
-						<div class="agile-products">
-							<div class="new-tag"><h6>New</h6></div>
-							<a href="single.jsp"><img src="images/h3.png" class="img-responsive" alt="img"></a>
-							<div class="agile-product-text">              
-								<h5><a href="single.jsp">Queen Size Bed</a></h5>
-								<h6><del>$280</del>$250</h6> 
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart"/>
-									<input type="hidden" name="add" value="1"/> 
-									<input type="hidden" name="w3ls_item" value="Queen Size Bed"/> 
-									<input type="hidden" name="amount" value="250.00"/> 
-									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 product-grids"> 
-						<div class="agile-products">
-							<div class="new-tag"><h6>Sale</h6></div>
-							<a href="single.jsp"><img src="images/h1.png" class="img-responsive" alt="img"></a>
-							<div class="agile-product-text">              
-								<h5><a href="single.jsp">Wall Clock</a></h5>
-								<h6><del>$82</del> $80</h6> 
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Wall Clock" /> 
-									<input type="hidden" name="amount" value="80.00" /> 
-									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form> 
-							</div>
-						</div> 
-					</div>   
-					<div class="col-md-3 product-grids">
-						<div class="agile-products">
-							<div class="new-tag"><h6>New</h6></div>
-							<a href="single.jsp"><img src="images/h2.png" class="img-responsive" alt="img"></a>
-							<div class="agile-product-text">              
-								<h5><a href="single.jsp">Plants & Vases</a></h5>
-								<h6><del>$41</del> $40</h6> 
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart"/>
-									<input type="hidden" name="add" value="1"/> 
-									<input type="hidden" name="w3ls_item" value="Plants & Vases"/> 
-									<input type="hidden" name="amount" value="40.00"/> 
-									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 product-grids"> 
-						<div class="agile-products">
-							<div class="new-tag"><h6>14%<br>Off</h6></div>
-							<a href="single.jsp"><img src="images/h5.png" class="img-responsive" alt="img"></a>
-							<div class="agile-product-text">              
-								<h5><a href="single.jsp">Snow Blower</a></h5>
-								<h6><del>$600</del> $540</h6> 
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Snow Blower" /> 
-									<input type="hidden" name="amount" value="540.00" /> 
-									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form> 
-							</div>
-						</div> 
-					</div>
-					<div class="col-md-3 product-grids"> 
-						<div class="agile-products">
-							<div class="new-tag"><h6>14%<br>Off</h6></div>
-							<a href="single.jsp"><img src="images/h4.png" class="img-responsive" alt="img"></a>
-							<div class="agile-product-text">              
-								<h5><a href="single.jsp">Flower pot</a></h5>
-								<h6><del>$35</del> $30</h6> 
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Flower pot" /> 
-									<input type="hidden" name="amount" value="30.00" /> 
-									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form> 
-							</div>
-						</div> 
-					</div>  
-					<div class="col-md-3 product-grids"> 
-						<div class="agile-products">
-							<div class="new-tag"><h6>14%<br>Off</h6></div>
-							<a href="single.jsp"><img src="images/h5.png" class="img-responsive" alt="img"></a>
-							<div class="agile-product-text">              
-								<h5><a href="single.jsp">Snow Blower</a></h5>
-								<h6><del>$600</del> $540</h6> 
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Snow Blower" /> 
-									<input type="hidden" name="amount" value="540.00" /> 
-									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form> 
-							</div>
-						</div> 
-					</div>
-					<div class="col-md-3 product-grids">
-						<div class="agile-products">
-							<div class="new-tag"><h6>New</h6></div>
-							<a href="single.jsp"><img src="images/h3.png" class="img-responsive" alt="img"></a>
-							<div class="agile-product-text">              
-								<h5><a href="single.jsp">Queen Size Bed</a></h5>
-								<h6><del>$280</del>$250</h6> 
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart"/>
-									<input type="hidden" name="add" value="1"/> 
-									<input type="hidden" name="w3ls_item" value="Queen Size Bed"/> 
-									<input type="hidden" name="amount" value="250.00"/> 
-									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 product-grids"> 
-						<div class="agile-products">
-							<div class="new-tag"><h6>Sale</h6></div>
-							<a href="single.jsp"><img src="images/h1.png" class="img-responsive" alt="img"></a>
-							<div class="agile-product-text">              
-								<h5><a href="single.jsp">Wall Clock</a></h5>
-								<h6><del>$82</del> $80</h6> 
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Wall Clock" /> 
-									<input type="hidden" name="amount" value="80.00" /> 
-									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form> 
-							</div>
-						</div> 
-					</div> 
-					<div class="clearfix"> </div>
-				</div>
-				<!-- add-products --> 
-				<div class="w3ls-add-grids w3agile-add-products">
-					<a href="#"> 
-						<h4>TOP 10 TRENDS FOR YOU FLAT <span>20%</span> OFF</h4>
-						<h6>Shop now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
-					</a>
-				</div> 
-				<!-- //add-products -->
-			</div>
-			<div class="col-md-3 rsidebar">
-				<div class="rsidebar-top">
-					<div class="slider-left">
-						<h4>Filter By Price</h4>            
-						<div class="row row1 scroll-pane">
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>0 - $100 </label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>$100 - $200 </label> 
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>$200 - $250  </label> 
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>$250 - $300 </label> 
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>$350 - $400 </label> 
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>$450 - $500  </label> 
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>More</label> 
-						</div> 
-					</div>
-					<div class="sidebar-row">
-						<h4>Home & Furniture</h4>
-						<ul class="faq">
-							<li class="item1"><a href="#">Furniture<span class="glyphicon glyphicon-menu-down"></span></a>
-								<ul>
-									<li class="subitem1"><a href="#">Bedroom</a></li>										
-									<li class="subitem1"><a href="#">Dining Room</a></li>										
-									<li class="subitem1"><a href="#">Office</a></li>										
-									<li class="subitem1"><a href="#">Kids' Furniture</a></li>										
-								</ul>
-							</li>
-							<li class="item2"><a href="#">Home Decor<span class="glyphicon glyphicon-menu-down"></span></a>
-								<ul>
-									<li class="subitem1"><a href="#">Painting</a></li>										
-									<li class="subitem1"><a href="#">Curtains & Blinds</a></li>				 										
-									<li class="subitem1"><a href="#">Patio Furniture</a></li>										
-									<li class="subitem1"><a href="#">Lighting</a></li>										
-								</ul>
-							</li>
-							<li class="item3"><a href="#">Kitchen Uses<span class="glyphicon glyphicon-menu-down"></span></a>
-								<ul>
-									<li class="subitem1"><a href="#">Dinner Sets</a></li>										
-									<li class="subitem1"><a href="#">Containers & Jars</a></li>										
-									<li class="subitem1"><a href="#">Food Storage</a></li>										
-								</ul>
-							</li>
-						</ul>
-						<!-- script for tabs -->
-						<script type="text/javascript">
-							$(function() {
-							
-								var menu_ul = $('.faq > li > ul'),
-									   menu_a  = $('.faq > li > a');
-								
-								menu_ul.hide();
-							
-								menu_a.click(function(e) {
-									e.preventDefault();
-									if(!$(this).hasClass('active')) {
-										menu_a.removeClass('active');
-										menu_ul.filter(':visible').slideUp('normal');
-										$(this).addClass('active').next().stop(true,true).slideDown('normal');
-									} else {
-										$(this).removeClass('active');
-										$(this).next().stop(true,true).slideUp('normal');
-									}
-								});
-							
-							});
-						</script>
-						<!-- script for tabs -->
-					</div>
-					<div class="sidebar-row">
-						<h4>DISCOUNTS</h4>
-						<div class="row row1 scroll-pane">
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Upto - 10% (20)</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>70% - 60% (5)</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>50% - 40% (7)</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>30% - 20% (2)</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>10% - 5% (5)</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>30% - 20% (7)</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>10% - 5% (2)</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Other(50)</label>
-						</div>
-					</div>
-					<div class="sidebar-row">
-						<h4>Color</h4>
-						<div class="row row1 scroll-pane">
-							<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>White</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Pink</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Gold</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Blue</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Orange</label>
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i></i> Brown</label> 
-						</div>
-					</div>			 
-				</div>
-				<div class="related-row">
-					<h4>Related Searches</h4>
+				<div class="single-page-icons social-icons"> 
 					<ul>
-						<li><a href="products.html">Garage Storage</a></li>
-						<li><a href="products.html">Casseroles</a></li>
-						<li><a href="products.html">Living Room</a></li>
-						<li><a href="products.html">Mattresses</a></li>
-						<li><a href="products.html">Patio Tips</a></li>
-						<li><a href="products.html">Patio Tips</a></li>
-						<li><a href="products.html">Gardening</a></li>
-						<li><a href="products.html">Furniture</a></li>
-						<li><a href="products.html">Wall Decor</a></li>
-						<li><a href="products.html">Floor Cleaning</a></li>
+						<li><h4>分享</h4></li>
+						<li><a href="#" class="fa fa-facebook icon facebook"> </a></li>
+						<li><a href="#" class="fa fa-twitter icon twitter"> </a></li>
+						<li><a href="#" class="fa fa-google-plus icon googleplus"> </a></li>
+						<li><a href="#" class="fa fa-dribbble icon dribbble"> </a></li>
+						<li><a href="#" class="fa fa-rss icon rss"> </a></li> 
 					</ul>
 				</div>
-				<div class="related-row">
-					<h4>YOU MAY ALSO LIKE</h4>
-					<div class="galry-like">  
-						<a href="single.jsp"><img src="images/e1.png" class="img-responsive" alt="img"></a>
-						<h4><a href="products.html">Audio speaker</a></h4> 
-						<h5>$100</h5>       
-					</div>
-				</div>
 			</div>
-			<div class="clearfix"> </div>
+			<%
+				}
+			%>
 			<!-- recommendations -->
 			<div class="recommend">
-				<h3 class="w3ls-title">Our Recommendations </h3> 
+				<h3 class="w3ls-title">推荐 </h3>
 				<script>
 					$(document).ready(function() { 
 						$("#owl-demo5").owlCarousel({
@@ -1941,7 +1606,87 @@
 					</div> 
 				</div>    
 			</div>
-			<!-- //recommendations -->
+			<!-- //recommendations --> 
+			<!-- collapse-tabs -->
+			<div class="collpse tabs">
+				<h3 class="w3ls-title">相关信息</h3>
+				<div class="panel-group collpse" id="accordion" role="tablist" aria-multiselectable="true">
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingOne">
+							<h4 class="panel-title">
+								<a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+									<i class="fa fa-file-text-o fa-icon" aria-hidden="true"></i> 商品描述 <span class="fa fa-angle-down fa-arrow" aria-hidden="true"></span> <i class="fa fa-angle-up fa-arrow" aria-hidden="true"></i>
+								</a>
+							</h4>
+						</div>
+						<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+							<div class="panel-body">
+								联想(Lenovo)拯救者Y7000P 2019英特尔酷睿i715.6英寸游戏笔记本电脑(i7-9750H 16G 1T SSD GTX1660Ti 144Hz)
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingTwo">
+							<h4 class="panel-title">
+								<a class="collapsed pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+									<i class="fa fa-info-circle fa-icon" aria-hidden="true"></i> 附加信息 <span class="fa fa-angle-down fa-arrow" aria-hidden="true"></span> <i class="fa fa-angle-up fa-arrow" aria-hidden="true"></i>
+								</a> 
+							</h4>
+						</div>
+						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+							<div class="panel-body">
+								【预付定金享6期免息】开启1TB大固态硬盘时代全新英特尔9代CPU，升级16G大内存，速度更快！144Hz电竞屏72%NTSC高色域！
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingThree">
+							<h4 class="panel-title">
+								<a class="collapsed pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+									<i class="fa fa-check-square-o fa-icon" aria-hidden="true"></i> 评论（5） <span class="fa fa-angle-down fa-arrow" aria-hidden="true"></span> <i class="fa fa-angle-up fa-arrow" aria-hidden="true"></i>
+								</a>
+							</h4>
+						</div>
+						<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+							<div class="panel-body">
+								Y7000p颜值贼高，开机速度贼快，操作流畅，跑分能到30w左右，玩游戏也很舒畅，办公也非常舒服，重量也比以前的y系列清一点，整体设计很好，各方面看着都蛮舒服的，值得拥有，还是1060显卡厉害，各种游戏都hold住，非常nice！！！！！！
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingFour">
+							<h4 class="panel-title">
+								<a class="collapsed pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+									<i class="fa fa-question-circle fa-icon" aria-hidden="true"></i> 帮助 <span class="fa fa-angle-down fa-arrow" aria-hidden="true"></span> <i class="fa fa-angle-up fa-arrow" aria-hidden="true"></i>
+								</a>
+							</h4>
+						</div>
+						<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+							<div class="panel-body">
+								海哥电脑城支持七天无条件退换货，详情请加海哥微信了解更多。
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //collapse --> 
+			<!-- offers-cards --> 
+			<div class="w3single-offers offer-bottom"> 
+				<div class="col-md-6 offer-bottom-grids">
+					<div class="offer-bottom-grids-info2">
+						<h4>Special Gift Cards</h4> 
+						<h6>More brands, more ways to shop. <br> Check out these ideal gifts!</h6>
+					</div>
+				</div>
+				<div class="col-md-6 offer-bottom-grids">
+					<div class="offer-bottom-grids-info">
+						<h4>Flat $10 Discount</h4> 
+						<h6>The best Shopping Offer <br> On Fashion Store</h6>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<!-- //offers-cards -->
 		</div>
 	</div>
 	<!--//products-->  
@@ -2091,14 +1836,13 @@
         	}
         });
     </script>  
-	<!-- //cart-js -->  
+	<!-- //cart-js --> 	 
 	<!-- menu js aim -->
 	<script src="js/jquery.menu-aim.js"> </script>
 	<script src="js/main.js"></script> <!-- Resource jQuery -->
 	<!-- //menu js aim --> 
 	<!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/bootstrap.js"></script>
+    <!-- Placed at the end of the document so the pages load faster --> 
 </body>
 </html>
