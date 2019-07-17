@@ -17,10 +17,7 @@
         <module>mall-manager-dao</module>
         <module>mall-manager-service</module>
         <module>mall-manager-web</module>
-        <module>mall-manager-pojo</module>
-        <module>mall-manager-dao</module>
-        <module>mall-manager-service</module>
-        <module>mall-manager-web</module>
+
     </modules>
     <dependencies>
         <!--工程之间的依赖 manager依赖common-->
