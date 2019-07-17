@@ -1,4 +1,4 @@
-package com.mall.service.utils;
+package com.mall.user.utils;
 
 import java.sql.Connection;
 import java.sql.SQLException;
