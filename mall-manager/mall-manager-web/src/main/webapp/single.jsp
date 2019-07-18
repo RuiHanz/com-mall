@@ -1337,7 +1337,7 @@
 												<li><a href="products9.html">商品</a></li>
 												<li><a href="products9.html">商品</a></li>
 												<li><a href="products9.html">商品</a></li>
-												<li><a href="products9.html">cables</a></li>
+												<li><a href="products9.html">商品</a></li>
 											</ul>
 										</li>
 									</ul><!-- .cd-secondary-dropdown -->
@@ -1397,6 +1397,7 @@
 					%>
 					<div class="col-md-6 single-top-right">
 						<h3 class="item_name"><%=product.getShp_mch()%></h3>
+<%--						${product.getShp_mch()}--%>
 						<p>处理时间：物品将在2-3个工作日内发货。 </p>
 						<div class="single-rating">
 							<ul>
@@ -1418,7 +1419,8 @@
 								<li><a href="#"><i class="fa fa-gift" aria-hidden="true"></i> 优惠券</a></li>
 							</ul>	
 						</div> 
-						<p class="single-price-text"><%= product.getShp_msh()%></p>
+						<p class="single-price-text">联想拯救者 Y700p 15.6英寸1080p高清屏 9代i7-9650 GTX1060Ti 16G大内存</p>
+<%--						<%= product.getShp_msh()%>--%>
 						<p class="single-price-text">颜色：<%= product.getShp_ys()%> 库存：<%= product.getShp_kc()%> </p>
 						<form action="#" method="post">
 							<input type="hidden" name="cmd" value="_cart" />

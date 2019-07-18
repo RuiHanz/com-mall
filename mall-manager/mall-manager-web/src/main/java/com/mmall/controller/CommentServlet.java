@@ -10,28 +10,109 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Date;
+import java.util.List;
 
 @WebServlet("/comment.do")
 public class CommentServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
-//        req.getRequestDispatcher("comment.jsp").forward(req,resp);
-        resp.sendRedirect("/single.jsp");
+        doPost(req, resp);
+       //req.getRequestDispatcher("comment.jsp").forward(req,resp);
+
 
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
-        Comment comment = new Comment();
-        comment.setPlnr(req.getParameter("content"));
+        String fun = req.getParameter("_method");
+        switch (fun){
+            case "add":
+                add(req,resp);
+                break;
+            case "selectUser":
+                selectUser(req,resp);
+                break;
+            case "selectPro":
+                selectPro(req,resp);
+                break;
+            case "del":
+                del(req,resp);
+                break;
+//            case "update":
+//                update(req,resp);
+//                break;
 
+        }
+
+
+    }
+    public void add(HttpServletRequest req, HttpServletResponse resp)  {
+        Comment comment = new Comment();
+        comment.setPl_id("1");
+        comment.setYh_id("123");
+        comment.setPlnr(req.getParameter("content"));
+        comment.setPlshj("2017-07-18");
+        comment.setHpjb(5);
+        comment.setShp_mch("Y700p");
+        comment.setDd_id("33556");
+        comment.setShp_id("1001");
 
         ICommentDao com = new CommentDaoImpl();
         com.addComment(comment);
 
+        try {
+            resp.sendRedirect("/product/single.do");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void selectUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String yh_id = (String) req.getAttribute("yh_id");
+        ICommentDao cDao = new CommentDaoImpl();
+        List<Comment> cList = null;
+        try {
+            cList = cDao.getCommentUser("yh_id");
+            req.setAttribute("cList",cList);
+            req.getRequestDispatcher("/").forward(req,resp);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
 
     }
+
+    public void selectPro(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String shp_id = (String) req.getAttribute("shp_id");
+        ICommentDao cDao = new CommentDaoImpl();
+        List<Comment> cList = null;
+        try {
+            cList = cDao.getCommentPro("shp_id");
+            req.setAttribute("shp_id",shp_id);
+            req.getRequestDispatcher("/").forward(req,resp);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void del(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String dd_id = (String) req.getAttribute("dd_id");
+        ICommentDao cDao = new CommentDaoImpl();
+        cDao.delComment("dd_id");
+        req.getRequestDispatcher("/").forward(req,resp);
+
+    }
+
+//    public void update(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        String dd_id = (String) req.getAttribute("dd_id");
+//        ICommentDao cDao = new CommentDaoImpl();
+//        cDao.updateComment("dd_id");
+//        req.getRequestDispatcher("/").forward(req,resp);
+//    }
+
 }

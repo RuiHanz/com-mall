@@ -12,32 +12,40 @@ import java.util.List;
 
 public class CommentDaoImpl implements ICommentDao {
     @Override
-    public List<Comment> getComment() {
+    public List<Comment> getCommentUser(String yh_id) throws SQLException{
         QueryRunner qr = new QueryRunner(JdbcUtils.getDs());
-        String sql = "select * from product_comment where shp_id = ?";
-        try {
-            List<Comment> cList = qr.query(sql,new BeanListHandler<>(Comment.class));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
+        String sql = "select * from product_comment where yh_id = ?";
+
+        List<Comment> cList = qr.query(sql,new BeanListHandler<>(Comment.class),yh_id);
+        return cList;
+    }
+
+    @Override
+    public List<Comment> getCommentPro(String shp_id) throws SQLException {
+        QueryRunner qr = new QueryRunner(JdbcUtils.getDs());
+        String sql = "select * from product_comment where yh_id = ?";
+
+        List<Comment> cList = qr.query(sql,new BeanListHandler<>(Comment.class),shp_id);
+        return cList;
+
     }
 
     @Override
     public void addComment(Comment comment) {
         QueryRunner qr = new QueryRunner(JdbcUtils.getDs());
-        String sql = "insert into product_comment (plnr) values (?)";
-
-//        String sql = "insert into product_comment (pl_id,yh_id,plnr,plshj,hpjb,shp_mch,dd_id,shp_id) values (?,?,?,?,?,?,?,?)";
+        String sql = "insert into product_comment (pl_id,yh_id,plnr,plshj,hpjb,shp_mch,dd_id,shp_id) values (?,?,?,?,?,?,?,?)";
         try {
-            qr.query(sql,new BeanHandler<>(Comment.class),comment.getDd_id(),comment.getHpjb(),comment.getPl_id(),comment.getPlnr(),comment.getPlshj(),comment.getShp_id(),comment.getShp_mch(),comment.getYh_id());
+            //qr.insert(sql,new BeanHandler<>(Comment.class));
+            qr.execute(sql,new BeanHandler<>(Comment.class),comment.getPl_id(),comment.getYh_id(),comment.getPlnr(),comment.getPlshj(),comment.getHpjb(),comment.getShp_mch(),comment.getDd_id(),comment.getShp_id());
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
+
+
     @Override
-    public void delComment(int dd_id) {
+    public void delComment(String dd_id) {
         QueryRunner qr = new QueryRunner(JdbcUtils.getDs());
         String sql = "delect from product_comment where dd_id = ?";
         try {
@@ -48,9 +56,14 @@ public class CommentDaoImpl implements ICommentDao {
 
     }
 
-    @Override
-    public void updateComment(int dd_id) {
-        QueryRunner qr = new QueryRunner(JdbcUtils.getDs());
-        String sql =  "";
-    }
+//    @Override
+//    public void updateComment(String dd_id) {
+//        QueryRunner qr = new QueryRunner(JdbcUtils.getDs());
+//        String sql =  "update set plnr = ? where dd_id = ?";
+//        try {
+//            qr.update(sql,dd_id);
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

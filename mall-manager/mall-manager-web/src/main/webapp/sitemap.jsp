@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
 <html>
 <head>
-<title>Site map</title>
+<title>站点地图</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -1310,21 +1310,21 @@
 	<!-- site map -->
 	<div class="sitemap">
 		<div class="container"> 
-			<h3 class="w3ls-title w3ls-title1">Our Sitemap</h3>
+			<h3 class="w3ls-title w3ls-title1">我们的站点</h3>
 			<div class="sitemap-row"> 
 				<nav class="sitemap-tabs" data-spy="affix" data-offset-top="400"> 
 					<div  id="myNavbar">
 						<ul> 
-							<li><a href="#w3sec1"><i class="fa fa-mobile"></i> Electronics</a></li>
-							<li><a href="#w3sec2"><i class="fa fa-slideshare"></i>Fashion Store</a></li>
-							<li><a href="#w3sec3"><i class="fa fa-child"></i> Kids Fashion & Toys</a></li>
-							<li><a href="#w3sec4"><i class="fa fa-home"></i> Home & Furniture</a></li>
-							<li><a href="#w3sec5"><i class="fa fa-futbol-o"></i>Sports & Fitness</a></li> 
-							<li><a href="#w3sec6"><i class="fa fa-shopping-basket"></i> Grocery Store</a></li> 
-							<li><a href="#w3sec7"><i class="fa fa-gift"></i> Photo, Gifts & Office</a></li> 
-							<li><a href="#w3sec8"><i class="fa fa-medkit"></i> Health & Beauty</a></li> 
-							<li><a href="#w3sec9"><i class="fa fa-car"></i> Automotive</a></li> 
-							<li><a href="#w3sec10"><i class="fa fa-book"></i> Books, Music & Movies</a></li> 
+							<li><a href="#w3sec1"><i class="fa fa-mobile"></i> 笔记本</a></li>
+							<li><a href="#w3sec2"><i class="fa fa-slideshare"></i>台式机</a></li>
+							<li><a href="#w3sec3"><i class="fa fa-child"></i> 显卡</a></li>
+							<li><a href="#w3sec4"><i class="fa fa-home"></i> CPU</a></li>
+							<li><a href="#w3sec5"><i class="fa fa-futbol-o"></i>显示器</a></li>
+							<li><a href="#w3sec6"><i class="fa fa-shopping-basket"></i> 耳机</a></li>
+							<li><a href="#w3sec7"><i class="fa fa-gift"></i> 键盘</a></li>
+							<li><a href="#w3sec8"><i class="fa fa-medkit"></i> 鼠标</a></li>
+							<li><a href="#w3sec9"><i class="fa fa-car"></i> 音响</a></li>
+							<li><a href="#w3sec10"><i class="fa fa-book"></i> SSD</a></li>
 						</ul> 
 					</div>
 				</nav>	

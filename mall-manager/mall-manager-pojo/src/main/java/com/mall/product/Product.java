@@ -3,21 +3,21 @@ package com.mall.product;
 import java.util.Date;
 
 public class Product {
-    private int shp_id;//商品id
+    private String shp_id;//商品id
     private String shp_mch;//商品名称
-    private int flmch1_id;//分类名称1
-    private int flmch2_id;//分类名称2
+    private int flmch1_id;//分类名称id1
+    private int flmch2_id;//分类名称id2
     private double shp_jg;//商品价格
     private String shp_msh;//商品描述
     private String shp_ys;//商品颜色
     private int shp_kc;//商品库存
-    private int pp_id;//品牌id
+    private String pp_id;//品牌id
     private Date chjshj;//创建时间
 
     public Product() {
     }
 
-    public Product(int shp_id, String shp_mch, int flmch1_id, int flmch2_id, double shp_jg, String shp_msh, String shp_ys, int shp_kc, int pp_id, Date chjshj) {
+    public Product(String shp_id, String shp_mch, int flmch1_id, int flmch2_id, double shp_jg, String shp_msh, String shp_ys, int shp_kc, String pp_id, Date chjshj) {
         this.shp_id = shp_id;
         this.shp_mch = shp_mch;
         this.flmch1_id = flmch1_id;
@@ -30,11 +30,11 @@ public class Product {
         this.chjshj = chjshj;
     }
 
-    public int getShp_id() {
+    public String getShp_id() {
         return shp_id;
     }
 
-    public void setShp_id(int shp_id) {
+    public void setShp_id(String shp_id) {
         this.shp_id = shp_id;
     }
 
@@ -94,11 +94,11 @@ public class Product {
         this.shp_kc = shp_kc;
     }
 
-    public int getPp_id() {
+    public String getPp_id() {
         return pp_id;
     }
 
-    public void setPp_id(int pp_id) {
+    public void setPp_id(String pp_id) {
         this.pp_id = pp_id;
     }
 

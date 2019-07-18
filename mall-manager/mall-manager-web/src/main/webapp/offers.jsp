@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
 <html>
 <head>
-<title>Offers</title>
+<title>优惠</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -1332,7 +1332,7 @@
 	<!-- offers-page -->
 	<div class="wthree-offers">
 		<div class="container">
-			<h3 class="w3ls-title w3ls-title1">Today's Offers & Gift Cards </h3>
+			<h3 class="w3ls-title w3ls-title1">今天的优惠和礼品卡 </h3>
 			<div class="w3ls-add-grids w3agile-add-products">
 				<a href="#"> 
 					<h4>TOP 10 TRENDS FOR YOU FLAT <span>20%</span> OFF</h4>
@@ -1341,19 +1341,19 @@
 			</div> 
 			<div class="offer-card-row">
 				<div class="col-md-4 offer-card-grids">
-					<h4>20% Cashback </h4>
-					<p>Shop Using Gift Cards Get 20% Cashback</p>
-					<a href="products.html">Shop Now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+					<h4>20% 现金返还 </h4>
+					<p>使用礼品卡购物可获得20%的现金返还</p>
+					<a href="products.html">去看看 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 				</div>
 				<div class="col-md-4 offer-card-grids">
-					<h4>Earn $20</h4>
-					<p>Refer a friend and earn $20 in Smart bazaar!</p>
-					<a href="products.html">Shop Now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+					<h4>赚得 ￥20</h4>
+					<p>推荐一位朋友，即可赚得20元</p>
+					<a href="products.html">去看看 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 				</div>
 				<div class="col-md-4 offer-card-grids">
-					<h4>10% Cashback </h4>
-					<p>Shop Using Credit Card Get 10% Cashback </p>
-					<a href="products.html">Shop Now <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+					<h4>10% 现金返还 </h4>
+					<p>使用信用卡购物可获得10%的现金返还 </p>
+					<a href="products.html">去看看 <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 				</div>	
 				<div class="clearfix"> </div>
 			</div>	
