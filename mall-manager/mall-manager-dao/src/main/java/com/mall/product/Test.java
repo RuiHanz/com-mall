@@ -11,7 +11,7 @@ public class Test {
         IProductDao dao = new ProductDaoImpl();
         List<Product> list = null;
         try {
-             list = dao.getAll();
+             list = dao.findAll();
         } catch (SQLException e) {
             e.printStackTrace();
         }

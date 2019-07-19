@@ -3,7 +3,7 @@ package com.mall.product;
 import java.util.Date;
 
 public class Product {
-    private int shp_id;//商品id
+    private String shp_id;//商品id
     private String shp_mch;//商品名称
     private int flmch1_id;//分类名称1
     private int flmch2_id;//分类名称2
@@ -17,7 +17,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(int shp_id, String shp_mch, int flmch1_id, int flmch2_id, double shp_jg, String shp_msh, String shp_ys, int shp_kc, int pp_id, Date chjshj) {
+    public Product(String shp_id, String shp_mch, int flmch1_id, int flmch2_id, double shp_jg, String shp_msh, String shp_ys, int shp_kc, int pp_id, Date chjshj) {
         this.shp_id = shp_id;
         this.shp_mch = shp_mch;
         this.flmch1_id = flmch1_id;
@@ -30,11 +30,11 @@ public class Product {
         this.chjshj = chjshj;
     }
 
-    public int getShp_id() {
+    public String getShp_id() {
         return shp_id;
     }
 
-    public void setShp_id(int shp_id) {
+    public void setShp_id(String shp_id) {
         this.shp_id = shp_id;
     }
 
@@ -113,7 +113,7 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "shp_id=" + shp_id +
+                "shp_id='" + shp_id + '\'' +
                 ", shp_mch='" + shp_mch + '\'' +
                 ", flmch1_id=" + flmch1_id +
                 ", flmch2_id=" + flmch2_id +

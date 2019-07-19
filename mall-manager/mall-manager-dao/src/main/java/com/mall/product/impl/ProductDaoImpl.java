@@ -19,4 +19,12 @@ public class ProductDaoImpl implements IProductDao {
 
         return pList;
     }
+
+    @Override
+    public List<Product> findAll() throws SQLException {
+        String sql = "select * from product";
+        QueryRunner qr = new QueryRunner(JdbcUtils.getDs());
+        List<Product> pList = qr.query(sql,new BeanListHandler<>(Product.class));
+        return pList;
+    }
 }
