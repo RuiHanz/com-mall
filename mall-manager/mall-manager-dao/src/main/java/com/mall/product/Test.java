@@ -1,20 +1,18 @@
 package com.mall.product;
 
-import com.mall.product.impl.ProductDaoImpl;
-import com.mall.product.impl.ShopCartImpl;
+
+import com.mall.product.impl.MarkDaoImpl;
+
 
 import java.sql.SQLException;
 import java.util.List;
 
 public class Test {
-    public static void main(String[] args) {
-        IProductDao dao = new ProductDaoImpl();
-        List<Product> list = null;
-        try {
-             list = dao.findAll();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        System.out.println(list);
+    public static void main(String[] args) throws SQLException {
+        MarkDaoImpl mark = new MarkDaoImpl();
+        List<Mark> mList = mark.findAll();
+        List<Category> cList = mark.findCAll();
+        System.out.println(mList);
+        System.out.println(cList);
     }
 }

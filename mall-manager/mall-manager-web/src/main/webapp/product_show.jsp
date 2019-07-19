@@ -1391,7 +1391,7 @@
 			<!--陈希元的商品展示-->
 			<div class="products-row">
 				<div class="col-md-3 product-grids" >
-					<c:forEach items="${pList}" var="p" >
+					<c:forEach items="${pList}" var="p" begin="0" end="1">
 					<div class="agile-products" >
 						<div class="new-tag"><h6>18%<br>Off</h6></div>
 						<a href="single.jsp"><img src="images/f7.png" class="img-responsive" alt="img"></a>
@@ -1410,10 +1410,10 @@
 					</c:forEach>
 				</div>
 				<div class="col-md-3 product-grids" >
-					<c:forEach items="${pList}" var="p" >
+					<c:forEach items="${pList}" var="p" begin="2" end="3">
 						<div class="agile-products" >
 							<div class="new-tag"><h6>18%<br>Off</h6></div>
-							<a href="single.jsp"><img src="images/f7.png" class="img-responsive" alt="img"></a>
+							<a href="single.jsp"><img src="images/f5.png" class="img-responsive" alt="img"></a>
 							<div class="agile-product-text" >
 								<h5><a href="product_show.jsp">${p.shp_mch}</a></h5>
 								<h6><del>$25</del> ${p.shp_jg}</h6>
@@ -1429,10 +1429,10 @@
 					</c:forEach>
 				</div>
 				<div class="col-md-3 product-grids" >
-					<c:forEach items="${pList}" var="p" >
+					<c:forEach items="${pList}" var="p" begin="4" end="5">
 						<div class="agile-products" >
 							<div class="new-tag"><h6>18%<br>Off</h6></div>
-							<a href="single.jsp"><img src="images/f7.png" class="img-responsive" alt="img"></a>
+							<a href="single.jsp"><img src="images/f8.png" class="img-responsive" alt="img"></a>
 							<div class="agile-product-text" >
 								<h5><a href="product_show.jsp">${p.shp_mch}</a></h5>
 								<h6><del>$25</del> ${p.shp_jg}</h6>
@@ -1448,10 +1448,10 @@
 					</c:forEach>
 				</div>
 				<div class="col-md-3 product-grids" >
-					<c:forEach items="${pList}" var="p" >
+					<c:forEach items="${pList}" var="p" begin="6" end="7">
 						<div class="agile-products" >
 							<div class="new-tag"><h6>18%<br>Off</h6></div>
-							<a href="single.jsp"><img src="images/f7.png" class="img-responsive" alt="img"></a>
+							<a href="single.jsp"><img src="images/f6.png" class="img-responsive" alt="img"></a>
 							<div class="agile-product-text" >
 								<h5><a href="product_show.jsp">${p.shp_mch}</a></h5>
 								<h6><del>$25</del> ${p.shp_jg}</h6>
