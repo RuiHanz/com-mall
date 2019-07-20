@@ -99,6 +99,11 @@
     </script>
     <!-- //smooth-scrolling-of-move-up -->
     <script src="js/bootstrap.js"></script>
+	<script type="text/javascript">
+        function product() {
+            location.href="http://localhost:9099/ProductFindAllServlet";
+        }
+	</script>
 </head>
 <body>
 <!--Begin Header Begin-->
@@ -153,8 +158,8 @@
                             <a href="#">${m.ppmch}</a>
                             <ul class="cd-secondary-dropdown is-hidden" >
                                 <c:forEach items="${cList}" var="c">
-                                    <li>
-                                        <a href="#">${c.flmch2}</a>
+                                    <li onclick="product()">
+                                        ${c.flmch2}
                                     </li>
                                 </c:forEach>
                             </ul>
@@ -222,7 +227,6 @@
     <script src="js/custom.js"></script>
 </div>
 <!-- //banner -->
-<div class="tlinks">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
 <!-- welcome -->
 <div class="welcome">
     <div class="container">

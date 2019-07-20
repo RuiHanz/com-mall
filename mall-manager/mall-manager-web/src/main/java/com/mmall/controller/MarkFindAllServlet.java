@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet("/MarkFindAllServlet")
+@WebServlet("")
 public class MarkFindAllServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
@@ -28,8 +28,8 @@ public class MarkFindAllServlet extends HttpServlet {
             mList = m.findAll();
             //附属目录下的子目录
             cList = m.findCAll();
-            request.setAttribute("mList",mList);
-            request.setAttribute("cList",cList);
+            request.getSession().setAttribute("mList",mList);
+            request.getSession().setAttribute("cList",cList);
             request.getRequestDispatcher("index.jsp").forward(request,response);
             return;
         } catch (SQLException e) {
