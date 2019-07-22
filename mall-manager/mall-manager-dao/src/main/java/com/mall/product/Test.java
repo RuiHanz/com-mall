@@ -2,6 +2,7 @@ package com.mall.product;
 
 
 import com.mall.product.impl.MarkDaoImpl;
+import com.mall.product.impl.ProductDaoImpl;
 
 
 import java.sql.SQLException;

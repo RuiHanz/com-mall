@@ -9,4 +9,5 @@ public interface IProductDao {
     //陈希元：查询全部商品
     public List<Product> findAll() throws SQLException;
 
+
 }

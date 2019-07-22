@@ -200,7 +200,7 @@
 									<ul class="cd-secondary-dropdown is-hidden" >
 										<c:forEach items="${cList}" var="c">
 											<li onclick="product()">
-												${c.flmch2}
+												<a>${c.flmch2}</a>
 											</li>
 										</c:forEach>
 									</ul>
@@ -226,7 +226,7 @@
 <!-- products -->
 <div class="products">
 	<div class="container">
-		<div class="col-md-9 product-w3ls-right">
+		<div class="col-md-9 product-w3ls-right" style="width: 104%">
 			<!-- breadcrumbs -->
 			<ol class="breadcrumb breadcrumb1">
 				<li><a href="index.html">首页</a></li>
@@ -239,85 +239,20 @@
 				<div class="clearfix"> </div>
 			</div>
 			<!--陈希元的商品展示-->
-			<div class="products-row">
-				<div class="col-md-3 product-grids" >
-					<c:forEach items="${pList}" var="p" begin="0" end="1">
-					<div class="agile-products" >
+					<c:forEach items="${pList}" var="p" varStatus="vs">
+					<div class="agile-products" style="float: left" >
 						<div class="new-tag"><h6>18%<br>Off</h6></div>
-						<a href="single.jsp"><img src="images/f7.png" class="img-responsive" alt="img"></a>
+								<c:forEach items="${piList}" var="pi" begin="${vs.index}" end="${vs.index}">
+						<a href="single.jsp"><img src="images/${pi.url}" class="img-responsive" alt="img"></a>
+								</c:forEach>
 						<div class="agile-product-text"  onclick="toProduct()">
 							<h5><a href="product_show.jsp">${p.shp_mch}</a></h5>
 							<h6><del>$25</del> ${p.shp_jg}</h6>
-							<form action="#" method="post">
-								<input type="hidden" name="cmd" value="_cart" />
-								<input type="hidden" name="add" value="1" />
-								<input type="hidden" name="w3ls_item" value="${p.shp_mch}" />
-								<input type="hidden" name="amount" value="${p.shp_jg}" />
-								<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> 加入购物车</button>
-							</form>
+							<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> 加入购物车</button>
 						</div>
 					</div>
 					</c:forEach>
-				</div>
-				<div class="col-md-3 product-grids" >
-					<c:forEach items="${pList}" var="p" begin="2" end="3">
-						<div class="agile-products" >
-							<div class="new-tag"><h6>18%<br>Off</h6></div>
-							<a href="single.jsp"><img src="images/f5.png" class="img-responsive" alt="img"></a>
-							<div class="agile-product-text" onclick="toProduct()">
-								<h5><a href="product_show.jsp">${p.shp_mch}</a></h5>
-								<h6><del>$25</del> ${p.shp_jg}</h6>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" />
-									<input type="hidden" name="w3ls_item" value="${p.shp_mch}" />
-									<input type="hidden" name="amount" value="${p.shp_jg}" />
-									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> 加入购物车</button>
-								</form>
-							</div>
-						</div>
-					</c:forEach>
-				</div>
-				<div class="col-md-3 product-grids" >
-					<c:forEach items="${pList}" var="p" begin="4" end="5">
-						<div class="agile-products" >
-							<div class="new-tag"><h6>18%<br>Off</h6></div>
-							<a href="single.jsp"><img src="images/f8.png" class="img-responsive" alt="img"></a>
-							<div class="agile-product-text" onclick="toProduct()">
-								<h5><a href="product_show.jsp">${p.shp_mch}</a></h5>
-								<h6><del>$25</del> ${p.shp_jg}</h6>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" />
-									<input type="hidden" name="w3ls_item" value="${p.shp_mch}" />
-									<input type="hidden" name="amount" value="${p.shp_jg}" />
-									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> 加入购物车</button>
-								</form>
-							</div>
-						</div>
-					</c:forEach>
-				</div>
-				<div class="col-md-3 product-grids" >
-					<c:forEach items="${pList}" var="p" begin="6" end="7">
-						<div class="agile-products" >
-							<div class="new-tag"><h6>18%<br>Off</h6></div>
-							<a href="single.jsp"><img src="images/f6.png" class="img-responsive" alt="img"></a>
-							<div class="agile-product-text" onclick="toProduct()">
-								<h5><a href="product_show.jsp">${p.shp_mch}</a></h5>
-								<h6><del>$25</del> ${p.shp_jg}</h6>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" />
-									<input type="hidden" name="w3ls_item" value="${p.shp_mch}" />
-									<input type="hidden" name="amount" value="${p.shp_jg}" />
-									<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> 加入购物车</button>
-								</form>
-							</div>
-						</div>
-					</c:forEach>
-				</div>
 				<div class="clearfix"> </div>
-			</div>
 			<!--//陈希元的商品展示-->
 			<!-- add-products -->
 			<div class="w3ls-add-grids w3agile-add-products">
@@ -347,149 +282,26 @@
 
                 });
 			</script>
+			<%--推荐商品滚动	：陈希元--%>
 			<div id="owl-demo5" class="owl-carousel">
+				<c:forEach items="${pList}" var="p" varStatus="vs" begin="0" end="7">
 				<div class="item">
 					<div class="glry-w3agile-grids agileits">
 						<div class="new-tag"><h6>20% <br> Off</h6></div>
-						<a href="products1.html"><img src="images/f2.png" alt="img"></a>
+						<c:forEach items="${piList}" var="pi" begin="${vs.index}" end="${vs.index}">
+						<a href="products1.html"><img src="images/${pi.url}" alt="img"></a>
+						</c:forEach>
 						<div class="view-caption agileits-w3layouts">
-							<h4><a href="products1.html">Women Sandal</a></h4>
-							<p>Lorem ipsum dolor sit amet consectetur</p>
+							<h4><a href="products1.html">${p.shp_mch}</a></h4>
+							<p>${p.shp_msh}</p>
 							<h5>$20</h5>
-							<form action="#" method="post">
-								<input type="hidden" name="cmd" value="_cart" />
-								<input type="hidden" name="add" value="1" />
-								<input type="hidden" name="w3ls_item" value="Women Sandal" />
-								<input type="hidden" name="amount" value="20.00" />
-								<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-							</form>
+							<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
 						</div>
 					</div>
 				</div>
-				<div class="item">
-					<div class="glry-w3agile-grids agileits">
-						<a href="products.html"><img src="images/e4.png" alt="img"></a>
-						<div class="view-caption agileits-w3layouts">
-							<h4><a href="products.html">Digital Camera</a></h4>
-							<p>Lorem ipsum dolor sit amet consectetur</p>
-							<h5>$80</h5>
-							<form action="#" method="post">
-								<input type="hidden" name="cmd" value="_cart" />
-								<input type="hidden" name="add" value="1" />
-								<input type="hidden" name="w3ls_item" value="Digital Camera"/>
-								<input type="hidden" name="amount" value="100.00" />
-								<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="glry-w3agile-grids agileits">
-						<div class="new-tag"><h6>New</h6></div>
-						<a href="products4.html"><img src="images/s1.png" alt="img"></a>
-						<div class="view-caption agileits-w3layouts">
-							<h4><a href="products4.html">Roller Skates</a></h4>
-							<p>Lorem ipsum dolor sit amet consectetur</p>
-							<h5>$180</h5>
-							<form action="#" method="post">
-								<input type="hidden" name="cmd" value="_cart" />
-								<input type="hidden" name="add" value="1" />
-								<input type="hidden" name="w3ls_item" value="Roller Skates"/>
-								<input type="hidden" name="amount" value="180.00" />
-								<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="glry-w3agile-grids agileits">
-						<a href="products1.html"><img src="images/f1.png" alt="img"></a>
-						<div class="view-caption agileits-w3layouts">
-							<h4><a href="products1.html">T Shirt</a></h4>
-							<p>Lorem ipsum dolor sit amet consectetur</p>
-							<h5>$10</h5>
-							<form action="#" method="post">
-								<input type="hidden" name="cmd" value="_cart" />
-								<input type="hidden" name="add" value="1" />
-								<input type="hidden" name="w3ls_item" value="T Shirt" />
-								<input type="hidden" name="amount" value="10.00" />
-								<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="glry-w3agile-grids agileits">
-						<div class="new-tag"><h6>New</h6></div>
-						<a href="products6.html"><img src="images/p1.png" alt="img"></a>
-						<div class="view-caption agileits-w3layouts">
-							<h4><a href="products6.html">Coffee Mug</a></h4>
-							<p>Lorem ipsum dolor sit amet consectetur</p>
-							<h5>$14</h5>
-							<form action="#" method="post">
-								<input type="hidden" name="cmd" value="_cart" />
-								<input type="hidden" name="add" value="1" />
-								<input type="hidden" name="w3ls_item" value="Coffee Mug" />
-								<input type="hidden" name="amount" value="14.00" />
-								<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="glry-w3agile-grids agileits">
-						<div class="new-tag"><h6>20% <br> Off</h6></div>
-						<a href="products6.html"><img src="images/p2.png" alt="img"></a>
-						<div class="view-caption agileits-w3layouts">
-							<h4><a href="products6.html">Teddy bear</a></h4>
-							<p>Lorem ipsum dolor sit amet consectetur</p>
-							<h5>$20</h5>
-							<form action="#" method="post">
-								<input type="hidden" name="cmd" value="_cart" />
-								<input type="hidden" name="add" value="1" />
-								<input type="hidden" name="w3ls_item" value="Teddy bear" />
-								<input type="hidden" name="amount" value="20.00" />
-								<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="glry-w3agile-grids agileits">
-						<a href="products4.html"><img src="images/s2.png" alt="img"></a>
-						<div class="view-caption agileits-w3layouts">
-							<h4><a href="products4.html">Football</a></h4>
-							<p>Lorem ipsum dolor sit amet consectetur</p>
-							<h5>$70</h5>
-							<form action="#" method="post">
-								<input type="hidden" name="cmd" value="_cart" />
-								<input type="hidden" name="add" value="1" />
-								<input type="hidden" name="w3ls_item" value="Football"/>
-								<input type="hidden" name="amount" value="70.00"/>
-								<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="glry-w3agile-grids agileits">
-						<div class="new-tag"><h6>Sale</h6></div>
-						<a href="products3.html"><img src="images/h1.png" alt="img"></a>
-						<div class="view-caption agileits-w3layouts">
-							<h4><a href="products3.html">Wall Clock</a></h4>
-							<p>Lorem ipsum dolor sit amet consectetur</p>
-							<h5>$80</h5>
-							<form action="#" method="post">
-								<input type="hidden" name="cmd" value="_cart" />
-								<input type="hidden" name="add" value="1" />
-								<input type="hidden" name="w3ls_item" value="Wall Clock" />
-								<input type="hidden" name="amount" value="80.00" />
-								<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-							</form>
-						</div>
-					</div>
-				</div>
+				</c:forEach>
 			</div>
+			<%--//推荐商品展示：陈希元--%>
 		</div>
 		<!-- //recommendations -->
 	</div>
@@ -646,8 +458,6 @@
 <script src="js/jquery.menu-aim.js"> </script>
 <script src="js/main.js"></script> <!-- Resource jQuery -->
 <!-- //menu js aim -->
-<!-- Bootstrap core JavaScript
-================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="js/bootstrap.js"></script>
 </body>

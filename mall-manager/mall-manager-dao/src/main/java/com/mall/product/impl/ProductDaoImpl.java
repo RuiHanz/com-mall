@@ -2,6 +2,7 @@ package com.mall.product.impl;
 
 import com.mall.product.IProductDao;
 import com.mall.product.Product;
+import com.mall.product.ProductImg;
 import com.mall.user.utils.JdbcUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
@@ -27,4 +28,5 @@ public class ProductDaoImpl implements IProductDao {
         List<Product> pList = qr.query(sql,new BeanListHandler<>(Product.class));
         return pList;
     }
+
 }
