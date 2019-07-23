@@ -2,7 +2,11 @@ package com.mmall.controller;
 
 import com.mall.product.Category;
 import com.mall.product.Mark;
+import com.mall.product.Product;
+import com.mall.product.ProductImg;
 import com.mall.product.impl.MarkDaoImpl;
+import com.mall.product.impl.ProImgDaoImpl;
+import com.mall.product.impl.ProductDaoImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,6 +25,10 @@ public class MarkFindAllServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         MarkDaoImpl m = new MarkDaoImpl();
+        ProductDaoImpl pro = new ProductDaoImpl();
+        ProImgDaoImpl pi = new ProImgDaoImpl();
+        List<ProductImg> piList = null;
+        List<Product> pList = null;
         List<Mark> mList = null;
         List<Category> cList = null;
         try {
@@ -30,6 +38,10 @@ public class MarkFindAllServlet extends HttpServlet {
             cList = m.findCAll();
             request.getSession().setAttribute("mList",mList);
             request.getSession().setAttribute("cList",cList);
+            pList = pro.findAll();
+            piList = pi.findAll();
+            request.setAttribute("pList",pList);
+            request.setAttribute("piList",piList);
             request.getRequestDispatcher("index.jsp").forward(request,response);
             return;
         } catch (SQLException e) {

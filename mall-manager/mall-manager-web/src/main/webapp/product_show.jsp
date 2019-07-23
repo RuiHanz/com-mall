@@ -98,6 +98,13 @@
 	<!-- //the jScrollPane script -->
 	<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 	<!-- the mousewheel plugin -->
+	<style type="text/css">
+		#cxy{
+			padding: 0px 0px 0px 2px;
+			top: 40px;
+			box-shadow: 0 2px 14px rgba(0,0,0,0);
+		}
+	</style>
 	<script type="text/javascript">
         function product() {
             location.href="http://localhost:9099/ProductFindAllServlet";
@@ -108,78 +115,37 @@
 	</script>
 </head>
 <body>
-<!-- header -->
-
-<div class="header">
-	<div class="w3ls-header"><!--header-one-->
-		<div class="w3ls-header-left">
-			<p><a href="#">海哥给您请安了！！！！</a></p>
-		</div>
-		<div class="w3ls-header-right">
-			<ul>
-				<li class="dropdown head-dpdn">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> 我的账户<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="login.html">登录 </a></li>
-						<li><a href="signup.jsp">注册</a></li>
-						<li><a href="login.html">我的订单</a></li>
-						<li><a href="login.html">我的钱包</a></li>
-					</ul>
-				</li>
-				<li class="dropdown head-dpdn">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-percent" aria-hidden="true"></i> 今日交易<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="offers.jsp">现金返还优惠</a></li>
-						<li><a href="offers.jsp">折扣商品</a></li>
-						<li><a href="offers.jsp">特价商品</a></li>
-					</ul>
-				</li>
-				<li class="dropdown head-dpdn">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gift" aria-hidden="true"></i> 折扣券<span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="offers.jsp">限时卡券</a></li>
-						<li><a href="offers.jsp">卡券册</a></li>
-						<li><a href="offers.jsp">查看余额</a></li>
-					</ul>
-				</li>
-				<li class="dropdown head-dpdn">
-					<a href="contact.jsp" class="dropdown-toggle"><i class="fa fa-map-marker" aria-hidden="true"></i> 公司所属地</a>
-				</li>
-				<li class="dropdown head-dpdn">
-					<a href="card.jsp" class="dropdown-toggle"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> 支付</a>
-				</li>
-				<li class="dropdown head-dpdn">
-					<a href="help.jsp" class="dropdown-toggle"><i class="fa fa-question-circle" aria-hidden="true"></i> 帮助</a>
-				</li>
-			</ul>
-		</div>
-		<div class="clearfix"> </div>
-	</div>
-	<div class="header-two"><!-- header-two -->
-		<div class="container">
-			<div class="header-logo">
-				<h1><a href="index.html"><span>海</span>哥 <i>电脑城</i></a></h1>
-				<h6>你的商店，你做主</h6>
+	<!-- header -->
+	<div class="header">
+		<div class="w3ls-header"><!--header-one-->
+			<div class="w3ls-header-left">
+				<p><a href="#">海哥给您请安了！！！！</a></p>
 			</div>
-			<div class="header-search">
-				<form action="#" method="post">
-					<input type="search" name="Search" placeholder="海哥帮你找......" required="">
-					<button type="submit" class="btn btn-default" aria-label="Left Align">
-						<i class="fa fa-search" aria-hidden="true"> </i>
-					</button>
-				</form>
+			<div class="w3ls-header-right">
+				<ul>
+					<li class="dropdown head-dpdn">
+						<a href="login.jsp" class="dropdown-toggle" > 登录 </a>
+						<a href="signup.jsp" class="dropdown-toggle" > 注册 </a>
+					</li>
+				</ul>
 			</div>
-			<div class="header-cart">
-				<div class="my-account">
-					<a href="contact.jsp"><i class="fa fa-map-marker" aria-hidden="true"></i> 联系我们</a>
+			<div class="clearfix"> </div>
+		</div>
+		<div class="header-two"><!-- header-two -->
+			<div class="container">
+				<div class="header-logo">
+					<h1><a href="index.html"><span>海</span>哥 <i>电脑城</i></a></h1>
+					<h6>你的商店，你做主</h6>
 				</div>
-				<div class="cart">
-					<form action="#" method="post" class="last">
-						<input type="hidden" name="cmd" value="_cart" />
-						<input type="hidden" name="display" value="1" />
-						<button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
+				<div class="header-search">
+					<form action="#" method="post">
+						<input type="search" name="Search" placeholder="海哥帮你找......" required="">
+						<button type="submit" class="btn btn-default" aria-label="Left Align">
+							<i class="fa fa-search" aria-hidden="true"> </i>
+						</button>
 					</form>
 				</div>
+				
 				<div class="clearfix"> </div>
 			</div>
 			<div class="clearfix"> </div>
@@ -193,24 +159,26 @@
 					<nav class="cd-dropdown">
 						<a href="#0" class="cd-close">Close</a>
 						<ul class="cd-dropdown-content">
+							<!--目录部分-->
 							<li><a href="offers.jsp">今日优惠</a></li>
 							<c:forEach items="${mList}" var="m" varStatus="status">
 								<li class="has-children">
 									<a href="#">${m.ppmch}</a>
-									<ul class="cd-secondary-dropdown is-hidden" >
+									<ul class="cd-secondary-dropdown " style="width: 280px " id="cxy">
 										<c:forEach items="${cList}" var="c">
-											<li onclick="product()">
-												<a>${c.flmch2}</a>
+											<li onclick="product()" style="width: 52%" >
+												<cc style="cursor: grab">${c.flmch2}</cc>
 											</li>
 										</c:forEach>
 									</ul>
 								</li>
 							</c:forEach>
-							<li><a href="sitemap.jsp">商品大全 </a></li>
-						</ul> <!-- .cd-dropdown-content -->
-					</nav> <!-- .cd-dropdown -->
-				</div> <!-- .cd-dropdown-wrapper -->
+							<!--//目录部分-->
+						</ul>
+					</nav>
+				</div>
 			</div>
+			
 			<div class="move-text">
 				<div class="marquee"><a href="offers.jsp"> 海哥希望你们多买点 <span>加我微信给你降价 </span> <span> 海哥永远给你们最好的，但是有点贵！</span></a></div>
 				<script type="text/javascript" src="js/jquery.marquee.min.js"></script>
@@ -221,10 +189,10 @@
 			</div>
 		</div>
 	</div>
-</div>
-<!-- //header -->
-<!-- products -->
-<div class="products">
+	</div>
+	<!-- //header -->
+	<!-- products -->
+	<div class="products">
 	<div class="container">
 		<div class="col-md-9 product-w3ls-right" style="width: 104%">
 			<!-- breadcrumbs -->
@@ -306,9 +274,9 @@
 		<!-- //recommendations -->
 	</div>
 </div>
-<!--//products-->
-<!-- footer-top -->
-<div class="w3agile-ftr-top">
+	<!--//products-->
+	<!-- footer-top -->
+	<div class="w3agile-ftr-top">
 	<div class="container">
 		<div class="ftr-toprow">
 			<div class="col-md-4 ftr-top-grids">
@@ -345,9 +313,9 @@
 		</div>
 	</div>
 </div>
-<!-- //footer-top -->
-<!-- subscribe -->
-<div class="subscribe">
+	<!-- //footer-top -->
+	<!-- subscribe -->
+	<div class="subscribe">
 	<div class="container">
 		<div class="col-md-6 social-icons w3-agile-icons">
 			<h4>保持联系哦</h4>
@@ -376,9 +344,9 @@
 		<div class="clearfix"> </div>
 	</div>
 </div>
-<!-- //subscribe -->
-<!-- footer -->
-<div class="footer">
+	<!-- //subscribe -->
+	<!-- footer -->
+	<div class="footer">
 	<div class="container">
 		<div class="footer-info w3-agileits-info">
 			<div class="col-md-4 address-left agileinfo">
@@ -429,15 +397,15 @@
 		</div>
 	</div>
 </div>
-<!-- //footer -->
-<div class="copy-right">
+	<!-- //footer -->
+	<div class="copy-right">
 	<div class="container">
 		<p>Copyright &copy; 2019.Company name All rights reserved. <a href="http://www.baidu.com/" target="_blank" title="baidu">海哥全知道</a> </p>
 	</div>
 </div>
-<!-- cart-js -->
-<script src="js/minicart.js"></script>
-<script>
+	<!-- cart-js -->
+	<script src="js/minicart.js"></script>
+	<script>
     w3ls.render();
 
     w3ls.cart.on('w3sb_checkout', function (evt) {
@@ -453,12 +421,12 @@
         }
     });
 </script>
-<!-- //cart-js -->
-<!-- menu js aim -->
-<script src="js/jquery.menu-aim.js"> </script>
-<script src="js/main.js"></script> <!-- Resource jQuery -->
-<!-- //menu js aim -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="js/bootstrap.js"></script>
+	<!-- //cart-js -->
+	<!-- menu js aim -->
+	<script src="js/jquery.menu-aim.js"> </script>
+	<script src="js/main.js"></script> <!-- Resource jQuery -->
+	<!-- //menu js aim -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="js/bootstrap.js"></script>
 </body>
 </html>

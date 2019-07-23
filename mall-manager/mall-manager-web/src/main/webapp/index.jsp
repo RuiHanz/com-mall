@@ -99,6 +99,13 @@
     </script>
     <!-- //smooth-scrolling-of-move-up -->
     <script src="js/bootstrap.js"></script>
+	<style type="text/css">
+		#cxy{
+			padding: 0px 0px 0px 2px;
+			top: 40px;
+			box-shadow: 0 2px 14px rgba(0,0,0,0);
+		}
+	</style>
 	<script type="text/javascript">
         function product() {
             location.href="http://localhost:9099/ProductFindAllServlet";
@@ -147,7 +154,7 @@
     <div class="container">
         <div class="menu">
             <div class="cd-dropdown-wrapper">
-                <a class="cd-dropdown-trigger" href="#0">商品目录</a>
+	            <a class="cd-dropdown-trigger" href="#0">商品目录</a>
                 <nav class="cd-dropdown">
                     <a href="#0" class="cd-close">Close</a>
                     <ul class="cd-dropdown-content">
@@ -156,16 +163,15 @@
                         <c:forEach items="${mList}" var="m" varStatus="status">
                         <li class="has-children">
                             <a href="#">${m.ppmch}</a>
-                            <ul class="cd-secondary-dropdown is-hidden" >
+                            <ul class="cd-secondary-dropdown " style="width: 280px " id="cxy">
                                 <c:forEach items="${cList}" var="c">
-                                    <li onclick="product()">
-                                        ${c.flmch2}
+                                    <li onclick="product()" style="width: 52%" >
+	                                    <cc style="cursor: grab">${c.flmch2}</cc>
                                     </li>
                                 </c:forEach>
                             </ul>
                         </li>
                         </c:forEach>
-                        <li><a href="offers.jsp">所有品牌</a></li>
 	                    <!--//目录部分-->
                     </ul>
                 </nav>
@@ -188,8 +194,8 @@
 <div class="banner">
     <div id="kb" class="carousel kb_elastic animate_text kb_wrapper" data-ride="carousel" data-interval="6000" data-pause="hover">
         <!-- Wrapper-for-Slides -->
-        <div class="carousel-inner" role="listbox">
-            <div class="item active"><!-- First-Slide -->
+        <div class="carousel-inner" role="listbox" onclick="product()">
+            <div class="item active" ><!-- First-Slide -->
                 <img src="images/5.jpg" alt="" class="img-responsive" />
                 <div class="carousel-caption kb_caption kb_caption_right">
                     <h3 data-animation="animated flipInX">商品 <span>50%</span> 折扣</h3>
@@ -227,35 +233,13 @@
     <script src="js/custom.js"></script>
 </div>
 <!-- //banner -->
-<!-- welcome -->
-<div class="welcome">
+<!-- 笔记本 -->
+<div class="welcome" style="padding: 0em 0">
     <div class="container">
         <div class="welcome-info">
             <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-                <ul id="myTab" class=" nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" >
-                        <i class="fa fa-laptop" aria-hidden="true"></i>
-                        <h5>惠普</h5>
-                    </a></li>
-                    <li role="presentation"><a href="#carl" role="tab" id="carl-tab" data-toggle="tab">
-                        <i class="fa fa-female" aria-hidden="true"></i>
-                        <h5>联想</h5>
-                    </a></li>
-                    <li role="presentation"><a href="#james" role="tab" id="james-tab" data-toggle="tab">
-                        <i class="fa fa-gift" aria-hidden="true"></i>
-                        <h5>雷神</h5>
-                    </a></li>
-                    <li role="presentation"><a href="#decor" role="tab" id="decor-tab" data-toggle="tab">
-                        <i class="fa fa-home" aria-hidden="true"></i>
-                        <h5>ACER</h5>
-                    </a></li>
-                    <li role="presentation"><a href="#sports" role="tab" id="sports-tab" data-toggle="tab">
-                        <i class="fa fa-motorcycle" aria-hidden="true"></i>
-                        <h5>神州</h5>
-                    </a></li>
-                </ul>
                 <div class="clearfix"> </div>
-                <h3 class="w3ls-title">热销商品</h3>
+                <h3 class="w3ls-title">笔记本</h3>
                 <div id="myTabContent" class="tab-content">
                     <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
                         <div class="tabcontent-grids">
@@ -1053,34 +1037,178 @@
         </div>
     </div>
 </div>
-<!-- //welcome -->
+<!-- //笔记本 -->
+<!--一体机-->
+<div class="welcome" style="padding: 0em 0">
+	<div class="container">
+		<div class="welcome-info">
+			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+				<div class="recommend">
+					<h3 class="w3ls-title">一体机</h3>
+					<script>
+                        $(document).ready(function() {
+                            $("#owl-demo5").owlCarousel({
+
+                                autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+                                items :4,
+                                itemsDesktop : [640,5],
+                                itemsDesktopSmall : [414,4],
+                                navigation : true
+
+                            });
+
+                        });
+					</script>
+					<%--推荐商品滚动	：陈希元--%>
+					<div id="owl-demo5" class="owl-carousel">
+						<c:forEach items="${pList}" var="p" varStatus="vs" begin="0" end="4">
+							<div class="item">
+								<div class="glry-w3agile-grids agileits">
+									<div class="new-tag"><h6>20% <br> Off</h6></div>
+									<c:forEach items="${piList}" var="pi" begin="${vs.index}" end="${vs.index}">
+										<a href="products1.html"><img src="images/${pi.url}" alt="img"></a>
+									</c:forEach>
+									<div class="view-caption agileits-w3layouts">
+										<h4><a href="products1.html">${p.shp_mch}</a></h4>
+										<p>${p.shp_msh}</p>
+										<h5>$20</h5>
+										<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 加入购物车</button>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
+					</div>
+					<%--//推荐商品展示：陈希元--%>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--//一体机-->
 <!-- add-products -->
 <div class="add-products">
-    <div class="container">
-        <div class="add-products-row">
-            <div class="w3ls-add-grids">
-                <a href="products1.jsp">
-                    <!--					<h4>英特尔芯体验 <span>20%</span> 降价</h4>-->
-                    <h6><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
-                </a>
-            </div>
-            <div class="w3ls-add-grids w3ls-add-grids-mdl">
-                <a href="products1.jsp">
-                    <!--					<h4>SUNDAY SPECIAL DISCOUNT FLAT <span>40%</span> OFF</h4>-->
-                    <h6><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
-                </a>
-            </div>
-            <div class="w3ls-add-grids w3ls-add-grids-mdl1">
-                <a href="products.jsp">
-                    <!--					<h4>LATEST DESIGNS FOR YOU <span> Hurry !</span></h4>-->
-                    <h6><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
-                </a>
-            </div>
-            <div class="clerfix"> </div>
-        </div>
-    </div>
+	<div class="container">
+		<div class="add-products-row">
+			<div class="w3ls-add-grids">
+				<a href="products1.jsp">
+					<!--					<h4>英特尔芯体验 <span>20%</span> 降价</h4>-->
+					<h6><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
+				</a>
+			</div>
+			<div class="w3ls-add-grids w3ls-add-grids-mdl">
+				<a href="products1.jsp">
+					<!--					<h4>SUNDAY SPECIAL DISCOUNT FLAT <span>40%</span> OFF</h4>-->
+					<h6><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
+				</a>
+			</div>
+			<div class="w3ls-add-grids w3ls-add-grids-mdl1">
+				<a href="products.jsp">
+					<!--					<h4>LATEST DESIGNS FOR YOU <span> Hurry !</span></h4>-->
+					<h6><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
+				</a>
+			</div>
+			<div class="clerfix"> </div>
+		</div>
+	</div>
 </div>
 <!-- //add-products -->
+<!--工作站-->
+<div class="welcome" style="padding: 0em 0">
+	<div class="container">
+		<div class="welcome-info">
+			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+				<div class="recommend">
+					<h3 class="w3ls-title">工作站</h3>
+					<script>
+                        $(document).ready(function() {
+                            $("#owl-demo51").owlCarousel({
+
+                                autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+                                items :4,
+                                itemsDesktop : [640,5],
+                                itemsDesktopSmall : [414,4],
+                                navigation : true
+
+                            });
+
+                        });
+					</script>
+					<%--推荐商品滚动	：陈希元--%>
+					<div id="owl-demo51" class="owl-carousel">
+						<c:forEach items="${pList}" var="p" varStatus="vs" begin="3" end="7">
+							<div class="item">
+								<div class="glry-w3agile-grids agileits">
+									<div class="new-tag"><h6>20% <br> Off</h6></div>
+									<c:forEach items="${piList}" var="pi" begin="${vs.index}" end="${vs.index}">
+										<a href="products1.html"><img src="images/${pi.url}" alt="img"></a>
+									</c:forEach>
+									<div class="view-caption agileits-w3layouts">
+										<h4><a href="products1.html">${p.shp_mch}</a></h4>
+										<p>${p.shp_msh}</p>
+										<h5>$20</h5>
+										<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 加入购物车</button>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
+					</div>
+					<%--//推荐商品展示：陈希元--%>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--//工作站-->
+<!--一台式机-->
+<div class="welcome" style="padding: 0em 0">
+	<div class="container">
+		<div class="welcome-info">
+			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+				<div class="recommend">
+					<h3 class="w3ls-title">台式机</h3>
+					<script>
+                        $(document).ready(function() {
+                            $("#owl-demo52").owlCarousel({
+
+                                autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+                                items :4,
+                                itemsDesktop : [640,5],
+                                itemsDesktopSmall : [414,4],
+                                navigation : true
+
+                            });
+
+                        });
+					</script>
+					<%--推荐商品滚动	：陈希元--%>
+					<div id="owl-demo52" class="owl-carousel">
+						<c:forEach items="${pList}" var="p" varStatus="vs" begin="0" end="7">
+							<div class="item">
+								<div class="glry-w3agile-grids agileits">
+									<div class="new-tag"><h6>20% <br> Off</h6></div>
+									<c:forEach items="${piList}" var="pi" begin="${vs.index}" end="${vs.index}">
+										<a href="products1.html"><img src="images/${pi.url}" alt="img"></a>
+									</c:forEach>
+									<div class="view-caption agileits-w3layouts">
+										<h4><a href="products1.html">${p.shp_mch}</a></h4>
+										<p>${p.shp_msh}</p>
+										<h5>$20</h5>
+										<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 加入购物车</button>
+									</div>
+								</div>
+							</div>
+						</c:forEach>
+					</div>
+					<%--//推荐商品展示：陈希元--%>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--//一台式机-->
 <!-- coming soon -->
 <div class="soon">
     <div class="container">
@@ -1393,8 +1521,6 @@
 <script src="js/jquery.menu-aim.js"> </script>
 <script src="js/main.js"></script> <!-- Resource jQuery -->
 <!-- //menu js aim -->
-<!-- Bootstrap core JavaScript
-================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 </body>
 
