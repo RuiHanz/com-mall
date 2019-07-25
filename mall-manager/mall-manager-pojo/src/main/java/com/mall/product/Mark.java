@@ -3,7 +3,7 @@ package com.mall.product;
 public class Mark {
     private String pp_id;//品牌id
     private String ppmch;//品牌名称
-    private  String url;//图片地址
+    private  String url;//我也不知道是啥
     private int flmch1_id;//分类名称1的id
 
     public Mark() {

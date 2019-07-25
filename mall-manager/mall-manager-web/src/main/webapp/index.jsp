@@ -99,13 +99,13 @@
     </script>
     <!-- //smooth-scrolling-of-move-up -->
     <script src="js/bootstrap.js"></script>
-	<style type="text/css">
-		#cxy{
-			padding: 0px 0px 0px 2px;
-			top: 40px;
-			box-shadow: 0 2px 14px rgba(0,0,0,0);
-		}
-	</style>
+    <style type="text/css">
+        #cxy{
+            padding: 0px 0px 0px 2px;
+            top: 40px;
+            box-shadow: 0 2px 14px rgba(0,0,0,0);
+        }
+    </style>
 	<script type="text/javascript">
         function product() {
             location.href="http://localhost:9099/ProductFindAllServlet";
@@ -137,7 +137,7 @@
                 <h6>你的商店，你做主</h6>
             </div>
             <div class="header-search">
-                <form action="#" method="post">
+                <form action="/searchByMch.do" method="post">
                     <input type="search" name="Search" placeholder="海哥帮你找......" required="">
                     <button type="submit" class="btn btn-default" aria-label="Left Align">
                         <i class="fa fa-search" aria-hidden="true"> </i>
@@ -154,25 +154,25 @@
     <div class="container">
         <div class="menu">
             <div class="cd-dropdown-wrapper">
-	            <a class="cd-dropdown-trigger" href="#0">商品目录</a>
+                <a class="cd-dropdown-trigger" href="#0">商品目录</a>
                 <nav class="cd-dropdown">
                     <a href="#0" class="cd-close">Close</a>
                     <ul class="cd-dropdown-content">
-	                    <!--目录部分-->
+                        <!--目录部分-->
                         <li><a href="offers.jsp">今日优惠</a></li>
                         <c:forEach items="${mList}" var="m" varStatus="status">
-                        <li class="has-children">
-                            <a href="#">${m.ppmch}</a>
-                            <ul class="cd-secondary-dropdown " style="width: 280px " id="cxy">
-                                <c:forEach items="${cList}" var="c">
-                                    <li onclick="product()" style="width: 52%" >
-	                                    <cc style="cursor: grab">${c.flmch2}</cc>
-                                    </li>
-                                </c:forEach>
-                            </ul>
-                        </li>
+                            <li class="has-children">
+                                <a href="#">${m.ppmch}</a>
+                                <ul class="cd-secondary-dropdown " style="width: 280px " id="cxy">
+                                    <c:forEach items="${cList}" var="c">
+                                        <li onclick="product()" style="width: 52%" >
+                                            <cc style="cursor: grab">${c.flmch2}</cc>
+                                        </li>
+                                    </c:forEach>
+                                </ul>
+                            </li>
                         </c:forEach>
-	                    <!--//目录部分-->
+                        <!--//目录部分-->
                     </ul>
                 </nav>
             </div>
@@ -194,8 +194,8 @@
 <div class="banner">
     <div id="kb" class="carousel kb_elastic animate_text kb_wrapper" data-ride="carousel" data-interval="6000" data-pause="hover">
         <!-- Wrapper-for-Slides -->
-        <div class="carousel-inner" role="listbox" onclick="product()">
-            <div class="item active" ><!-- First-Slide -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active"><!-- First-Slide -->
                 <img src="images/5.jpg" alt="" class="img-responsive" />
                 <div class="carousel-caption kb_caption kb_caption_right">
                     <h3 data-animation="animated flipInX">商品 <span>50%</span> 折扣</h3>
@@ -234,7 +234,7 @@
 </div>
 <!-- //banner -->
 <!-- 笔记本 -->
-<div class="welcome" style="padding: 0em 0">
+<div class="welcome" style="padding: 0px 0">
     <div class="container">
         <div class="welcome-info">
             <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
@@ -1039,13 +1039,13 @@
 </div>
 <!-- //笔记本 -->
 <!--一体机-->
-<div class="welcome" style="padding: 0em 0">
-	<div class="container">
-		<div class="welcome-info">
-			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-				<div class="recommend">
-					<h3 class="w3ls-title">一体机</h3>
-					<script>
+<div class="welcome" style="padding: 0px 0">
+    <div class="container">
+        <div class="welcome-info">
+            <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                <div class="recommend">
+                    <h3 class="w3ls-title">一体机</h3>
+                    <script>
                         $(document).ready(function() {
                             $("#owl-demo5").owlCarousel({
 
@@ -1059,68 +1059,68 @@
                             });
 
                         });
-					</script>
-					<%--推荐商品滚动	：陈希元--%>
-					<div id="owl-demo5" class="owl-carousel">
-						<c:forEach items="${pList}" var="p" varStatus="vs" begin="0" end="4">
-							<div class="item">
-								<div class="glry-w3agile-grids agileits">
-									<div class="new-tag"><h6>20% <br> Off</h6></div>
-									<c:forEach items="${piList}" var="pi" begin="${vs.index}" end="${vs.index}">
-										<a href="products1.html"><img src="images/${pi.url}" alt="img"></a>
-									</c:forEach>
-									<div class="view-caption agileits-w3layouts">
-										<h4><a href="products1.html">${p.shp_mch}</a></h4>
-										<p>${p.shp_msh}</p>
-										<h5>$20</h5>
-										<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 加入购物车</button>
-									</div>
-								</div>
-							</div>
-						</c:forEach>
-					</div>
-					<%--//推荐商品展示：陈希元--%>
-				</div>
-			</div>
-		</div>
-	</div>
+                    </script>
+                    <%--推荐商品滚动	：陈希元--%>
+                    <div id="owl-demo5" class="owl-carousel">
+                        <c:forEach items="${pList}" var="p" varStatus="vs" begin="0" end="4">
+                            <div class="item">
+                                <div class="glry-w3agile-grids agileits">
+                                    <div class="new-tag"><h6>20% <br> Off</h6></div>
+                                    <c:forEach items="${piList}" var="pi" begin="${vs.index}" end="${vs.index}">
+                                        <a href="products1.html"><img src="images/${pi.url}" alt="img"></a>
+                                    </c:forEach>
+                                    <div class="view-caption agileits-w3layouts">
+                                        <h4><a href="products1.html">${p.shp_mch}</a></h4>
+                                        <p>${p.shp_msh}</p>
+                                        <h5>$20</h5>
+                                        <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 加入购物车</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+                    <%--//推荐商品展示：陈希元--%>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <!--//一体机-->
 <!-- add-products -->
 <div class="add-products">
-	<div class="container">
-		<div class="add-products-row">
-			<div class="w3ls-add-grids">
-				<a href="products1.jsp">
-					<!--					<h4>英特尔芯体验 <span>20%</span> 降价</h4>-->
-					<h6><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
-				</a>
-			</div>
-			<div class="w3ls-add-grids w3ls-add-grids-mdl">
-				<a href="products1.jsp">
-					<!--					<h4>SUNDAY SPECIAL DISCOUNT FLAT <span>40%</span> OFF</h4>-->
-					<h6><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
-				</a>
-			</div>
-			<div class="w3ls-add-grids w3ls-add-grids-mdl1">
-				<a href="products.jsp">
-					<!--					<h4>LATEST DESIGNS FOR YOU <span> Hurry !</span></h4>-->
-					<h6><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
-				</a>
-			</div>
-			<div class="clerfix"> </div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="add-products-row">
+            <div class="w3ls-add-grids">
+                <a href="products1.jsp">
+                    <!--					<h4>英特尔芯体验 <span>20%</span> 降价</h4>-->
+                    <h6><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
+                </a>
+            </div>
+            <div class="w3ls-add-grids w3ls-add-grids-mdl">
+                <a href="products1.jsp">
+                    <!--					<h4>SUNDAY SPECIAL DISCOUNT FLAT <span>40%</span> OFF</h4>-->
+                    <h6><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
+                </a>
+            </div>
+            <div class="w3ls-add-grids w3ls-add-grids-mdl1">
+                <a href="products.jsp">
+                    <!--					<h4>LATEST DESIGNS FOR YOU <span> Hurry !</span></h4>-->
+                    <h6><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></h6>
+                </a>
+            </div>
+            <div class="clerfix"> </div>
+        </div>
+    </div>
 </div>
 <!-- //add-products -->
 <!--工作站-->
-<div class="welcome" style="padding: 0em 0">
-	<div class="container">
-		<div class="welcome-info">
-			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-				<div class="recommend">
-					<h3 class="w3ls-title">工作站</h3>
-					<script>
+<div class="welcome" style="padding: 0px 0">
+    <div class="container">
+        <div class="welcome-info">
+            <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                <div class="recommend">
+                    <h3 class="w3ls-title">工作站</h3>
+                    <script>
                         $(document).ready(function() {
                             $("#owl-demo51").owlCarousel({
 
@@ -1134,41 +1134,41 @@
                             });
 
                         });
-					</script>
-					<%--推荐商品滚动	：陈希元--%>
-					<div id="owl-demo51" class="owl-carousel">
-						<c:forEach items="${pList}" var="p" varStatus="vs" begin="3" end="7">
-							<div class="item">
-								<div class="glry-w3agile-grids agileits">
-									<div class="new-tag"><h6>20% <br> Off</h6></div>
-									<c:forEach items="${piList}" var="pi" begin="${vs.index}" end="${vs.index}">
-										<a href="products1.html"><img src="images/${pi.url}" alt="img"></a>
-									</c:forEach>
-									<div class="view-caption agileits-w3layouts">
-										<h4><a href="products1.html">${p.shp_mch}</a></h4>
-										<p>${p.shp_msh}</p>
-										<h5>$20</h5>
-										<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 加入购物车</button>
-									</div>
-								</div>
-							</div>
-						</c:forEach>
-					</div>
-					<%--//推荐商品展示：陈希元--%>
-				</div>
-			</div>
-		</div>
-	</div>
+                    </script>
+                    <%--推荐商品滚动	：陈希元--%>
+                    <div id="owl-demo51" class="owl-carousel">
+                        <c:forEach items="${pList}" var="p" varStatus="vs" begin="3" end="7">
+                            <div class="item">
+                                <div class="glry-w3agile-grids agileits">
+                                    <div class="new-tag"><h6>20% <br> Off</h6></div>
+                                    <c:forEach items="${piList}" var="pi" begin="${vs.index}" end="${vs.index}">
+                                        <a href="products1.html"><img src="images/${pi.url}" alt="img"></a>
+                                    </c:forEach>
+                                    <div class="view-caption agileits-w3layouts">
+                                        <h4><a href="products1.html">${p.shp_mch}</a></h4>
+                                        <p>${p.shp_msh}</p>
+                                        <h5>$20</h5>
+                                        <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 加入购物车</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+                    <%--//推荐商品展示：陈希元--%>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <!--//工作站-->
 <!--一台式机-->
-<div class="welcome" style="padding: 0em 0">
-	<div class="container">
-		<div class="welcome-info">
-			<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-				<div class="recommend">
-					<h3 class="w3ls-title">台式机</h3>
-					<script>
+<div class="welcome" style="padding: 0px 0">
+    <div class="container">
+        <div class="welcome-info">
+            <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                <div class="recommend">
+                    <h3 class="w3ls-title">台式机</h3>
+                    <script>
                         $(document).ready(function() {
                             $("#owl-demo52").owlCarousel({
 
@@ -1182,31 +1182,31 @@
                             });
 
                         });
-					</script>
-					<%--推荐商品滚动	：陈希元--%>
-					<div id="owl-demo52" class="owl-carousel">
-						<c:forEach items="${pList}" var="p" varStatus="vs" begin="0" end="7">
-							<div class="item">
-								<div class="glry-w3agile-grids agileits">
-									<div class="new-tag"><h6>20% <br> Off</h6></div>
-									<c:forEach items="${piList}" var="pi" begin="${vs.index}" end="${vs.index}">
-										<a href="products1.html"><img src="images/${pi.url}" alt="img"></a>
-									</c:forEach>
-									<div class="view-caption agileits-w3layouts">
-										<h4><a href="products1.html">${p.shp_mch}</a></h4>
-										<p>${p.shp_msh}</p>
-										<h5>$20</h5>
-										<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 加入购物车</button>
-									</div>
-								</div>
-							</div>
-						</c:forEach>
-					</div>
-					<%--//推荐商品展示：陈希元--%>
-				</div>
-			</div>
-		</div>
-	</div>
+                    </script>
+                    <%--推荐商品滚动	：陈希元--%>
+                    <div id="owl-demo52" class="owl-carousel">
+                        <c:forEach items="${pList}" var="p" varStatus="vs" begin="0" end="7">
+                            <div class="item">
+                                <div class="glry-w3agile-grids agileits">
+                                    <div class="new-tag"><h6>20% <br> Off</h6></div>
+                                    <c:forEach items="${piList}" var="pi" begin="${vs.index}" end="${vs.index}">
+                                        <a href="products1.html"><img src="images/${pi.url}" alt="img"></a>
+                                    </c:forEach>
+                                    <div class="view-caption agileits-w3layouts">
+                                        <h4><a href="products1.html">${p.shp_mch}</a></h4>
+                                        <p>${p.shp_msh}</p>
+                                        <h5>$20</h5>
+                                        <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 加入购物车</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+                    <%--//推荐商品展示：陈希元--%>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <!--//一台式机-->
 <!-- coming soon -->

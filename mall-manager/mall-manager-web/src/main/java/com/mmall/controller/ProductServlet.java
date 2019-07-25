@@ -18,11 +18,17 @@ import java.util.List;
 public class ProductServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String shp_id = req.getParameter("shp_id");
         IProductDao pDao = new ProductDaoImpl();
         List<Product> pList = null;
         try {
-            pList = pDao.getAll();
+            pList = pDao.getAll(shp_id);
+            for (Product p:pList){
+                System.out.println(p);
+            }
+            //pList = pDao.getAll(shp_id);
             req.setAttribute("pList",pList);
+            req.setAttribute("shp_id",shp_id);
             req.getRequestDispatcher("/single.jsp").forward(req,resp);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -33,6 +39,6 @@ public class ProductServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        doGet(req, resp);
     }
 }

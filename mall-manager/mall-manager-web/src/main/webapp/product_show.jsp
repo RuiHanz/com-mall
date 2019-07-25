@@ -110,42 +110,51 @@
             location.href="http://localhost:9099/ProductFindAllServlet";
         }
         function toProduct() {
-            location.href="http://localhost:9099/product/single.do";
+            location.href="/product/single.do?shp_id=";
         }
 	</script>
 </head>
 <body>
-	<!-- header -->
-	<div class="header">
-		<div class="w3ls-header"><!--header-one-->
-			<div class="w3ls-header-left">
-				<p><a href="#">海哥给您请安了！！！！</a></p>
-			</div>
-			<div class="w3ls-header-right">
-				<ul>
-					<li class="dropdown head-dpdn">
-						<a href="login.jsp" class="dropdown-toggle" > 登录 </a>
-						<a href="signup.jsp" class="dropdown-toggle" > 注册 </a>
-					</li>
-				</ul>
-			</div>
-			<div class="clearfix"> </div>
+<!-- header -->
+
+<div class="header">
+	<div class="w3ls-header"><!--header-one-->
+		<div class="w3ls-header-left">
+			<p><a href="#">海哥给您请安了！！！！</a></p>
 		</div>
-		<div class="header-two"><!-- header-two -->
-			<div class="container">
-				<div class="header-logo">
-					<h1><a href="index.html"><span>海</span>哥 <i>电脑城</i></a></h1>
-					<h6>你的商店，你做主</h6>
+		<div class="w3ls-header-right">
+			<ul>
+			<li class="dropdown head-dpdn" style="color:#FFFFFF ">
+				<c:if test="${sessionScope.userName!=null}">
+					<a href="member.jsp"> 欢迎您，${sessionScope.userName}!</a>
+				</c:if>
+				<c:if test="${sessionScope.userName==null}">
+					请<a href="login.jsp">登录</a>！
+					<a href="signup.jsp" class="dropdown-toggle" > 注册 </a>
+				</c:if>
+
+			</li>
+		</ul>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+	<div class="header-two"><!-- header-two -->
+		<div class="container">
+			<div class="header-logo">
+				<h1><a href="index.jsp"><span>海</span>哥 <i>电脑城</i></a></h1>
+				<h6>你的商店，你做主</h6>
+			</div>
+			<div class="header-search">
+				<form action="#" method="post">
+					<input type="search" name="Search" placeholder="海哥帮你找......" required="">
+					<button type="submit" class="btn btn-default" aria-label="Left Align">
+						<i class="fa fa-search" aria-hidden="true"> </i>
+					</button>
+				</form>
+			</div>
+
+
 				</div>
-				<div class="header-search">
-					<form action="#" method="post">
-						<input type="search" name="Search" placeholder="海哥帮你找......" required="">
-						<button type="submit" class="btn btn-default" aria-label="Left Align">
-							<i class="fa fa-search" aria-hidden="true"> </i>
-						</button>
-					</form>
-				</div>
-				
 				<div class="clearfix"> </div>
 			</div>
 			<div class="clearfix"> </div>
@@ -175,10 +184,9 @@
 							</c:forEach>
 							<!--//目录部分-->
 						</ul>
-					</nav>
-				</div>
+					</nav> <!-- .cd-dropdown -->
+				</div> <!-- .cd-dropdown-wrapper -->
 			</div>
-			
 			<div class="move-text">
 				<div class="marquee"><a href="offers.jsp"> 海哥希望你们多买点 <span>加我微信给你降价 </span> <span> 海哥永远给你们最好的，但是有点贵！</span></a></div>
 				<script type="text/javascript" src="js/jquery.marquee.min.js"></script>
@@ -189,10 +197,10 @@
 			</div>
 		</div>
 	</div>
-	</div>
-	<!-- //header -->
-	<!-- products -->
-	<div class="products">
+</div>
+<!-- //header -->
+<!-- products -->
+<div class="products">
 	<div class="container">
 		<div class="col-md-9 product-w3ls-right" style="width: 104%">
 			<!-- breadcrumbs -->
@@ -207,20 +215,22 @@
 				<div class="clearfix"> </div>
 			</div>
 			<!--陈希元的商品展示-->
-					<c:forEach items="${pList}" var="p" varStatus="vs">
-					<div class="agile-products" style="float: left" >
-						<div class="new-tag"><h6>18%<br>Off</h6></div>
-								<c:forEach items="${piList}" var="pi" begin="${vs.index}" end="${vs.index}">
-						<a href="single.jsp"><img src="images/${pi.url}" class="img-responsive" alt="img"></a>
-								</c:forEach>
-						<div class="agile-product-text"  onclick="toProduct()">
+			<c:forEach items="${pList}" var="p" varStatus="vs">
+				<div class="agile-products" style="float: left" >
+					<div class="new-tag"><h6>18%<br>Off</h6></div>
+					<c:forEach items="${piList}" var="pi" begin="${vs.index}" end="${vs.index}">
+						<a href="single.jsp"><img src="/images/${pi.url}" class="img-responsive" alt="img"></a>
+					</c:forEach>
+					<div class="agile-product-text"  onclick="toProduct()">
+						<form action="/product/single.do?shp_id=${p.shp_id}" method="post">
 							<h5><a href="product_show.jsp">${p.shp_mch}</a></h5>
 							<h6><del>$25</del> ${p.shp_jg}</h6>
 							<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> 加入购物车</button>
-						</div>
+						</form>
 					</div>
-					</c:forEach>
-				<div class="clearfix"> </div>
+				</div>
+			</c:forEach>
+			<div class="clearfix"> </div>
 			<!--//陈希元的商品展示-->
 			<!-- add-products -->
 			<div class="w3ls-add-grids w3agile-add-products">
@@ -236,37 +246,37 @@
 		<div class="recommend">
 			<h3 class="w3ls-title">猜您喜欢： </h3>
 			<script>
-                $(document).ready(function() {
-                    $("#owl-demo5").owlCarousel({
+				$(document).ready(function() {
+					$("#owl-demo5").owlCarousel({
 
-                        autoPlay: 3000, //Set AutoPlay to 3 seconds
+						autoPlay: 3000, //Set AutoPlay to 3 seconds
 
-                        items :4,
-                        itemsDesktop : [640,5],
-                        itemsDesktopSmall : [414,4],
-                        navigation : true
+						items :4,
+						itemsDesktop : [640,5],
+						itemsDesktopSmall : [414,4],
+						navigation : true
 
-                    });
+					});
 
-                });
+				});
 			</script>
 			<%--推荐商品滚动	：陈希元--%>
 			<div id="owl-demo5" class="owl-carousel">
 				<c:forEach items="${pList}" var="p" varStatus="vs" begin="0" end="7">
-				<div class="item">
-					<div class="glry-w3agile-grids agileits">
-						<div class="new-tag"><h6>20% <br> Off</h6></div>
-						<c:forEach items="${piList}" var="pi" begin="${vs.index}" end="${vs.index}">
-						<a href="products1.html"><img src="images/${pi.url}" alt="img"></a>
-						</c:forEach>
-						<div class="view-caption agileits-w3layouts">
-							<h4><a href="products1.html">${p.shp_mch}</a></h4>
-							<p>${p.shp_msh}</p>
-							<h5>$20</h5>
-							<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+					<div class="item">
+						<div class="glry-w3agile-grids agileits">
+							<div class="new-tag"><h6>20% <br> Off</h6></div>
+							<c:forEach items="${piList}" var="pi" begin="${vs.index}" end="${vs.index}">
+								<a href="products1.html"><img src="images/${pi.url}" alt="img"></a>
+							</c:forEach>
+							<div class="view-caption agileits-w3layouts">
+								<h4><a href="products1.html">${p.shp_mch}</a></h4>
+								<p>${p.shp_msh}</p>
+								<h5>$20</h5>
+								<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+							</div>
 						</div>
 					</div>
-				</div>
 				</c:forEach>
 			</div>
 			<%--//推荐商品展示：陈希元--%>
@@ -274,9 +284,9 @@
 		<!-- //recommendations -->
 	</div>
 </div>
-	<!--//products-->
-	<!-- footer-top -->
-	<div class="w3agile-ftr-top">
+<!--//products-->
+<!-- footer-top -->
+<div class="w3agile-ftr-top">
 	<div class="container">
 		<div class="ftr-toprow">
 			<div class="col-md-4 ftr-top-grids">
@@ -313,9 +323,9 @@
 		</div>
 	</div>
 </div>
-	<!-- //footer-top -->
-	<!-- subscribe -->
-	<div class="subscribe">
+<!-- //footer-top -->
+<!-- subscribe -->
+<div class="subscribe">
 	<div class="container">
 		<div class="col-md-6 social-icons w3-agile-icons">
 			<h4>保持联系哦</h4>
@@ -344,9 +354,9 @@
 		<div class="clearfix"> </div>
 	</div>
 </div>
-	<!-- //subscribe -->
-	<!-- footer -->
-	<div class="footer">
+<!-- //subscribe -->
+<!-- footer -->
+<div class="footer">
 	<div class="container">
 		<div class="footer-info w3-agileits-info">
 			<div class="col-md-4 address-left agileinfo">
@@ -397,15 +407,15 @@
 		</div>
 	</div>
 </div>
-	<!-- //footer -->
-	<div class="copy-right">
+<!-- //footer -->
+<div class="copy-right">
 	<div class="container">
 		<p>Copyright &copy; 2019.Company name All rights reserved. <a href="http://www.baidu.com/" target="_blank" title="baidu">海哥全知道</a> </p>
 	</div>
 </div>
-	<!-- cart-js -->
-	<script src="js/minicart.js"></script>
-	<script>
+<!-- cart-js -->
+<script src="js/minicart.js"></script>
+<script>
     w3ls.render();
 
     w3ls.cart.on('w3sb_checkout', function (evt) {
@@ -421,12 +431,12 @@
         }
     });
 </script>
-	<!-- //cart-js -->
-	<!-- menu js aim -->
-	<script src="js/jquery.menu-aim.js"> </script>
-	<script src="js/main.js"></script> <!-- Resource jQuery -->
-	<!-- //menu js aim -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="js/bootstrap.js"></script>
+<!-- //cart-js -->
+<!-- menu js aim -->
+<script src="js/jquery.menu-aim.js"> </script>
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+<!-- //menu js aim -->
+<!-- Bootstrap core JavaScript-->
+<script src="js/bootstrap.js"></script>
 </body>
 </html>

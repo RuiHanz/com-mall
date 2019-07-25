@@ -1,5 +1,7 @@
 package com.mall.product;
 
+import com.mall.product.ProductImg;
+
 import java.sql.SQLException;
 import java.util.List;
 

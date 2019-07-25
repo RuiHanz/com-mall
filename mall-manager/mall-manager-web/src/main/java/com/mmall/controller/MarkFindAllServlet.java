@@ -1,5 +1,4 @@
 package com.mmall.controller;
-
 import com.mall.product.Category;
 import com.mall.product.Mark;
 import com.mall.product.Product;
@@ -7,7 +6,6 @@ import com.mall.product.ProductImg;
 import com.mall.product.impl.MarkDaoImpl;
 import com.mall.product.impl.ProImgDaoImpl;
 import com.mall.product.impl.ProductDaoImpl;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

@@ -125,7 +125,7 @@
 		<div class="header-two"><!-- header-two -->
 			<div class="container">
 				<div class="header-logo">
-					<h1><a href="index.html"><span>海</span>哥 <i>电脑城</i></a></h1>
+					<h1><a href="index.jsp"><span>海</span>哥 <i>电脑城</i></a></h1>
 					<h6>你的商店，你做主</h6>
 				</div>
 				<div class="header-search">
@@ -1423,7 +1423,7 @@
 			<div class="footer-info w3-agileits-info">
 				<div class="col-md-4 address-left agileinfo">
 					<div class="footer-logo header-logo">
-						<h2><a href="index.html"><span>海</span>哥 <i>电脑城</i></a></h2>
+						<h2><a href="index.jsp"><span>海</span>哥 <i>电脑城</i></a></h2>
 						<h6>你的商店，你做主</h6>
 					</div>
 					<ul>

@@ -83,40 +83,17 @@
 			</div>
 			<div class="w3ls-header-right">
 				<ul>
-					<li class="dropdown head-dpdn">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> 我的账户<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="login.html">登录 </a></li>
-							<li><a href="signup.jsp">注册</a></li>
-							<li><a href="login.html">我的订单</a></li>
-							<li><a href="login.html">我的钱包</a></li>
-						</ul>
+					<li class="dropdown head-dpdn" style="color:#FFFFFF ">
+						<c:if test="${sessionScope.userName!=null}">
+							欢迎您，${sessionScope.userName}!
+						</c:if>
+						<c:if test="${sessionScope.userName==null}">
+							请<a href="login.jsp">登录</a>！
+							<a href="signup.jsp" class="dropdown-toggle" > 注册 </a>
+						</c:if>
+
 					</li>
-					<li class="dropdown head-dpdn">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-percent" aria-hidden="true"></i> 今日交易<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="offers.jsp">现金返还优惠</a></li>
-							<li><a href="offers.jsp">折扣商品</a></li>
-							<li><a href="offers.jsp">特价商品</a></li>
-						</ul>
-					</li>
-					<li class="dropdown head-dpdn">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gift" aria-hidden="true"></i> 折扣券<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="offers.jsp">限时卡券</a></li>
-							<li><a href="offers.jsp">卡券册</a></li>
-							<li><a href="offers.jsp">查看余额</a></li>
-						</ul>
-					</li>
-					<li class="dropdown head-dpdn">
-						<a href="contact.jsp" class="dropdown-toggle"><i class="fa fa-map-marker" aria-hidden="true"></i> 公司所属地</a>
-					</li>
-					<li class="dropdown head-dpdn">
-						<a href="card.jsp" class="dropdown-toggle"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> 支付</a>
-					</li>
-					<li class="dropdown head-dpdn">
-						<a href="help.jsp" class="dropdown-toggle"><i class="fa fa-question-circle" aria-hidden="true"></i> 帮助</a>
-					</li>
+
 				</ul>
 			</div>
 			<div class="clearfix"> </div>
@@ -1472,7 +1449,7 @@
 			<div class="footer-info w3-agileits-info">
 				<div class="col-md-4 address-left agileinfo">
 					<div class="footer-logo header-logo">
-						<h2><a href="index.html"><span>海</span>哥 <i>电脑城</i></a></h2>
+						<h2><a href="index.jsp"><span>海</span>哥 <i>电脑城</i></a></h2>
 						<h6>你的商店，你做主</h6>
 					</div>
 					<ul>

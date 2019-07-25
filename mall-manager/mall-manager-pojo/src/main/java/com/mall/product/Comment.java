@@ -3,19 +3,19 @@ package com.mall.product;
 import java.util.Date;
 
 public class Comment {
-    private int pl_id;
-    private int yh_id;
-    private int shp_id;
+    private String pl_id;
+    private String yh_id;
+    private String shp_id;
     private String plnr;
-    private Date plshj;
+    private String plshj;
     private int hpjb;
     private String shp_mch;
-    private int dd_id;
+    private String dd_id;
 
     public Comment() {
     }
 
-    public Comment(int pl_id, int yh_id,int shp_id, String plnr, Date plshj, int hpjb, String shp_mch, int dd_id) {
+    public Comment(String pl_id, String yh_id,String shp_id, String plnr, String plshj, int hpjb, String shp_mch, String dd_id) {
         this.pl_id = pl_id;
         this.yh_id = yh_id;
         this.shp_id = shp_id;
@@ -26,27 +26,27 @@ public class Comment {
         this.dd_id = dd_id;
     }
 
-    public int getPl_id() {
+    public String getPl_id() {
         return pl_id;
     }
 
-    public void setPl_id(int pl_id) {
+    public void setPl_id(String pl_id) {
         this.pl_id = pl_id;
     }
 
-    public int getYh_id() {
+    public String getYh_id() {
         return yh_id;
     }
 
-    public void setYh_id(int yh_id) {
+    public void setYh_id(String yh_id) {
         this.yh_id = yh_id;
     }
 
-    public int getShp_id() {
+    public String getShp_id() {
         return shp_id;
     }
 
-    public void setShp_id(int shp_id) {
+    public void setShp_id(String shp_id) {
         this.shp_id = shp_id;
     }
 
@@ -58,11 +58,11 @@ public class Comment {
         this.plnr = plnr;
     }
 
-    public Date getPlshj() {
+    public String getPlshj() {
         return plshj;
     }
 
-    public void setPlshj(Date plshj) {
+    public void setPlshj(String plshj) {
         this.plshj = plshj;
     }
 
@@ -82,11 +82,11 @@ public class Comment {
         this.shp_mch = shp_mch;
     }
 
-    public int getDd_id() {
+    public String getDd_id() {
         return dd_id;
     }
 
-    public void setDd_id(int dd_id) {
+    public void setDd_id(String dd_id) {
         this.dd_id = dd_id;
     }
 

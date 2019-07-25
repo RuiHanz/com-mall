@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8"%>
 <%@ page import="com.mall.product.Product" %>
 <%--<%@ page import="java.util.List" %>--%>
@@ -115,39 +116,15 @@
 			</div>
 			<div class="w3ls-header-right">
 				<ul>
-					<li class="dropdown head-dpdn">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i> 我的账户<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="login.html">登录 </a></li>
-							<li><a href="signup.jsp">注册</a></li>
-							<li><a href="login.html">我的订单</a></li>
-							<li><a href="login.html">我的钱包</a></li>
-						</ul>
-					</li>
-					<li class="dropdown head-dpdn">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-percent" aria-hidden="true"></i> 今日交易<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="offers.jsp">现金返还优惠</a></li>
-							<li><a href="offers.jsp">折扣商品</a></li>
-							<li><a href="offers.jsp">特价商品</a></li>
-						</ul>
-					</li>
-					<li class="dropdown head-dpdn">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-gift" aria-hidden="true"></i> 折扣券<span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="offers.jsp">限时卡券</a></li>
-							<li><a href="offers.jsp">卡券册</a></li>
-							<li><a href="offers.jsp">查看余额</a></li>
-						</ul>
-					</li>
-					<li class="dropdown head-dpdn">
-						<a href="contact.jsp" class="dropdown-toggle"><i class="fa fa-map-marker" aria-hidden="true"></i> 公司所属地</a>
-					</li>
-					<li class="dropdown head-dpdn">
-						<a href="card.jsp" class="dropdown-toggle"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> 支付</a>
-					</li>
-					<li class="dropdown head-dpdn">
-						<a href="help.jsp" class="dropdown-toggle"><i class="fa fa-question-circle" aria-hidden="true"></i> 帮助</a>
+					<li class="dropdown head-dpdn" style="color:#FFFFFF ">
+						<c:if test="${sessionScope.userName!=null}">
+							<a href="member.jsp"> 欢迎您，${sessionScope.userName}!</a>
+						</c:if>
+						<c:if test="${sessionScope.userName==null}">
+							请<a href="login.jsp">登录</a>！
+							<a href="signup.jsp" class="dropdown-toggle" > 注册 </a>
+						</c:if>
+
 					</li>
 				</ul>
 			</div>
@@ -167,1194 +144,50 @@
 						</button>
 					</form>
 				</div>
-				<div class="header-cart">
-					<div class="my-account">
-						<a href="contact.jsp"><i class="fa fa-map-marker" aria-hidden="true"></i> 联系我们</a>
-					</div>
-					<div class="cart">
-						<form action="#" method="post" class="last">
-							<input type="hidden" name="cmd" value="_cart" />
-							<input type="hidden" name="display" value="1" />
-							<button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
-						</form>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
+
 				<div class="clearfix"> </div>
 			</div>
-		</div><!-- //header-two -->
-		<div class="header-three"><!-- header-three -->
-			<div class="container">
-				<div class="menu">
-					<div class="cd-dropdown-wrapper">
-						<a class="cd-dropdown-trigger" href="#0">商品目录</a>
-						<nav class="cd-dropdown">
-							<a href="#0" class="cd-close">Close</a>
-							<ul class="cd-dropdown-content">
-								<li><a href="offers.jsp">今日优惠</a></li>
+			<div class="clearfix"> </div>
+		</div>
+	</div><!-- //header-two -->
+
+	<div class="header-three"><!-- header-three -->
+		<div class="container">
+			<div class="menu">
+				<div class="cd-dropdown-wrapper">
+					<a class="cd-dropdown-trigger" href="#0">商品目录</a>
+					<nav class="cd-dropdown">
+						<a href="#0" class="cd-close">Close</a>
+						<ul class="cd-dropdown-content">
+							<!--目录部分-->
+							<li><a href="offers.jsp">今日优惠</a></li>
+							<c:forEach items="${mList}" var="m" varStatus="status">
 								<li class="has-children">
-									<a href="#">笔记本</a>
-									<ul class="cd-secondary-dropdown is-hidden">
-										<li class="go-back"><a href="#">菜单</a></li>
-										<li class="see-all"><a href="products.html">全部笔记本</a></li>
-										<li class="has-children">
-											<a href="#">笔记本1</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品</a></li>
-												<li class="has-children">
-													<a href="#0">笔记本款式</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#"> </a></li>
-														<li><a href="products.html">分离屏幕</a></li>
-														<li><a href="products.html">没有显示屏</a></li>
-														<li><a href="products.html">电源自带</a></li>
-													</ul>
-												</li>
-												<li> <a href="products.html">笔笔</a> </li>
-												<li><a href="products.html">记记</a></li>
-												<li><a href="products.html">本本</a></li>
-												<li><a href="products.html">笔记本</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">笔记本2</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品 </a></li>
-												<li><a href="products.html">笔笔</a></li>
-												<li><a href="products.html">记记</a></li>
-												<li><a href="products.html">本本</a></li>
-												<li><a href="products.html">笔记本</a></li>
-												<li><a href="products.html">笔记本</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">笔记本3</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品</a></li>
-												<li><a href="products.html">商品</a></li>
-												<li><a href="products.html">商品</a></li>
-												<li><a href="products.html">商品</a></li>
-												<li><a href="products.html">商品</a></li>
-												<li class="has-children">
-													<a href="#">电脑</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#"> </a></li>
-														<li><a href="products.html">商品 </a></li>
-														<li><a href="products.html">商品 PC</a></li>
-														<li><a href="products.html">商品</a></li>
-														<li><a href="products.html">商品</a></li>
-														<li><a href="products.html">商品</a></li>
-														<li><a href="products.html">商品</a></li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">笔记本4</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li class="has-children"><a href="#">商品</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#0"> </a></li>
-														<li><a href="products.html">商品</a></li>
-														<li><a href="products.html">商品</a></li>
-														<li><a href="products.html">商品</a></li>
-														<li><a href="products.html">商品</a></li>
-														<li><a href="products.html">商品</a></li>
-														<li><a href="products.html">商品</a></li>
-													</ul>
-												</li>
-												<li><a href="products.html">商品</a></li>
-												<li><a href="products.html">商品</a></li>
-												<li><a href="products.html">商品</a></li>
-												<li><a href="products.html">商品</a></li>
-												<li><a href="products.html">商品</a></li>
-												<li><a href="products.html">商品</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">笔记本5</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li><a href="products.html">商品</a></li>
-												<li><a href="products.html">商品</a></li>
-												<li class="has-children"><a href="#">商品</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#0"> </a></li>
-														<li><a href="products.html">商品1</a></li>
-														<li><a href="products.html">商品2</a></li>
-														<li><a href="products.html">商品3</a></li>
-														<li><a href="products.html">商品4</a></li>
-														<li><a href="products.html">商品5</a></li>
-														<li><a href="products.html">商品6</a></li>
-													</ul>
-												</li>
-												<li><a href="products.html">商品</a></li>
-												<li><a href="products.html">商品</a></li>
-												<li><a href="products.html">商品</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">笔记本6</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li><a href="products.html">商品</a></li>
-												<li><a href="products.html">商品</a></li>
-												<li><a href="products.html">商品</a></li>
-												<li><a href="products.html">商品</a></li>
-												<li><a href="products.html">cables</a></li>
-											</ul>
-										</li>
-									</ul> <!-- .cd-secondary-dropdown -->
-								</li> <!-- .has-children -->
-								<li class="has-children">
-									<a href="#">台式机</a>
-									<ul class="cd-secondary-dropdown is-hidden">
-										<li class="go-back"><a href="#">菜单</a></li>
-										<li class="see-all"><a href="products1.html">全部台式机</a></li>
-										<li class="has-children">
-											<a href="#">台式机1</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品</a></li>
-												<li class="has-children">
-													<a href="#0">笔记本款式</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#"> </a></li>
-														<li><a href="products1.html">分离屏幕</a></li>
-														<li><a href="products1.html">没有显示屏</a></li>
-														<li><a href="products.html">电源自带</a></li>
-													</ul>
-												</li>
-												<li> <a href="products1.html">笔笔</a> </li>
-												<li><a href="products1.html">记记</a></li>
-												<li><a href="products1.html">本本</a></li>
-												<li><a href="products1.html">笔记本</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">台式机2</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品 </a></li>
-												<li><a href="products1.html">笔笔</a></li>
-												<li><a href="products1.html">记记</a></li>
-												<li><a href="products1.html">本本</a></li>
-												<li><a href="products1.html">笔记本</a></li>
-												<li><a href="products1.html">笔记本</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">台式机3</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品</a></li>
-												<li><a href="products1.html">商品</a></li>
-												<li><a href="products1.html">商品</a></li>
-												<li><a href="products1.html">商品</a></li>
-												<li><a href="products1.html">商品</a></li>
-												<li class="has-children">
-													<a href="#">电脑</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#"> </a></li>
-														<li><a href="products1.html">商品 </a></li>
-														<li><a href="products1.html">商品 PC</a></li>
-														<li><a href="products1.html">商品</a></li>
-														<li><a href="products1.html">商品</a></li>
-														<li><a href="products1.html">商品</a></li>
-														<li><a href="products1.html">商品</a></li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">台式机4</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li class="has-children"><a href="#">商品</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#0"> </a></li>
-														<li><a href="products1.html">商品</a></li>
-														<li><a href="products1.html">商品</a></li>
-														<li><a href="products1.html">商品</a></li>
-														<li><a href="products1.html">商品</a></li>
-														<li><a href="products1.html">商品</a></li>
-														<li><a href="products1.html">商品</a></li>
-													</ul>
-												</li>
-												<li><a href="products1.html">商品</a></li>
-												<li><a href="products1.html">商品</a></li>
-												<li><a href="products1.html">商品</a></li>
-												<li><a href="products1.html">商品</a></li>
-												<li><a href="products1.html">商品</a></li>
-												<li><a href="products1.html">商品</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">台式机5</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li><a href="products.html">商品</a></li>
-												<li><a href="products.html">商品</a></li>
-												<li class="has-children"><a href="#">商品</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#0"> </a></li>
-														<li><a href="products1.html">商品1</a></li>
-														<li><a href="products1.html">商品2</a></li>
-														<li><a href="products1.html">商品3</a></li>
-														<li><a href="products1.html">商品4</a></li>
-														<li><a href="products1.html">商品5</a></li>
-														<li><a href="products1.html">商品6</a></li>
-													</ul>
-												</li>
-												<li><a href="products1.html">商品</a></li>
-												<li><a href="products1.html">商品</a></li>
-												<li><a href="products1.html">商品</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">台式机6</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li><a href="products1.html">商品</a></li>
-												<li><a href="products1.html">商品</a></li>
-												<li><a href="products1.html">商品</a></li>
-												<li><a href="products1.html">商品</a></li>
-												<li><a href="products1.html">cables</a></li>
-											</ul>
-										</li>
-									</ul> <!-- .cd-secondary-dropdown -->
-								</li> <!-- .has-children -->
-								<li class="has-children">
-									<a href="products2.html">服务器/工作站</a>
-									<ul class="cd-secondary-dropdown is-hidden">
-										<li class="go-back"><a href="#">菜单</a></li>
-										<li class="see-all"><a href="products2.html">全部服务器/工作站</a></li>
-										<li class="has-children">
-											<a href="#">服务器1</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品</a></li>
-												<li class="has-children">
-													<a href="#0">笔记本款式</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#"> </a></li>
-														<li><a href="products2.html">分离屏幕</a></li>
-														<li><a href="products2.html">没有显示屏</a></li>
-														<li><a href="products2.html">电源自带</a></li>
-													</ul>
-												</li>
-												<li> <a href="products2.html">笔笔</a> </li>
-												<li><a href="products2.html">记记</a></li>
-												<li><a href="products2.html">本本</a></li>
-												<li><a href="products2.html">笔记本</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">服务器2</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品 </a></li>
-												<li><a href="products2.html">笔笔</a></li>
-												<li><a href="products2.html">记记</a></li>
-												<li><a href="products2.html">本本</a></li>
-												<li><a href="products2.html">笔记本</a></li>
-												<li><a href="products2.html">笔记本</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">服务器3</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品</a></li>
-												<li><a href="products2.html">商品</a></li>
-												<li><a href="products2.html">商品</a></li>
-												<li><a href="products2.html">商品</a></li>
-												<li><a href="products2.html">商品</a></li>
-												<li class="has-children">
-													<a href="#">电脑</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#"> </a></li>
-														<li><a href="products2.html">商品 </a></li>
-														<li><a href="products2.html">商品 PC</a></li>
-														<li><a href="products2.html">商品</a></li>
-														<li><a href="products2.html">商品</a></li>
-														<li><a href="products2.html">商品</a></li>
-														<li><a href="products2.html">商品</a></li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">工作站4</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li class="has-children"><a href="#">商品</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#0"> </a></li>
-														<li><a href="products2.html">商品</a></li>
-														<li><a href="products2.html">商品</a></li>
-														<li><a href="products2.html">商品</a></li>
-														<li><a href="products2.html">商品</a></li>
-														<li><a href="products2.html">商品</a></li>
-														<li><a href="products2.html">商品</a></li>
-													</ul>
-												</li>
-												<li><a href="products2.html">商品</a></li>
-												<li><a href="products2.html">商品</a></li>
-												<li><a href="products2.html">商品</a></li>
-												<li><a href="products2.html">商品</a></li>
-												<li><a href="products2.html">商品</a></li>
-												<li><a href="products2.html">商品</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">工作站5</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li><a href="products2.html">商品</a></li>
-												<li><a href="products2.html">商品</a></li>
-												<li class="has-children"><a href="#">商品</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#0"> </a></li>
-														<li><a href="products2.html">商品1</a></li>
-														<li><a href="products2.html">商品2</a></li>
-														<li><a href="products2.html">商品3</a></li>
-														<li><a href="products2.html">商品4</a></li>
-														<li><a href="products2.html">商品5</a></li>
-														<li><a href="products2.html">商品6</a></li>
-													</ul>
-												</li>
-												<li><a href="products2.html">商品</a></li>
-												<li><a href="products2.html">商品</a></li>
-												<li><a href="products2.html">商品</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">工作站6</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li><a href="products2.html">商品</a></li>
-												<li><a href="products2.html">商品</a></li>
-												<li><a href="products2.html">商品</a></li>
-												<li><a href="products2.html">商品</a></li>
-												<li><a href="products2.html">cables</a></li>
-											</ul>
-										</li>
-									</ul><!-- .cd-secondary-dropdown -->
-								</li> <!-- .has-children -->
-								<li class="has-children">
-									<a href="#">CPU</a>
-									<ul class="cd-secondary-dropdown is-hidden">
-										<li class="go-back"><a href="#">菜单</a></li>
-										<li class="see-all"><a href="products3.html">全部CPU</a></li>
-										<li class="has-children">
-											<a href="#">CPU1</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品</a></li>
-												<li class="has-children">
-													<a href="#0">笔记本款式</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#"> </a></li>
-														<li><a href="products3.html">分离屏幕</a></li>
-														<li><a href="products3.html">没有显示屏</a></li>
-														<li><a href="products3.html">电源自带</a></li>
-													</ul>
-												</li>
-												<li> <a href="products3.html">笔笔</a> </li>
-												<li><a href="products3.html">记记</a></li>
-												<li><a href="products3.html">本本</a></li>
-												<li><a href="products3.html">笔记本</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">CPU2</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品 </a></li>
-												<li><a href="products3.html">笔笔</a></li>
-												<li><a href="products3.html">记记</a></li>
-												<li><a href="products3.html">本本</a></li>
-												<li><a href="products3.html">笔记本</a></li>
-												<li><a href="products3.html">笔记本</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">CPU3</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品</a></li>
-												<li><a href="products3.html">商品</a></li>
-												<li><a href="products3.html">商品</a></li>
-												<li><a href="products3.html">商品</a></li>
-												<li><a href="products3.html">商品</a></li>
-												<li class="has-children">
-													<a href="#">电脑</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#"> </a></li>
-														<li><a href="products3.html">商品 </a></li>
-														<li><a href="products3.html">商品 PC</a></li>
-														<li><a href="products3.html">商品</a></li>
-														<li><a href="products3.html">商品</a></li>
-														<li><a href="products3.html">商品</a></li>
-														<li><a href="products3.html">商品</a></li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">CPU4</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li class="has-children"><a href="#">商品</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#0"> </a></li>
-														<li><a href="products3.html">商品</a></li>
-														<li><a href="products3.html">商品</a></li>
-														<li><a href="products3.html">商品</a></li>
-														<li><a href="products3.html">商品</a></li>
-														<li><a href="products3.html">商品</a></li>
-														<li><a href="products3.html">商品</a></li>
-													</ul>
-												</li>
-												<li><a href="products3.html">商品</a></li>
-												<li><a href="products3.html">商品</a></li>
-												<li><a href="products3.html">商品</a></li>
-												<li><a href="products3.html">商品</a></li>
-												<li><a href="products3.html">商品</a></li>
-												<li><a href="products3.html">商品</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">CPU5</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li><a href="products3.html">商品</a></li>
-												<li><a href="products3.html">商品</a></li>
-												<li class="has-children"><a href="#">商品</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#0"> </a></li>
-														<li><a href="products3.html">商品1</a></li>
-														<li><a href="products3.html">商品2</a></li>
-														<li><a href="products3.html">商品3</a></li>
-														<li><a href="products3.html">商品4</a></li>
-														<li><a href="products3.html">商品5</a></li>
-														<li><a href="products3.html">商品6</a></li>
-													</ul>
-												</li>
-												<li><a href="products3.html">商品</a></li>
-												<li><a href="products3.html">商品</a></li>
-												<li><a href="products.html">商品</a></li>
-											</ul>
-										</li>3
-										<li class="has-children">
-											<a href="#">CPU6</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li><a href="products3.html">商品</a></li>
-												<li><a href="products3.html">商品</a></li>
-												<li><a href="products3.html">商品</a></li>
-												<li><a href="products3.html">商品</a></li>
-												<li><a href="products3.html">cables</a></li>
-											</ul>
-										</li>
-									</ul><!-- .cd-secondary-dropdown -->
-								</li> <!-- .has-children -->
-								<li class="has-children">
-									<a href="#">SSD硬盘</a>
-									<ul class="cd-secondary-dropdown is-hidden">
-										<li class="go-back"><a href="#">菜单</a></li>
-										<li class="see-all"><a href="products4.html">全部硬盘</a></li>
-										<li class="has-children">
-											<a href="#">SSD硬盘1</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品</a></li>
-												<li class="has-children">
-													<a href="#0">笔记本款式</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#"> </a></li>
-														<li><a href="products4.html">分离屏幕</a></li>
-														<li><a href="products4.html">没有显示屏</a></li>
-														<li><a href="products4.html">电源自带</a></li>
-													</ul>
-												</li>
-												<li><a href="products4.html">笔笔</a> </li>
-												<li><a href="products4.html">记记</a></li>
-												<li><a href="products4.html">本本</a></li>
-												<li><a href="products4.html">笔记本</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">SSD硬盘2</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品 </a></li>
-												<li><a href="products4.html">笔笔</a></li>
-												<li><a href="products4.html">记记</a></li>
-												<li><a href="products4.html">本本</a></li>
-												<li><a href="products4.html">笔记本</a></li>
-												<li><a href="products4.html">笔记本</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">SSD硬盘3</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品</a></li>
-												<li><a href="products4.html">商品</a></li>
-												<li><a href="products4.html">商品</a></li>
-												<li><a href="products4.html">商品</a></li>
-												<li><a href="products4.html">商品</a></li>
-												<li class="has-children">
-													<a href="#">电脑</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#"> </a></li>
-														<li><a href="products4.html">商品 </a></li>
-														<li><a href="products4.html">商品 PC</a></li>
-														<li><a href="products4.html">商品</a></li>
-														<li><a href="products4.html">商品</a></li>
-														<li><a href="products4.html">商品</a></li>
-														<li><a href="products4.html">商品</a></li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">SSD硬盘4</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li class="has-children"><a href="#">商品</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#0"> </a></li>
-														<li><a href="products4.html">商品</a></li>
-														<li><a href="products4.html">商品</a></li>
-														<li><a href="products4.html">商品</a></li>
-														<li><a href="products4.html">商品</a></li>
-														<li><a href="products4.html">商品</a></li>
-														<li><a href="products4.html">商品</a></li>
-													</ul>
-												</li>
-												<li><a href="products4.html">商品</a></li>
-												<li><a href="products4.html">商品</a></li>
-												<li><a href="products4.html">商品</a></li>
-												<li><a href="products4.html">商品</a></li>
-												<li><a href="products4.html">商品</a></li>
-												<li><a href="products4.html">商品</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">SSD硬盘5</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li><a href="products4.html">商品</a></li>
-												<li><a href="products4.html">商品</a></li>
-												<li class="has-children"><a href="#">商品</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#0"> </a></li>
-														<li><a href="products4.html">商品1</a></li>
-														<li><a href="products4.html">商品2</a></li>
-														<li><a href="products4.html">商品3</a></li>
-														<li><a href="products4.html">商品4</a></li>
-														<li><a href="products4.html">商品5</a></li>
-														<li><a href="products4.html">商品6</a></li>
-													</ul>
-												</li>
-												<li><a href="products4.html">商品</a></li>
-												<li><a href="products4.html">商品</a></li>
-												<li><a href="products4.html">商品</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">SSD硬盘6</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li><a href="products4.html">商品</a></li>
-												<li><a href="products4.html">商品</a></li>
-												<li><a href="products4.html">商品</a></li>
-												<li><a href="products4.html">商品</a></li>
-												<li><a href="products4.html">cables</a></li>
-											</ul>
-										</li>
-									</ul><!-- .cd-secondary-dropdown -->
-								</li> <!-- .has-children -->
-								<li class="has-children">
-									<a href="#">显示器</a>
-									<ul class="cd-secondary-dropdown is-hidden">
-										<li class="go-back"><a href="#">菜单</a></li>
-										<li class="see-all"><a href="products5.html">全部显示器</a></li>
-										<li class="has-children">
-											<a href="#">显示器1</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品</a></li>
-												<li class="has-children">
-													<a href="#0">笔记本款式</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#"> </a></li>
-														<li><a href="products5.html">分离屏幕</a></li>
-														<li><a href="products5.html">没有显示屏</a></li>
-														<li><a href="products5.html">电源自带</a></li>
-													</ul>
-												</li>
-												<li><a href="products5.html">笔笔</a> </li>
-												<li><a href="products5.html">记记</a></li>
-												<li><a href="products5.html">本本</a></li>
-												<li><a href="products5.html">笔记本</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">显示器2</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品 </a></li>
-												<li><a href="products5.html">笔笔</a></li>
-												<li><a href="products5.html">记记</a></li>
-												<li><a href="products5.html">本本</a></li>
-												<li><a href="products5.html">笔记本</a></li>
-												<li><a href="products5.html">笔记本</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">显示器3</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品</a></li>
-												<li><a href="products5.html">商品</a></li>
-												<li><a href="products5.html">商品</a></li>
-												<li><a href="products5.html">商品</a></li>
-												<li><a href="products5.html">商品</a></li>
-												<li class="has-children">
-													<a href="#">电脑</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#"> </a></li>
-														<li><a href="products5.html">商品 </a></li>
-														<li><a href="products5.html">商品 PC</a></li>
-														<li><a href="products5.html">商品</a></li>
-														<li><a href="products5.html">商品</a></li>
-														<li><a href="products5.html">商品</a></li>
-														<li><a href="products5.html">商品</a></li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">显示器4</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li class="has-children"><a href="#">商品</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#0"> </a></li>
-														<li><a href="products5.html">商品</a></li>
-														<li><a href="products5.html">商品</a></li>
-														<li><a href="products5.html">商品</a></li>
-														<li><a href="products5.html">商品</a></li>
-														<li><a href="products5.html">商品</a></li>
-														<li><a href="products5.html">商品</a></li>
-													</ul>
-												</li>
-												<li><a href="products5.html">商品</a></li>
-												<li><a href="products5.html">商品</a></li>
-												<li><a href="products5.html">商品</a></li>
-												<li><a href="products5.html">商品</a></li>
-												<li><a href="products5.html">商品</a></li>
-												<li><a href="products5.html">商品</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">显示器5</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li><a href="products5.html">商品</a></li>
-												<li><a href="products5.html">商品</a></li>
-												<li class="has-children"><a href="#">商品</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#0"> </a></li>
-														<li><a href="products5.html">商品1</a></li>
-														<li><a href="products5.html">商品2</a></li>
-														<li><a href="products5.html">商品3</a></li>
-														<li><a href="products5.html">商品4</a></li>
-														<li><a href="products5.html">商品5</a></li>
-														<li><a href="products5.html">商品6</a></li>
-													</ul>
-												</li>
-												<li><a href="products5.html">商品</a></li>
-												<li><a href="products5.html">商品</a></li>
-												<li><a href="products5.html">商品</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">显示器6</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li><a href="products5.html">商品</a></li>
-												<li><a href="products5.html">商品</a></li>
-												<li><a href="products5.html">商品</a></li>
-												<li><a href="products5.html">商品</a></li>
-												<li><a href="products5.html">cables</a></li>
-											</ul>
-										</li>
-									</ul><!-- .cd-secondary-dropdown -->
-								</li> <!-- .has-children -->
-								<li class="has-children">
-									<a href="#">显卡</a>
-									<ul class="cd-secondary-dropdown is-hidden">
-										<li class="go-back"><a href="#">菜单</a></li>
-										<li class="see-all"><a href="products6.html">全部显卡</a></li>
-										<li class="has-children">
-											<a href="#">显卡1</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品</a></li>
-												<li class="has-children">
-													<a href="#0">笔记本款式</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#"> </a></li>
-														<li><a href="products6.html">分离屏幕</a></li>
-														<li><a href="products6.html">没有显示屏</a></li>
-														<li><a href="products6.html">电源自带</a></li>
-													</ul>
-												</li>
-												<li> <a href="products6.html">笔笔</a> </li>
-												<li><a href="products6.html">记记</a></li>
-												<li><a href="products6.html">本本</a></li>
-												<li><a href="products6.html">笔记本</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">显卡2</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品 </a></li>
-												<li><a href="products6.html">笔笔</a></li>
-												<li><a href="products6.html">记记</a></li>
-												<li><a href="products6.html">本本</a></li>
-												<li><a href="products6.html">笔记本</a></li>
-												<li><a href="products6.html">笔记本</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">显卡3</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品</a></li>
-												<li><a href="products6.html">商品</a></li>
-												<li><a href="products6.html">商品</a></li>
-												<li><a href="products6.html">商品</a></li>
-												<li><a href="products6.html">商品</a></li>
-												<li class="has-children">
-													<a href="#">电脑</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#"> </a></li>
-														<li><a href="products6.html">商品 </a></li>
-														<li><a href="products6.html">商品 PC</a></li>
-														<li><a href="products6.html">商品</a></li>
-														<li><a href="products6.html">商品</a></li>
-														<li><a href="products6.html">商品</a></li>
-														<li><a href="products6.html">商品</a></li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">显卡4</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li class="has-children"><a href="#">商品</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#0"> </a></li>
-														<li><a href="products6.html">商品</a></li>
-														<li><a href="products6.html">商品</a></li>
-														<li><a href="products6.html">商品</a></li>
-														<li><a href="products6.html">商品</a></li>
-														<li><a href="products6.html">商品</a></li>
-														<li><a href="products6.html">商品</a></li>
-													</ul>
-												</li>
-												<li><a href="products6.html">商品</a></li>
-												<li><a href="products6.html">商品</a></li>
-												<li><a href="products6.html">商品</a></li>
-												<li><a href="products6.html">商品</a></li>
-												<li><a href="products6.html">商品</a></li>
-												<li><a href="products6.html">商品</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">显卡5</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li><a href="products6.html">商品</a></li>
-												<li><a href="products6.html">商品</a></li>
-												<li class="has-children"><a href="#">商品</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#0"> </a></li>
-														<li><a href="products6.html">商品1</a></li>
-														<li><a href="products6.html">商品2</a></li>
-														<li><a href="products6.html">商品3</a></li>
-														<li><a href="products6.html">商品4</a></li>
-														<li><a href="products6.html">商品5</a></li>
-														<li><a href="products6.html">商品6</a></li>
-													</ul>
-												</li>
-												<li><a href="products6.html">商品</a></li>
-												<li><a href="products6.html">商品</a></li>
-												<li><a href="products6.html">商品</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">显卡6</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li><a href="products6.html">商品</a></li>
-												<li><a href="products6.html">商品</a></li>
-												<li><a href="products6.html">商品</a></li>
-												<li><a href="products6.html">商品</a></li>
-												<li><a href="products6.html">cables</a></li>
-											</ul>
-										</li>
-									</ul><!-- .cd-secondary-dropdown -->
+									<a href="#">${m.ppmch}</a>
+									<ul class="cd-secondary-dropdown is-hidden" >
+										<c:forEach items="${cList}" var="c" varStatus="vs">
+											<li onclick="product()">
+													${c.flmch2}
+											</li>
+										</c:forEach>
+
+									</ul>
 								</li>
-								<li class="has-children">
-									<a href="#">机箱</a>
-									<ul class="cd-secondary-dropdown is-hidden">
-										<li class="go-back"><a href="#">菜单</a></li>
-										<li class="see-all"><a href="products7.html">全部机箱</a></li>
-										<li class="has-children">
-											<a href="#">机箱1</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品</a></li>
-												<li class="has-children">
-													<a href="#0">笔记本款式</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#"> </a></li>
-														<li><a href="products7.html">分离屏幕</a></li>
-														<li><a href="products7.html">没有显示屏</a></li>
-														<li><a href="products7.html">电源自带</a></li>
-													</ul>
-												</li>
-												<li><a href="products7.html">笔笔</a> </li>
-												<li><a href="products7.html">记记</a></li>
-												<li><a href="products7.html">本本</a></li>
-												<li><a href="products7.html">笔记本</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">机箱2</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品 </a></li>
-												<li><a href="products7.html">笔笔</a></li>
-												<li><a href="products7.html">记记</a></li>
-												<li><a href="products7.html">本本</a></li>
-												<li><a href="products7.html">笔记本</a></li>
-												<li><a href="products7.html">笔记本</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">机箱3</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品</a></li>
-												<li><a href="products7.html">商品</a></li>
-												<li><a href="products7.html">商品</a></li>
-												<li><a href="products7.html">商品</a></li>
-												<li><a href="products7.html">商品</a></li>
-												<li class="has-children">
-													<a href="#">电脑</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#"> </a></li>
-														<li><a href="products7.html">商品 </a></li>
-														<li><a href="products7.html">商品 PC</a></li>
-														<li><a href="products7.html">商品</a></li>
-														<li><a href="products7.html">商品</a></li>
-														<li><a href="products7.html">商品</a></li>
-														<li><a href="products7.html">商品</a></li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">机箱4</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li class="has-children"><a href="#">商品</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#0"> </a></li>
-														<li><a href="products7.html">商品</a></li>
-														<li><a href="products7.html">商品</a></li>
-														<li><a href="products7.html">商品</a></li>
-														<li><a href="products7.html">商品</a></li>
-														<li><a href="products7.html">商品</a></li>
-														<li><a href="products7.html">商品</a></li>
-													</ul>
-												</li>
-												<li><a href="products7.html">商品</a></li>
-												<li><a href="products7.html">商品</a></li>
-												<li><a href="products7.html">商品</a></li>
-												<li><a href="products7.html">商品</a></li>
-												<li><a href="products7.html">商品</a></li>
-												<li><a href="products7.html">商品</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">机箱5</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li><a href="products7.html">商品</a></li>
-												<li><a href="products7.html">商品</a></li>
-												<li class="has-children"><a href="#">商品</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#0"> </a></li>
-														<li><a href="products7.html">商品1</a></li>
-														<li><a href="products7.html">商品2</a></li>
-														<li><a href="products7.html">商品3</a></li>
-														<li><a href="products7.html">商品4</a></li>
-														<li><a href="products7.html">商品5</a></li>
-														<li><a href="products7.html">商品6</a></li>
-													</ul>
-												</li>
-												<li><a href="products7.html">商品</a></li>
-												<li><a href="products7.html">商品</a></li>
-												<li><a href="products7.html">商品</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">机箱6</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li><a href="products7.html">商品</a></li>
-												<li><a href="products7.html">商品</a></li>
-												<li><a href="products7.html">商品</a></li>
-												<li><a href="products7.html">商品</a></li>
-												<li><a href="products7.html">cables</a></li>
-											</ul>
-										</li>
-									</ul><!-- .cd-secondary-dropdown -->
-								</li>
-								<li class="has-children">
-									<a href="#">鼠标</a>
-									<ul class="cd-secondary-dropdown is-hidden">
-										<li class="go-back"><a href="#">菜单</a></li>
-										<li class="see-all"><a href="products8.html">全部鼠标</a></li>
-										<li class="has-children">
-											<a href="#">笔记本1</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品</a></li>
-												<li class="has-children">
-													<a href="#0">笔记本款式</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#"> </a></li>
-														<li><a href="products8.html">分离屏幕</a></li>
-														<li><a href="products8.html">没有显示屏</a></li>
-														<li><a href="products8.html">电源自带</a></li>
-													</ul>
-												</li>
-												<li><a href="products8.html">笔笔</a> </li>
-												<li><a href="products8.html">记记</a></li>
-												<li><a href="products8.html">本本</a></li>
-												<li><a href="products8.html">笔记本</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">笔记本2</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品 </a></li>
-												<li><a href="products8.html">笔笔</a></li>
-												<li><a href="products8.html">记记</a></li>
-												<li><a href="products8.html">本本</a></li>
-												<li><a href="products8.html">笔记本</a></li>
-												<li><a href="products8.html">笔记本</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">笔记本3</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品</a></li>
-												<li><a href="products8.html">商品</a></li>
-												<li><a href="products8.html">商品</a></li>
-												<li><a href="products8.html">商品</a></li>
-												<li><a href="products8.html">商品</a></li>
-												<li class="has-children">
-													<a href="#">电脑</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#"> </a></li>
-														<li><a href="products8.html">商品 </a></li>
-														<li><a href="products8.html">商品 PC</a></li>
-														<li><a href="products8.html">商品</a></li>
-														<li><a href="products8.html">商品</a></li>
-														<li><a href="products8.html">商品</a></li>
-														<li><a href="products8.html">商品</a></li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">笔记本4</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li class="has-children"><a href="#">商品</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#0"> </a></li>
-														<li><a href="products8.html">商品</a></li>
-														<li><a href="products8.html">商品</a></li>
-														<li><a href="products8.html">商品</a></li>
-														<li><a href="products8.html">商品</a></li>
-														<li><a href="products8.html">商品</a></li>
-														<li><a href="products8.html">商品</a></li>
-													</ul>
-												</li>
-												<li><a href="products8.html">商品</a></li>
-												<li><a href="products8.html">商品</a></li>
-												<li><a href="products8.html">商品</a></li>
-												<li><a href="products8.html">商品</a></li>
-												<li><a href="products8.html">商品</a></li>
-												<li><a href="products8.html">商品</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">笔记本5</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li><a href="products8.html">商品</a></li>
-												<li><a href="products8.html">商品</a></li>
-												<li class="has-children"><a href="#">商品</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#0"> </a></li>
-														<li><a href="products8.html">商品1</a></li>
-														<li><a href="products8.html">商品2</a></li>
-														<li><a href="products8.html">商品3</a></li>
-														<li><a href="products8.html">商品4</a></li>
-														<li><a href="products8.html">商品5</a></li>
-														<li><a href="products8.html">商品6</a></li>
-													</ul>
-												</li>
-												<li><a href="products8.html">商品</a></li>
-												<li><a href="products8.html">商品</a></li>
-												<li><a href="products8.html">商品</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">笔记本6</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li><a href="products8.html">商品</a></li>
-												<li><a href="products8.html">商品</a></li>
-												<li><a href="products8.html">商品</a></li>
-												<li><a href="products8.html">商品</a></li>
-												<li><a href="products8.html">cables</a></li>
-											</ul>
-										</li>
-									</ul><!-- .cd-secondary-dropdown -->
-								</li>
-								<li class="has-children">
-									<a href="#">键盘</a>
-									<ul class="cd-secondary-dropdown is-hidden">
-										<li class="go-back"><a href="#">菜单</a></li>
-										<li class="see-all"><a href="products9.html">全部键盘</a></li>
-										<li class="has-children">
-											<a href="#">键盘1</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品</a></li>
-												<li class="has-children">
-													<a href="#0">键盘款式</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#"> </a></li>
-														<li><a href="products9.html">分离屏幕</a></li>
-														<li><a href="products9.html">没有显示屏</a></li>
-														<li><a href="products9.html">电源自带</a></li>
-													</ul>
-												</li>
-												<li><a href="products9.html">笔笔</a> </li>
-												<li><a href="products9.html">记记</a></li>
-												<li><a href="products9.html">本本</a></li>
-												<li><a href="products9.html">键盘</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">键盘2</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品 </a></li>
-												<li><a href="products9.html">笔笔</a></li>
-												<li><a href="products9.html">记记</a></li>
-												<li><a href="products9.html">本本</a></li>
-												<li><a href="products9.html">笔记本</a></li>
-												<li><a href="products9.html">笔记本</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">键盘3</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#">全部商品</a></li>
-												<li><a href="products9.html">商品</a></li>
-												<li><a href="products9.html">商品</a></li>
-												<li><a href="products9.html">商品</a></li>
-												<li><a href="products9.html">商品</a></li>
-												<li class="has-children">
-													<a href="#">电脑</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#"> </a></li>
-														<li><a href="products9.html">商品 </a></li>
-														<li><a href="products9.html">商品 PC</a></li>
-														<li><a href="products9.html">商品</a></li>
-														<li><a href="products9.html">商品</a></li>
-														<li><a href="products9.html">商品</a></li>
-														<li><a href="products9.html">商品</a></li>
-													</ul>
-												</li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">键盘4</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li class="has-children"><a href="#">商品</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#0"> </a></li>
-														<li><a href="products9.html">商品</a></li>
-														<li><a href="products9.html">商品</a></li>
-														<li><a href="products9.html">商品</a></li>
-														<li><a href="products9.html">商品</a></li>
-														<li><a href="products9.html">商品</a></li>
-														<li><a href="products9.html">商品</a></li>
-													</ul>
-												</li>
-												<li><a href="products9.html">商品</a></li>
-												<li><a href="products9.html">商品</a></li>
-												<li><a href="products9.html">商品</a></li>
-												<li><a href="products9.html">商品</a></li>
-												<li><a href="products9.html">商品</a></li>
-												<li><a href="products9.html">商品</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">键盘5</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li><a href="products9.html">商品</a></li>
-												<li><a href="products9.html">商品</a></li>
-												<li class="has-children"><a href="#">商品</a>
-													<ul class="is-hidden">
-														<li class="go-back"><a href="#0"> </a></li>
-														<li><a href="products9.html">商品1</a></li>
-														<li><a href="products9.html">商品2</a></li>
-														<li><a href="products9.html">商品3</a></li>
-														<li><a href="products9.html">商品4</a></li>
-														<li><a href="products9.html">商品5</a></li>
-														<li><a href="products9.html">商品6</a></li>
-													</ul>
-												</li>
-												<li><a href="products9.html">商品</a></li>
-												<li><a href="products9.html">商品</a></li>
-												<li><a href="products9.html">商品</a></li>
-											</ul>
-										</li>
-										<li class="has-children">
-											<a href="#">键盘6</a>
-											<ul class="is-hidden">
-												<li class="go-back"><a href="#0">全部商品 </a></li>
-												<li><a href="products9.html">商品</a></li>
-												<li><a href="products9.html">商品</a></li>
-												<li><a href="products9.html">商品</a></li>
-												<li><a href="products9.html">商品</a></li>
-												<li><a href="products9.html">cables</a></li>
-											</ul>
-										</li>
-									</ul><!-- .cd-secondary-dropdown -->
-								</li>
-								<li><a href="sitemap.jsp">商品大全 </a></li>
-							</ul> <!-- .cd-dropdown-content -->
-						</nav> <!-- .cd-dropdown -->
-					</div> <!-- .cd-dropdown-wrapper -->
+							</c:forEach>
+							<li><a href="offers.jsp">所有品牌</a></li>
+							<!--//目录部分-->
+						</ul>
+					</nav>
 				</div>
-				<div class="move-text">
-					<div class="marquee"><a href="offers.jsp"> 海哥希望你们多买点 <span>加我微信给你降价 </span> <span> 海哥永远给你们最好的，但是有点贵！</span></a></div>
-					<script type="text/javascript" src="js/jquery.marquee.min.js"></script>
-					<script>
-						$('.marquee').marquee({ pauseOnHover: true });
-						//@ sourceURL=pen.js
-					</script>
-				</div>
+			</div>
+
+			<div class="move-text">
+				<div class="marquee"><a href="offers.jsp"> 海哥希望你们多买点 <span>加我微信给你降价 </span> <span> 海哥永远给你们最好的，但是有点贵！</span></a></div>
+				<script type="text/javascript" src="js/jquery.marquee.min.js"></script>
+				<script>
+					$('.marquee').marquee({ pauseOnHover: true });
+					//@ sourceURL=pen.js
+				</script>
 			</div>
 		</div>
 	</div>
@@ -1397,6 +230,7 @@
 					%>
 					<div class="col-md-6 single-top-right">
 						<h3 class="item_name"><%=product.getShp_mch()%></h3>
+<%--						${product.getShp_mch()}--%>
 						<p>处理时间：物品将在2-3个工作日内发货。 </p>
 						<div class="single-rating">
 							<ul>
@@ -1406,7 +240,17 @@
 								<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
 								<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
 								<li class="rating">20条点评</li>
-								<li><a href="comment.jsp">添加您的评论</a></li>
+
+								<c:if test="${sessionScope.userName==null}">
+
+									<li   ><a href="login.jsp">添加您的评论</a>  </li>
+								</c:if>
+										<c:if test="${sessionScope.userName!=null}">
+											<li><a href="comment.jsp">添加您的评论</a></li>
+										</c:if>
+
+
+
 							</ul> 
 						</div>
 						<div class="single-price">
@@ -1418,16 +262,22 @@
 								<li><a href="#"><i class="fa fa-gift" aria-hidden="true"></i> 优惠券</a></li>
 							</ul>	
 						</div> 
-						<p class="single-price-text"><%= product.getShp_msh()%></p>
+						<p class="single-price-text">联想拯救者 Y700p 15.6英寸1080p高清屏 9代i7-9650 GTX1060Ti 16G大内存</p>
+<%--						<%= product.getShp_msh()%>--%>
 						<p class="single-price-text">颜色：<%= product.getShp_ys()%> 库存：<%= product.getShp_kc()%> </p>
-						<form action="#" method="post">
-							<input type="hidden" name="cmd" value="_cart" />
-							<input type="hidden" name="add" value="1" /> 
-							<input type="hidden" name="w3ls_item" value="Snow Blower" /> 
-							<input type="hidden" name="amount" value="540.00" /> 
-							<button type="submit" class="w3ls-cart" href="showcart.jsp"><i class="fa fa-cart-plus" aria-hidden="true"></i> 添加到购物车</button>
+						<form action="/addCar?shp_id=<%=product.getShp_id()%>&yh_id=${sessionScope.loginName}"  method="post">
+
+
+							<c:if test="${sessionScope.userName==null}">
+
+								<button href="login.jsp" class="dropdown-toggle" >添加到购物车 </button>
+							</c:if>
+							<c:if test="${sessionScope.userName!=null}">
+								<button type="submit" >添加到购物车</button>
+							</c:if>
+
 						</form>
-						<button class="w3ls-cart w3ls-cart-like"><i class="fa fa-heart-o" aria-hidden="true"></i> 添加到愿望单</button>
+
 					</div>
 				   <div class="clearfix"> </div>  
 				</div>
@@ -1445,6 +295,7 @@
 			<%
 				}
 			%>
+
 			<!-- recommendations -->
 			<div class="recommend">
 				<h3 class="w3ls-title">推荐 </h3>
@@ -1622,6 +473,7 @@
 						</div>
 						<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 							<div class="panel-body">
+<%--								<%=product.getShp_msh()%>--%>
 								联想(Lenovo)拯救者Y7000P 2019英特尔酷睿i715.6英寸游戏笔记本电脑(i7-9750H 16G 1T SSD GTX1660Ti 144Hz)
 							</div>
 						</div>
@@ -1636,6 +488,7 @@
 						</div>
 						<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 							<div class="panel-body">
+
 								【预付定金享6期免息】开启1TB大固态硬盘时代全新英特尔9代CPU，升级16G大内存，速度更快！144Hz电竞屏72%NTSC高色域！
 							</div>
 						</div>
@@ -1644,14 +497,16 @@
 						<div class="panel-heading" role="tab" id="headingThree">
 							<h4 class="panel-title">
 								<a class="collapsed pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-									<i class="fa fa-check-square-o fa-icon" aria-hidden="true"></i> 评论（5） <span class="fa fa-angle-down fa-arrow" aria-hidden="true"></span> <i class="fa fa-angle-up fa-arrow" aria-hidden="true"></i>
+									<i class="fa fa-check-square-o fa-icon" aria-hidden="true"></i><a href="/comment.do?_method=selectPro&shp_id=<%=request.getAttribute("shp_id")%>">评论</a> <span class="fa fa-angle-down fa-arrow" aria-hidden="true"></span> <i class="fa fa-angle-up fa-arrow" aria-hidden="true"></i>
 								</a>
 							</h4>
 						</div>
 						<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+							<c:forEach items="${shlist}" var="list">
 							<div class="panel-body">
-								Y7000p颜值贼高，开机速度贼快，操作流畅，跑分能到30w左右，玩游戏也很舒畅，办公也非常舒服，重量也比以前的y系列清一点，整体设计很好，各方面看着都蛮舒服的，值得拥有，还是1060显卡厉害，各种游戏都hold住，非常nice！！！！！！
+								${list.plnr}
 							</div>
+							</c:forEach>
 						</div>
 					</div>
 					<div class="panel panel-default">
@@ -1670,6 +525,7 @@
 					</div>
 				</div>
 			</div>
+
 			<!-- //collapse --> 
 			<!-- offers-cards --> 
 			<div class="w3single-offers offer-bottom"> 

@@ -4,22 +4,26 @@ public class ShoppingCar {
     private String gwc_id;
     private String yh_id;
     private String shp_mch;
-    private float shp_jg;
+    private double shp_jg;
     private String mai_mch;
     private String shp_tp;
-    private String sku_shx;
+    private String shp_msh;
+    private String shp_ys;
+    private int shp_shl;
 
     public ShoppingCar() {
     }
 
-    public ShoppingCar(String gwc_id, String yh_id, String shp_mch, float shp_jg, String mai_mch, String shp_tp, String sku_shx) {
+    public ShoppingCar(String gwc_id, String yh_id, String shp_mch, double shp_jg, String mai_mch, String shp_tp, String shp_msh, String shp_ys, int shp_shl) {
         this.gwc_id = gwc_id;
         this.yh_id = yh_id;
         this.shp_mch = shp_mch;
         this.shp_jg = shp_jg;
         this.mai_mch = mai_mch;
         this.shp_tp = shp_tp;
-        this.sku_shx = sku_shx;
+        this.shp_msh = shp_msh;
+        this.shp_ys = shp_ys;
+        this.shp_shl = shp_shl;
     }
 
     public String getGwc_id() {
@@ -46,11 +50,11 @@ public class ShoppingCar {
         this.shp_mch = shp_mch;
     }
 
-    public float getShp_jg() {
+    public double getShp_jg() {
         return shp_jg;
     }
 
-    public void setShp_jg(float shp_jg) {
+    public void setShp_jg(double shp_jg) {
         this.shp_jg = shp_jg;
     }
 
@@ -70,12 +74,28 @@ public class ShoppingCar {
         this.shp_tp = shp_tp;
     }
 
-    public String getSku_shx() {
-        return sku_shx;
+    public String getShp_msh() {
+        return shp_msh;
     }
 
-    public void setSku_shx(String sku_shx) {
-        this.sku_shx = sku_shx;
+    public void setShp_msh(String shp_msh) {
+        this.shp_msh = shp_msh;
+    }
+
+    public String getShp_ys() {
+        return shp_ys;
+    }
+
+    public void setShp_ys(String shp_ys) {
+        this.shp_ys = shp_ys;
+    }
+
+    public int getShp_shl() {
+        return shp_shl;
+    }
+
+    public void setShp_shl(int shp_shl) {
+        this.shp_shl = shp_shl;
     }
 
     @Override
@@ -87,7 +107,9 @@ public class ShoppingCar {
                 ", shp_jg=" + shp_jg +
                 ", mai_mch='" + mai_mch + '\'' +
                 ", shp_tp='" + shp_tp + '\'' +
-                ", sku_shx='" + sku_shx + '\'' +
+                ", shp_msh='" + shp_msh + '\'' +
+                ", shp_ys='" + shp_ys + '\'' +
+                ", shp_shl=" + shp_shl +
                 '}';
     }
 }
