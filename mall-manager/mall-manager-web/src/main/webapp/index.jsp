@@ -159,14 +159,14 @@
                     <a href="#0" class="cd-close">Close</a>
                     <ul class="cd-dropdown-content">
                         <!--目录部分-->
-                        <li><a href="offers.jsp">今日优惠</a></li>
+                        <li><a onclick="product()">全部商品</a></li>
                         <c:forEach items="${mList}" var="m" varStatus="status">
                             <li class="has-children">
                                 <a href="#">${m.ppmch}</a>
                                 <ul class="cd-secondary-dropdown " style="width: 280px " id="cxy">
                                     <c:forEach items="${cList}" var="c">
-                                        <li onclick="product()" style="width: 52%" >
-                                            <cc style="cursor: grab">${c.flmch2}</cc>
+                                        <li style="width: 52%" >
+                                            <cc style="cursor: grab" >${c.flmch2}</cc>
                                         </li>
                                     </c:forEach>
                                 </ul>

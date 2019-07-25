@@ -11,13 +11,14 @@ public class Product {
     private String shp_msh;//商品描述
     private String shp_ys;//商品颜色
     private int shp_kc;//商品库存
+    private String shp_zht;//商品状态
     private String pp_id;//品牌id
     private Date chjshj;//创建时间
 
     public Product() {
     }
 
-    public Product(String shp_id, String shp_mch, int flmch1_id, int flmch2_id, double shp_jg, String shp_msh, String shp_ys, int shp_kc, String pp_id, Date chjshj) {
+    public Product(String shp_id, String shp_mch, int flmch1_id, int flmch2_id, double shp_jg, String shp_msh, String shp_ys, int shp_kc, String shp_zht, String pp_id, Date chjshj) {
         this.shp_id = shp_id;
         this.shp_mch = shp_mch;
         this.flmch1_id = flmch1_id;
@@ -26,6 +27,7 @@ public class Product {
         this.shp_msh = shp_msh;
         this.shp_ys = shp_ys;
         this.shp_kc = shp_kc;
+        this.shp_zht = shp_zht;
         this.pp_id = pp_id;
         this.chjshj = chjshj;
     }
@@ -94,6 +96,14 @@ public class Product {
         this.shp_kc = shp_kc;
     }
 
+    public String getShp_zht() {
+        return shp_zht;
+    }
+
+    public void setShp_zht(String shp_zht) {
+        this.shp_zht = shp_zht;
+    }
+
     public String getPp_id() {
         return pp_id;
     }
@@ -113,7 +123,7 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "shp_id=" + shp_id +
+                "shp_id='" + shp_id + '\'' +
                 ", shp_mch='" + shp_mch + '\'' +
                 ", flmch1_id=" + flmch1_id +
                 ", flmch2_id=" + flmch2_id +
@@ -121,7 +131,8 @@ public class Product {
                 ", shp_msh='" + shp_msh + '\'' +
                 ", shp_ys='" + shp_ys + '\'' +
                 ", shp_kc=" + shp_kc +
-                ", pp_id=" + pp_id +
+                ", shp_zht='" + shp_zht + '\'' +
+                ", pp_id='" + pp_id + '\'' +
                 ", chjshj=" + chjshj +
                 '}';
     }

@@ -1,5 +1,6 @@
 package com.mmall.controller;
 
+import com.mall.product.PPAll;
 import com.mall.product.Product;
 import com.mall.product.ProductImg;
 import com.mall.product.impl.ProImgDaoImpl;
@@ -25,11 +26,14 @@ public class ProductFindAllServlet extends HttpServlet {
         ProImgDaoImpl pi = new ProImgDaoImpl();
         List<ProductImg> piList = null;
         List<Product> pList = null;
+        List<PPAll> ppList = null;
         try {
             pList = pro.findAll();
             piList = pi.findAll();
+            ppList = pi.findAllPP();
             request.setAttribute("pList",pList);
             request.setAttribute("piList",piList);
+            request.setAttribute("ppList",ppList);
             request.getRequestDispatcher("product_show.jsp").forward(request,response);
             return;
         } catch (SQLException e) {

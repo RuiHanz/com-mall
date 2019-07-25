@@ -1,6 +1,7 @@
 package com.mall.product.impl;
 
 import com.mall.product.IProImgDao;
+import com.mall.product.PPAll;
 import com.mall.product.ProductImg;
 import com.mall.user.utils.JdbcUtils;
 import org.apache.commons.dbutils.QueryRunner;
@@ -16,5 +17,13 @@ public class ProImgDaoImpl implements IProImgDao {
         QueryRunner qr = new QueryRunner(JdbcUtils.getDs());
         List<ProductImg> pList = qr.query(sql,new BeanListHandler<>(ProductImg.class));
         return pList;
+    }
+
+    @Override
+    public List<PPAll> findAllPP() throws SQLException {
+        String sql="SELECT product.shp_id,product.shp_mch,product.shp_msh,product_image.url from product,product_image where product.shp_id=product_image.shp_id";
+        QueryRunner qr = new QueryRunner(JdbcUtils.getDs());
+        List<PPAll> ppList = qr.query(sql,new BeanListHandler<>(PPAll.class));
+        return ppList;
     }
 }

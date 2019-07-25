@@ -7,4 +7,7 @@ import java.util.List;
 
 public interface IProImgDao {
     public List<ProductImg> findAll() throws SQLException;
+
+    //商品展示专用
+    public List<PPAll> findAllPP() throws SQLException;
 }
