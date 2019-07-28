@@ -112,6 +112,9 @@
         function toProduct() {
             location.href="/product/single.do?shp_id=";
         }
+        function toProByOrder(str,id) {
+            location.href="http://localhost:9099/ProductByOrderServlet?pp_id=" +str+"&flmch2_id="+ id;
+        }
 	</script>
 </head>
 <body>
@@ -152,8 +155,6 @@
 					</button>
 				</form>
 			</div>
-
-
 				</div>
 				<div class="clearfix"> </div>
 			</div>
@@ -176,7 +177,7 @@
 									<ul class="cd-secondary-dropdown " style="width: 280px " id="cxy">
 										<c:forEach items="${cList}" var="c">
 											<li style="width: 52%" >
-												<cc style="cursor: grab">${c.flmch2}</cc>
+												<cc style="cursor: grab" onclick="toProByOrder('${m.pp_id}',${c.flmch2_id})">${c.flmch2}</cc>
 											</li>
 										</c:forEach>
 									</ul>
@@ -215,13 +216,13 @@
 				<div class="clearfix"> </div>
 			</div>
 			<!--陈希元的商品展示-->
-			<c:forEach items="${ppList}" var="p" varStatus="vs">
+			<c:forEach items="${proByOrdList}" var="p" varStatus="vs">
 				<div class="agile-products" style="float: left" >
 					<div class="new-tag"><h6>18%<br>Off</h6></div>
 					<a href="single.jsp"><img src="/images/${p.url}" class="img-responsive" alt="img"></a>
 					<div class="agile-product-text"  onclick="toProduct()">
 						<form action="/product/single.do?shp_id=${p.shp_id}" method="post">
-							<h5><a href="product_show.jsp">${p.shp_mch}</a></h5>
+							<h5><a onclick="product()">${p.shp_mch}</a></h5>
 							<h6><del>$25</del> ${p.shp_jg}</h6>
 							<button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> 加入购物车</button>
 						</form>
@@ -260,18 +261,16 @@
 			</script>
 			<%--推荐商品滚动	：陈希元--%>
 			<div id="owl-demo5" class="owl-carousel">
-				<c:forEach items="${pList}" var="p" varStatus="vs" begin="0" end="9">
+				<c:forEach items="${ppList}" var="p" varStatus="vs" begin="0" end="9">
 					<div class="item">
 						<div class="glry-w3agile-grids agileits">
 							<div class="new-tag"><h6>20% <br> Off</h6></div>
-							<c:forEach items="${piList}" var="pi" begin="${vs.index}" end="${vs.index}">
-								<a href="products1.html"><img src="images/${pi.url}" alt="img"></a>
-							</c:forEach>
+								<a onclick="product()"><img src="images/${p.url}" alt="img"></a>
 							<div class="view-caption agileits-w3layouts">
-								<h4><a href="products1.html">${p.shp_mch}</a></h4>
+								<h4><a onclick="product()">${p.shp_mch}</a></h4>
 								<p>${p.shp_msh}</p>
 								<h5>$20</h5>
-								<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+								<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 加入购物车</button>
 							</div>
 						</div>
 					</div>

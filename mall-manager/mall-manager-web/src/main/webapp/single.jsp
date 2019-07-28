@@ -104,6 +104,24 @@
 		
 	});
 </script>
+	<style type="text/css">
+		#cxy{
+			padding: 0px 0px 0px 2px;
+			top: 40px;
+			box-shadow: 0 2px 14px rgba(0,0,0,0);
+		}
+	</style>
+	<script type="text/javascript">
+        function product() {
+            location.href="http://localhost:9099/ProductFindAllServlet";
+        }
+        function toProduct() {
+            location.href="/product/single.do?shp_id=";
+        }
+        function toProByOrder(str,id) {
+            location.href="http://localhost:9099/ProductByOrderServlet?pp_id=" +str+"&flmch2_id="+ id;
+        }
+	</script>
 <!-- //smooth-scrolling-of-move-up -->  
 </head>
 <body>
@@ -150,7 +168,7 @@
 			<div class="clearfix"> </div>
 		</div>
 	</div><!-- //header-two -->
-
+	
 	<div class="header-three"><!-- header-three -->
 		<div class="container">
 			<div class="menu">
@@ -160,33 +178,30 @@
 						<a href="#0" class="cd-close">Close</a>
 						<ul class="cd-dropdown-content">
 							<!--目录部分-->
-							<li><a href="offers.jsp">今日优惠</a></li>
+							<li><a onclick="product()">全部商品</a></li>
 							<c:forEach items="${mList}" var="m" varStatus="status">
 								<li class="has-children">
 									<a href="#">${m.ppmch}</a>
-									<ul class="cd-secondary-dropdown is-hidden" >
-										<c:forEach items="${cList}" var="c" varStatus="vs">
-											<li onclick="product()">
-													${c.flmch2}
+									<ul class="cd-secondary-dropdown " style="width: 280px " id="cxy">
+										<c:forEach items="${cList}" var="c">
+											<li style="width: 52%" >
+												<cc style="cursor: grab" onclick="toProByOrder('${m.pp_id}',${c.flmch2_id})">${c.flmch2}</cc>
 											</li>
 										</c:forEach>
-
 									</ul>
 								</li>
 							</c:forEach>
-							<li><a href="offers.jsp">所有品牌</a></li>
 							<!--//目录部分-->
 						</ul>
-					</nav>
-				</div>
+					</nav> <!-- .cd-dropdown -->
+				</div> <!-- .cd-dropdown-wrapper -->
 			</div>
-
 			<div class="move-text">
 				<div class="marquee"><a href="offers.jsp"> 海哥希望你们多买点 <span>加我微信给你降价 </span> <span> 海哥永远给你们最好的，但是有点贵！</span></a></div>
 				<script type="text/javascript" src="js/jquery.marquee.min.js"></script>
 				<script>
-					$('.marquee').marquee({ pauseOnHover: true });
-					//@ sourceURL=pen.js
+                    $('.marquee').marquee({ pauseOnHover: true });
+                    //@ sourceURL=pen.js
 				</script>
 			</div>
 		</div>
@@ -196,13 +211,6 @@
 	<%
 		List<Product> pList = (List<Product>) request.getAttribute("pList");
 	%>
-	<div class="container"> 
-		<ol class="breadcrumb breadcrumb1">
-			<li><a href="index.jsp">首页</a></li>
-			<li class="active">商品页面</li>
-		</ol> 
-		<div class="clearfix"> </div>
-	</div>
 	<!-- //breadcrumbs -->
 	<!-- products -->
 	<div class="products">	 
@@ -248,9 +256,6 @@
 										<c:if test="${sessionScope.userName!=null}">
 											<li><a href="comment.jsp">添加您的评论</a></li>
 										</c:if>
-
-
-
 							</ul> 
 						</div>
 						<div class="single-price">
@@ -295,170 +300,6 @@
 			<%
 				}
 			%>
-
-			<!-- recommendations -->
-			<div class="recommend">
-				<h3 class="w3ls-title">推荐 </h3>
-				<script>
-					$(document).ready(function() { 
-						$("#owl-demo5").owlCarousel({
-					 
-						  autoPlay: 3000, //Set AutoPlay to 3 seconds
-					 
-						  items :4,
-						  itemsDesktop : [640,5],
-						  itemsDesktopSmall : [414,4],
-						  navigation : true
-					 
-						});
-						
-					}); 
-				</script>
-				<div id="owl-demo5" class="owl-carousel">
-					<div class="item">
-						<div class="glry-w3agile-grids agileits">
-							<div class="new-tag"><h6>20% <br> Off</h6></div>
-							<a href="products1.html"><img src="images/f2.png" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products1.html">Women Sandal</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$20</h5>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Women Sandal" /> 
-									<input type="hidden" name="amount" value="20.00" /> 
-									<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>        
-						</div> 
-					</div>
-					<div class="item">
-						<div class="glry-w3agile-grids agileits"> 
-							<a href="products.html"><img src="images/e4.png" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products.html">Digital Camera</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$80</h5>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Digital Camera"/> 
-									<input type="hidden" name="amount" value="100.00" /> 
-									<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>         
-						</div>  
-					</div>  
-					<div class="item">
-						<div class="glry-w3agile-grids agileits"> 
-							<div class="new-tag"><h6>New</h6></div>
-							<a href="products4.html"><img src="images/s1.png" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products4.html">Roller Skates</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$180</h5>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Roller Skates"/> 
-									<input type="hidden" name="amount" value="180.00" /> 
-									<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>         
-						</div>  
-					</div>
-					<div class="item">
-						<div class="glry-w3agile-grids agileits"> 
-							<a href="products1.html"><img src="images/f1.png" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products1.html">T Shirt</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$10</h5>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="T Shirt" /> 
-									<input type="hidden" name="amount" value="10.00" /> 
-									<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>        
-						</div>    
-					</div>
-					<div class="item">
-						<div class="glry-w3agile-grids agileits"> 
-							<div class="new-tag"><h6>New</h6></div>
-							<a href="products6.html"><img src="images/p1.png" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products6.html">Coffee Mug</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$14</h5>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Coffee Mug" /> 
-									<input type="hidden" name="amount" value="14.00" /> 
-									<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>         
-						</div>  
-					</div>
-					<div class="item">
-						<div class="glry-w3agile-grids agileits"> 
-							<div class="new-tag"><h6>20% <br> Off</h6></div>
-							<a href="products6.html"><img src="images/p2.png" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products6.html">Teddy bear</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$20</h5>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Teddy bear" /> 
-									<input type="hidden" name="amount" value="20.00" /> 
-									<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>        
-						</div> 
-					</div>
-					<div class="item">
-						<div class="glry-w3agile-grids agileits"> 
-							<a href="products4.html"><img src="images/s2.png" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products4.html">Football</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$70</h5>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Football"/> 
-									<input type="hidden" name="amount" value="70.00"/>
-									<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>        
-						</div> 
-					</div> 
-					<div class="item">
-						<div class="glry-w3agile-grids agileits"> 
-							<div class="new-tag"><h6>Sale</h6></div>
-							<a href="products3.html"><img src="images/h1.png" alt="img"></a>
-							<div class="view-caption agileits-w3layouts">           
-								<h4><a href="products3.html">Wall Clock</a></h4>
-								<p>Lorem ipsum dolor sit amet consectetur</p>
-								<h5>$80</h5>
-								<form action="#" method="post">
-									<input type="hidden" name="cmd" value="_cart" />
-									<input type="hidden" name="add" value="1" /> 
-									<input type="hidden" name="w3ls_item" value="Wall Clock" /> 
-									<input type="hidden" name="amount" value="80.00" /> 
-									<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-								</form>
-							</div>         
-						</div>  
-					</div> 
-				</div>    
-			</div>
-			<!-- //recommendations --> 
 			<!-- collapse-tabs -->
 			<div class="collpse tabs">
 				<h3 class="w3ls-title">相关信息</h3>
@@ -546,7 +387,7 @@
 			<!-- //offers-cards -->
 		</div>
 	</div>
-	<!--//products-->  
+	<!--//products-->
 	<!-- footer-top -->
 	<div class="w3agile-ftr-top">
 		<div class="container">
@@ -623,7 +464,7 @@
 			<div class="footer-info w3-agileits-info">
 				<div class="col-md-4 address-left agileinfo">
 					<div class="footer-logo header-logo">
-						<h2><a href="index.jsp"><span>海</span>哥 <i>电脑城</i></a></h2>
+						<h2><a href="index.html"><span>海</span>哥 <i>电脑城</i></a></h2>
 						<h6>你的商店，你做主</h6>
 					</div>
 					<ul>
@@ -681,25 +522,24 @@
         w3ls.render();
 
         w3ls.cart.on('w3sb_checkout', function (evt) {
-        	var items, len, i;
+            var items, len, i;
 
-        	if (this.subtotal() > 0) {
-        		items = this.items();
+            if (this.subtotal() > 0) {
+                items = this.items();
 
-        		for (i = 0, len = items.length; i < len; i++) {
-        			items[i].set('shipping', 0);
-        			items[i].set('shipping2', 0);
-        		}
-        	}
+                for (i = 0, len = items.length; i < len; i++) {
+                    items[i].set('shipping', 0);
+                    items[i].set('shipping2', 0);
+                }
+            }
         });
-    </script>  
-	<!-- //cart-js --> 	 
+	</script>
+	<!-- //cart-js -->
 	<!-- menu js aim -->
 	<script src="js/jquery.menu-aim.js"> </script>
 	<script src="js/main.js"></script> <!-- Resource jQuery -->
-	<!-- //menu js aim --> 
-	<!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster --> 
+	<!-- //menu js aim -->
+	<!-- Bootstrap core JavaScript-->
+	<script src="js/bootstrap.js"></script>>
 </body>
 </html>

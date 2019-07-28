@@ -110,6 +110,9 @@
         function product() {
             location.href="http://localhost:9099/ProductFindAllServlet";
         }
+        function toProByOrder(str,id) {
+            location.href="http://localhost:9099/ProductByOrderServlet?pp_id=" +str+"&flmch2_id="+ id;
+        }
 	</script>
 </head>
 <body>
@@ -166,7 +169,9 @@
                                 <ul class="cd-secondary-dropdown " style="width: 280px " id="cxy">
                                     <c:forEach items="${cList}" var="c">
                                         <li style="width: 52%" >
-                                            <cc style="cursor: grab" >${c.flmch2}</cc>
+                                            <cc style="cursor: grab" onclick="toProByOrder('${m.pp_id}',${c.flmch2_id})">${c.flmch2}</cc>
+	                                        <h1>${m.pp_id}</h1>
+	                                        <h1>${c.flmch2_id}</h1>
                                         </li>
                                     </c:forEach>
                                 </ul>
@@ -246,9 +251,9 @@
                             <div id="owl-demo" class="owl-carousel">
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits">
-                                        <a href="products.jsp"><img src="images/e1.png" alt="img"></a>
+                                        <a onclick="product()"><img src="images/e1.png" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products.jsp">联想拯救者Y700p</a></h4>
+                                            <h4><a onclick="product()">联想拯救者Y700p</a></h4>
                                             <p>2019英特尔酷睿i7 15.6英寸游戏笔记本电脑</p>
                                             <h5>￥9299</h5>
                                             <form action="#" method="post">
@@ -264,9 +269,9 @@
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits">
                                         <div class="new-tag"><h6>折扣</h6></div>
-                                        <a href="products.jsp"><img src="images/e2.png" alt="img"></a>
+                                        <a onclick="product()"><img src="images/e2.png" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products.jsp">神舟战神 Z7-CT7GK</a></h4>
+                                            <h4><a onclick="product()">神舟战神 Z7-CT7GK</a></h4>
                                             <p>9代酷睿i7-9750H GTX1660Ti 15.6英寸轻薄游戏笔记本电脑</p>
                                             <h5>￥7468</h5>
                                             <form action="#" method="post">
@@ -282,9 +287,9 @@
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits">
                                         <div class="new-tag"><h6>新品</h6></div>
-                                        <a href="products.jsp"><img src="images/e3.png" alt="img"></a>
+                                        <a onclick="product()"><img src="images/e3.png" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products.jsp">戴尔DELL游匣G3</a></h4>
+                                            <h4><a onclick="product()">戴尔DELL游匣G3</a></h4>
                                             <p>15.6英寸轻薄游戏笔记本电脑</p>
                                             <h5>￥6489</h5>
                                             <form action="#" method="post">
@@ -299,9 +304,9 @@
                                 </div>
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits">
-                                        <a href="products.jsp"><img src="images/e4.png" alt="img"></a>
+                                        <a onclick="product()"><img src="images/e4.png" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products.jsp">惠普（HP）暗影精灵4代</a></h4>
+                                            <h4><a onclick="product()">惠普（HP）暗影精灵4代</a></h4>
                                             <p>英特尔酷睿i7 15.6英寸游戏笔记本电脑</p>
                                             <h5>￥6599</h5>
                                             <form action="#" method="post">
@@ -316,9 +321,9 @@
                                 </div>
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits">
-                                        <a href="products.jsp"><img src="images/e1.png" alt="img"></a>
+                                        <a onclick="product()"><img src="images/e1.png" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products.jsp">联想拯救者Y700p</a></h4>
+                                            <h4><a onclick="product()">联想拯救者Y700p</a></h4>
                                             <p>英特尔酷睿i7 15.6英寸游戏笔记本电脑</p>
                                             <h5>￥9299</h5>
                                             <form action="#" method="post">
@@ -334,9 +339,9 @@
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits">
                                         <div class="new-tag"><h6>折扣</h6></div>
-                                        <a href="products.jsp"><img src="images/e2.png" alt="img"></a>
+                                        <a onclick="product()"><img src="images/e2.png" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products.jsp">神舟战神 Z7-CT7GK</a></h4>
+                                            <h4><a onclick="product()">神舟战神 Z7-CT7GK</a></h4>
                                             <p>9代酷睿i7 15.6英寸轻薄游戏笔记本电脑</p>
                                             <h5>￥7468</h5>
                                             <form action="#" method="post">
@@ -352,9 +357,9 @@
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits">
                                         <div class="new-tag"><h6>新品</h6></div>
-                                        <a href="products.jsp"><img src="images/e3.png" alt="img"></a>
+                                        <a onclick="product()"><img src="images/e3.png" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products.jsp">戴尔DELL游匣G3</a></h4>
+                                            <h4><a onclick="product()">戴尔DELL游匣G3</a></h4>
                                             <p>15.6英寸轻薄游戏笔记本电脑</p>
                                             <h5>￥6489</h5>
                                             <form action="#" method="post">
@@ -369,9 +374,9 @@
                                 </div>
                                 <div class="item">
                                     <div class="glry-w3agile-grids agileits">
-                                        <a href="products.jsp"><img src="images/e4.png" alt="img"></a>
+                                        <a onclick="product()"><img src="images/e4.png" alt="img"></a>
                                         <div class="view-caption agileits-w3layouts">
-                                            <h4><a href="products.jsp">惠普（HP）暗影精灵4代</a></h4>
+                                            <h4><a onclick="product()">惠普（HP）暗影精灵4代</a></h4>
                                             <p>英特尔酷睿i7 15.6英寸游戏笔记本电脑</p>
                                             <h5>￥6599</h5>
                                             <form action="#" method="post">
@@ -1067,10 +1072,10 @@
                                 <div class="glry-w3agile-grids agileits">
                                     <div class="new-tag"><h6>20% <br> Off</h6></div>
                                     <c:forEach items="${piList}" var="pi" begin="${vs.index}" end="${vs.index}">
-                                        <a href="products1.html"><img src="images/${pi.url}" alt="img"></a>
+                                        <a onclick="product()"><img src="images/${pi.url}" alt="img"></a>
                                     </c:forEach>
                                     <div class="view-caption agileits-w3layouts">
-                                        <h4><a href="products1.html">${p.shp_mch}</a></h4>
+                                        <h4><a onclick="product()">${p.shp_mch}</a></h4>
                                         <p>${p.shp_msh}</p>
                                         <h5>$20</h5>
                                         <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 加入购物车</button>
@@ -1142,10 +1147,10 @@
                                 <div class="glry-w3agile-grids agileits">
                                     <div class="new-tag"><h6>20% <br> Off</h6></div>
                                     <c:forEach items="${piList}" var="pi" begin="${vs.index}" end="${vs.index}">
-                                        <a href="products1.html"><img src="images/${pi.url}" alt="img"></a>
+                                        <a onclick="product()"><img src="images/${pi.url}" alt="img"></a>
                                     </c:forEach>
                                     <div class="view-caption agileits-w3layouts">
-                                        <h4><a href="products1.html">${p.shp_mch}</a></h4>
+                                        <h4><a onclick="product()">${p.shp_mch}</a></h4>
                                         <p>${p.shp_msh}</p>
                                         <h5>$20</h5>
                                         <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 加入购物车</button>
@@ -1190,10 +1195,10 @@
                                 <div class="glry-w3agile-grids agileits">
                                     <div class="new-tag"><h6>20% <br> Off</h6></div>
                                     <c:forEach items="${piList}" var="pi" begin="${vs.index}" end="${vs.index}">
-                                        <a href="products1.html"><img src="images/${pi.url}" alt="img"></a>
+                                        <a onclick="product()"><img src="images/${pi.url}" alt="img"></a>
                                     </c:forEach>
                                     <div class="view-caption agileits-w3layouts">
-                                        <h4><a href="products1.html">${p.shp_mch}</a></h4>
+                                        <h4><a onclick="product()">${p.shp_mch}</a></h4>
                                         <p>${p.shp_msh}</p>
                                         <h5>$20</h5>
                                         <button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 加入购物车</button>

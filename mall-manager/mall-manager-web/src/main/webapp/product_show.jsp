@@ -265,13 +265,13 @@
 						<div class="glry-w3agile-grids agileits">
 							<div class="new-tag"><h6>20% <br> Off</h6></div>
 							<c:forEach items="${piList}" var="pi" begin="${vs.index}" end="${vs.index}">
-								<a href="products1.html"><img src="images/${pi.url}" alt="img"></a>
+								<a onclick="product()"><img src="images/${pi.url}" alt="img"></a>
 							</c:forEach>
 							<div class="view-caption agileits-w3layouts">
-								<h4><a href="products1.html">${p.shp_mch}</a></h4>
+								<h4><a onclick="product()">${p.shp_mch}</a></h4>
 								<p>${p.shp_msh}</p>
 								<h5>$20</h5>
-								<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
+								<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> 加入购物车</button>
 							</div>
 						</div>
 					</div>

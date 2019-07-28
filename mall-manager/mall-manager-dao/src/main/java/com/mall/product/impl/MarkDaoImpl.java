@@ -20,9 +20,9 @@ public class MarkDaoImpl implements IMarkDao , ICategoryDao {
 
     @Override
     public List<PPAll> findProByOrder(String pp_id,int flmch2_id) throws SQLException {
-        String sql = "SELECT product.shp_id,product.shp_mch,product.shp_msh,product_image.url from product,product_image where pp_id ='？' and flmch2_id=？ and product.shp_id=product_image.shp_id";
+        String sql = "SELECT product.shp_id,product.shp_mch,product.shp_msh,product_image.url,product.shp_jg from product,product_image where product.shp_id=product_image.shp_id  and pp_id =? and flmch2_id=?";
         QueryRunner qr = new QueryRunner(JdbcUtils.getDs());
-        List<PPAll> proByOrder = qr.query(sql,new BeanListHandler<>(PPAll.class),2);
+        List<PPAll> proByOrder = qr.query(sql,new BeanListHandler<>(PPAll.class),pp_id,flmch2_id);
         return proByOrder;
     }
 
