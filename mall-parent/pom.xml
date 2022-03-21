@@ -29,7 +29,7 @@
         <dbutils.version>1.7</dbutils.version>
         <!--        备选技术-->
         <solrj.version>4.10.3</solrj.version>
-        <dubbo.version>2.5.3</dubbo.version>
+        <dubbo.version>2.6.9</dubbo.version>
         <zookeeper.version>3.4.7</zookeeper.version>
         <zkclient.version>0.1</zkclient.version>
         <activemq.version>5.11.2</activemq.version>
